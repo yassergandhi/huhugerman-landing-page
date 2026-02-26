@@ -1,0 +1,838 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Evidence data — anonymized, derived from UAM CELEX trimester 26-I W05
+// A1: Géneros gramaticales (n=10) | A2: Modalverben en contexto auténtico (n=5)
+
+const a1Stats = {
+  total: 10,
+  capturedTheme: 8,          // "Yes, with effort" + "Yes, clearly"
+  normalizedRepetition: 7,   // "Lo viví como parte normal del proceso" + "luego lo normalicé"
+  motivatedOrConfident: 6,   // "Motivado/a" + "Más confiado/a"
+  frustratedButContinue: 4,  // "Frustrado/a pero quiero seguir"
+};
+
+const a2Stats = {
+  total: 5,
+  capturedTheme: 5,          // all 5 said Sí
+  normalizedRepetition: 4,
+  motivatedOrConfident: 4,
+  showedProgressAwareness: 4, // responded to "diferencia vs semana anterior"
+};
+
+// W05 quotes (26-I) — translated for international audience
+const quotes = [
+  {
+    code: "EA2BBB",
+    level: "A2",
+    text: "At least now I can identify full phrases — before, only isolated words.",
+    label: "Progression awareness, week-over-week"
+  },
+  {
+    code: "EA2IURA",
+    level: "A2",
+    text: "I understood more because I already knew the video's purpose — I could anticipate what they were going to say before they said it.",
+    label: "Top-down listening strategy emerging"
+  },
+  {
+    code: "EA1ARC",
+    level: "A1",
+    text: "I experienced it as a completely normal part of the process.",
+    label: "Repetition normalized at A1, session 5"
+  },
+  {
+    code: "EA1MAGH",
+    level: "A1",
+    text: "This is fine — the challenge is what helps me learn.",
+    label: "Positive affect toward authentic challenge"
+  },
+];
+
+// Testimonials — trimestre 25-O (Oct 2025), Alemán 1 A1
+// Y-Kollektiv: "Junge Straftäter in Arrest" — unscripted social documentary, native Umgangssprache
+// All names and IDs removed. Session codes: A1-MPB, A1-KMP, A1-JLS, A1-BDB
+const testimonials = [
+  {
+    code: "A1-MPB",
+    level: "A1 · 25-O",
+    context: "9+ listens. Authentic Y-Kollektiv documentary, Week 3.",
+    quote: "At first I saw it as a sign of my level. Then I realized repeating is just part of the process. I ended up motivated to keep going — even though I was still quite frustrated by how much time and repetition it took.",
+    highlight: "Metacognitive shift: failure → process",
+    german: null,
+  },
+  {
+    code: "A1-JLS",
+    level: "A1 · 25-O",
+    context: "Transcription task. Unscripted native speech.",
+    quote: "I was surprised that young Germans can talk so openly about their feelings. In Mexico there is much less emotional support in these situations.",
+    highlight: "Cultural comprehension emergent at A1",
+    german: "„Ich bin allein. Ich denke an meine Mutter. Ich bin traurig, aber ich hoffe.“",
+  },
+  {
+    code: "A1-BDB",
+    level: "A1 · 25-O",
+    context: "Written production after emotional documentary input.",
+    quote: "Vincenzo made me feel sadness, loneliness, boredom — and a kind of desperation about not being able to leave the cell.",
+    highlight: "Affective comprehension from authentic input",
+    german: "„Ich bin traurig. Ich denke an meine Eltern. Ich sehe vier Wände. Es ist sehr still.“",
+  },
+  {
+    code: "A1-KMP",
+    level: "A1 · 25-O",
+    context: "First full 6-part activity with documentary input.",
+    quote: "I was able to answer simple questions about what happened in the video and learned vocabulary about emotions. In Germany they give young people a chance to make amends without a permanent record.",
+    highlight: "Lexical acquisition + intercultural reading",
+    german: null,
+  },
+];
+
+const timeline = [
+  { year: "2011", event: "First informal use of authentic German media in classroom, CELEX UAM Azcapotzalco" },
+  { year: "2015", event: "First formal application of Vandergrift metacognitive strategies in Mexico (CELE-UNAM)" },
+  { year: "2019", event: "C1 certification, Offenburg University, Germany. Direct immersion in Umgangssprache" },
+  { year: "2020", event: "Master's thesis (UNAM/CONACYT): diagnostic phase. Documents the Hochdeutsch–Umgangssprache gap" },
+  { year: "2022", event: "Case: EA1KML (Karen Morales Ladino). Functional global comprehension in A1 without prior vocabulary. Method enters systematic documentation phase" },
+  { year: "2023–25", event: "11 formal peer reviews published in Scopus-indexed journals. Metacognition, flipped classroom, AI in education" },
+  { year: "2025", event: "Technical infrastructure: Google Forms → Apps Script (UUID/SHA-256) → Supabase (PostgreSQL) → Notion API. WochenKontextSchema: pedagogy governs AI, not the other way" },
+  { year: "2026", event: "26-I W05: 15 documented responses across A1 and A2 during real-world context adaptation (security event, Mexico City). Method holds asynchronously" },
+];
+
+const pillars = [
+  {
+    name: "Krashen Extended",
+    detail: "Input hypothesis not rejected — extended. Authentic i+1 from A1 with explicit scaffolding, not deferred until post-A2."
+  },
+  {
+    name: "Vandergrift",
+    detail: "Metacognitive listening strategies made explicit. Students monitor, evaluate, plan. First systematic application in Mexico (CELE-UNAM 2015)."
+  },
+  {
+    name: "Gadamer / Bildung",
+    detail: "Encounter with otherness as transformative experience (Erfahrung). The documentary is not a tool — it is a meeting with a living language."
+  },
+  {
+    name: "Borg",
+    detail: "Teacher research as legitimate epistemology. 15 years of classroom observation as evidence base, not anecdote."
+  },
+];
+
+const stack = [
+  { layer: "Input", tech: "Y-Kollektiv documentaries (funk/ARD)", note: "Authentic A1→C1 register spectrum" },
+  { layer: "Collection", tech: "Google Forms + Apps Script", note: "UUID/SHA-256 anonymization per student" },
+  { layer: "Storage", tech: "Supabase (PostgreSQL)", note: "WochenKontextSchema — domain-governed" },
+  { layer: "Analysis", tech: "Notion API + inductive coding", note: "Qualitative + quantitative traces" },
+  { layer: "Pedagogy Layer", tech: "TypeScript schema validation (Zod)", note: "AI obeys the pedagogical model, not inverted" },
+];
+---
+
+<Layout>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <span class="nav__logo">huhu<span class="accent">GERMAN</span></span>
+      <div class="nav__links">
+        <a href="#method">Method</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#testimonials">Students</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero section">
+    <div class="container">
+      <p class="label">UAM Azcapotzalco · CELEX · Mexico City</p>
+      <h1 class="hero__title">
+        Authentic German<br/>
+        <span class="accent">from A1.</span>
+      </h1>
+      <p class="hero__sub">
+        The field says: wait until A2+ for real materials.<br/>
+        15 years of documented classroom evidence says otherwise.
+      </p>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__n">15</span>
+          <span class="stat__label">years documented practice</span>
+        </div>
+        <div class="stat">
+          <span class="stat__n">30–40</span>
+          <span class="stat__label">students/trimester in production</span>
+        </div>
+        <div class="stat">
+          <span class="stat__n">11</span>
+          <span class="stat__label">Scopus peer reviews published</span>
+        </div>
+        <div class="stat">
+          <span class="stat__n">41%</span>
+          <span class="stat__label">dropout rate this method addresses<br/><span class="text-dim">(DAAD/Reucher 2019)</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE HYPOTHESIS -->
+  <section class="section section--alt" id="method">
+    <div class="container">
+      <p class="label">The core claim</p>
+      <h2 class="section__title">Closing the gap<br/>from Mexico</h2>
+      <div class="hypothesis">
+        <p class="hypothesis__text">
+          Foreign students in Germany face a documented gap between scholastic <em>Hochdeutsch</em> and
+          real <em>Umgangssprache</em>. That gap contributes to a 41% dropout rate (DAAD/Reucher 2019).
+          huhuGERMAN's claim is that this gap can be closed <strong>before arrival</strong> —
+          starting at A1, in Mexico, using authentic Y-Kollektiv documentaries
+          with explicit metacognitive scaffolding.
+        </p>
+        <p class="hypothesis__text">
+          Not by removing difficulty. By giving students the cognitive tools to
+          navigate it — and documenting what happens when they do.
+        </p>
+      </div>
+
+      <div class="pillars">
+        {pillars.map(p => (
+          <div class="pillar">
+            <h3 class="pillar__name">{p.name}</h3>
+            <p class="pillar__detail">{p.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <section class="section section--dark" id="evidence">
+    <div class="container">
+      <p class="label">26-I W05 · February 23, 2026</p>
+      <h2 class="section__title">Live evidence.<br/>Unfiltered.</h2>
+      <p class="evidence__context">
+        Class suspended due to a real-world security event in Mexico City.
+        Converted to asynchronous delivery same day. Two parallel activities:
+        A1 (Grammatical gender, <em>n</em>=10) and A2 (Modal verbs in authentic context, <em>n</em>=5).
+        The method held without a live session. That itself is evidence.
+      </p>
+
+      <div class="evidence-grid">
+        <!-- A1 -->
+        <div class="evidence-card">
+          <div class="evidence-card__header">
+            <span class="label">A1 — Grammatical gender</span>
+            <span class="evidence-card__n">n = {a1Stats.total}</span>
+          </div>
+          <div class="evidence-card__metrics">
+            <div class="metric">
+              <span class="metric__pct">{Math.round((a1Stats.capturedTheme / a1Stats.total) * 100)}%</span>
+              <span class="metric__label">captured the global theme<br/>(with effort or clearly)</span>
+            </div>
+            <div class="metric">
+              <span class="metric__pct">{Math.round((a1Stats.normalizedRepetition / a1Stats.total) * 100)}%</span>
+              <span class="metric__label">normalized repetition<br/>(not experienced as failure)</span>
+            </div>
+            <div class="metric">
+              <span class="metric__pct">{Math.round((a1Stats.motivatedOrConfident / a1Stats.total) * 100)}%</span>
+              <span class="metric__label">motivated or more confident<br/>at session end</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- A2 -->
+        <div class="evidence-card">
+          <div class="evidence-card__header">
+            <span class="label">A2 — Modal verbs in authentic context</span>
+            <span class="evidence-card__n">n = {a2Stats.total}</span>
+          </div>
+          <div class="evidence-card__metrics">
+            <div class="metric">
+              <span class="metric__pct">100%</span>
+              <span class="metric__label">captured global theme<br/>(clearly or with effort)</span>
+            </div>
+            <div class="metric">
+              <span class="metric__pct">{Math.round((a2Stats.normalizedRepetition / a2Stats.total) * 100)}%</span>
+              <span class="metric__label">normalized repetition<br/>as normal process</span>
+            </div>
+            <div class="metric">
+              <span class="metric__pct">{Math.round((a2Stats.showedProgressAwareness / a2Stats.total) * 100)}%</span>
+              <span class="metric__label">reported week-over-week<br/>listening improvement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quotes -->
+      <div class="quotes">
+        <p class="label" style="margin-bottom: 2rem;">Student responses — verbatim, anonymized by session code</p>
+        {quotes.map(q => (
+          <blockquote class="quote">
+            <p class="quote__text">"{q.text}"</p>
+            <footer class="quote__footer">
+              <span class="quote__code">{q.code}</span>
+              <span class="quote__level">{q.level}</span>
+              <span class="quote__label text-dim">{q.label}</span>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+
+      <!-- Longitudinal -->
+      <div class="timeline-section">
+        <p class="label" style="margin-bottom: 2rem;">Longitudinal trace — 2011 to 2026</p>
+        <div class="timeline">
+          {timeline.map(item => (
+            <div class="timeline__item">
+              <span class="timeline__year">{item.year}</span>
+              <span class="timeline__event">{item.event}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--dark" id="testimonials">
+    <div class="container">
+      <p class="label">25-O · Trimester October 2025 · A1</p>
+      <h2 class="section__title">What A1 students wrote<br/><span class="accent">after authentic input.</span></h2>
+      <p class="testimonials__intro">
+        Source material: Y-Kollektiv documentary <em>"Junge Straftäter in Arrest"</em> —
+        unscripted social journalism, native <em>Umgangssprache</em>, no subtitles provided.
+        These are the written outputs and reflections from four A1 students
+        encountering unfiltered German for the first time.
+        All identifying information removed. Session codes only.
+      </p>
+
+      <div class="testimonials-grid">
+        {testimonials.map(t => (
+          <div class="tcard">
+            <div class="tcard__header">
+              <span class="tcard__code label">{t.code}</span>
+              <span class="tcard__level">{t.level}</span>
+              <span class="tcard__context text-dim">{t.context}</span>
+            </div>
+            <blockquote class="tcard__quote">
+              <p>"{t.quote}"</p>
+            </blockquote>
+            {t.german && (
+              <div class="tcard__german">
+                <span class="tcard__german-label text-dim">Written in German — A1 production:</span>
+                <p class="tcard__german-text">{t.german}</p>
+              </div>
+            )}
+            <div class="tcard__tag">
+              <span class="accent">↳</span> {t.highlight}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="testimonials-note">
+        <p>
+          None of these students had prior German vocabulary relevant to incarceration, criminal justice,
+          or emotional self-expression. The documentary provided no pedagogical scaffolding.
+          The only scaffold was the huhuGERMAN method: six structured tasks and the instruction
+          that repeating is not failure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="section section--alt" id="stack">
+    <div class="container">
+      <p class="label">Technical architecture</p>
+      <h2 class="section__title">Pedagogy governs AI.<br/>Not the other way.</h2>
+      <p class="stack__intro">
+        Every layer of the system enforces this principle.
+        The <code>WochenKontextSchema</code> (Zod, TypeScript) defines what
+        the AI is allowed to process — constrained by the pedagogical model,
+        not by what the model finds easiest to generate.
+      </p>
+      <div class="stack-table">
+        <div class="stack-table__header">
+          <span>Layer</span>
+          <span>Technology</span>
+          <span>Pedagogical constraint</span>
+        </div>
+        {stack.map(row => (
+          <div class="stack-table__row">
+            <span class="stack-table__layer">{row.layer}</span>
+            <code class="stack-table__tech">{row.tech}</code>
+            <span class="stack-table__note text-gray">{row.note}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--dark" id="contact">
+    <div class="container contact-section">
+      <p class="label">Learning Systems Architect</p>
+      <h2 class="section__title">Built by someone who<br/><span class="accent">teaches and ships.</span></h2>
+      <p class="contact__bio">
+        Yasser Gandhi Hernández Esquivel. Germanist C1 (Offenburg 2019).
+        UNAM Literature &amp; Pedagogy (CONACYT). UdeG Web Systems (GPA 98.5).
+        15 years CELEX UAM Azcapotzalco. 11 Scopus peer reviews.
+        Two institutional curricula designed and officially adopted.
+      </p>
+      <p class="contact__bio">
+        Target publication: <em>Die Unterrichtspraxis / Teaching German</em> centenary issue 2026.
+      </p>
+      <div class="contact__links">
+        <a href="https://yassergandhi.dev" class="btn btn--primary" target="_blank" rel="noopener">
+          yassergandhi.dev
+        </a>
+        <a href="https://linkedin.com/in/yassergandhi" class="btn btn--ghost" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__brand">huhu<span class="accent">GERMAN</span></span>
+      <span class="footer__note text-dim">
+        UAM Azcapotzalco · CELEX · Mexico City · 2011–2026
+      </span>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--aubergine-dark);
+  border-bottom: 1px solid var(--aubergine-light);
+  padding: 1rem 0;
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: var(--white-warm);
+}
+.nav__links {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+.nav__links a { color: var(--gray); }
+.nav__links a:hover { color: var(--white-warm); }
+
+/* HERO */
+.hero { padding-top: 7rem; padding-bottom: 6rem; }
+.hero__title {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  margin: 1rem 0 1.5rem;
+  color: var(--white-warm);
+}
+.hero__sub {
+  font-size: 1.2rem;
+  color: var(--gray);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+.stat__n {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+}
+.stat__label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 0.3rem;
+  line-height: 1.4;
+}
+
+/* SECTION TITLES */
+.section__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 1rem 0 2.5rem;
+  color: var(--white-warm);
+}
+
+/* HYPOTHESIS */
+.hypothesis { max-width: 700px; margin-bottom: 3.5rem; }
+.hypothesis__text {
+  color: var(--gray);
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+.hypothesis__text strong { color: var(--white-warm); }
+.hypothesis__text em { color: var(--orange-light); font-style: normal; }
+
+/* PILLARS */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.pillar {
+  background: var(--aubergine-dark);
+  border: 1px solid var(--aubergine-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.pillar__name {
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.pillar__detail {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.65;
+}
+
+/* EVIDENCE */
+.evidence__context {
+  color: var(--gray);
+  max-width: 700px;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.evidence__context em { color: var(--orange-light); font-style: normal; }
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+.evidence-card {
+  background: var(--aubergine);
+  border: 1px solid var(--aubergine-light);
+  border-radius: 8px;
+  padding: 1.75rem;
+}
+.evidence-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.evidence-card__n {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--gray-dim);
+}
+.evidence-card__metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.metric { display: flex; align-items: baseline; gap: 1rem; }
+.metric__pct {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--orange);
+  min-width: 4rem;
+  line-height: 1;
+}
+.metric__label {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.45;
+}
+
+/* QUOTES */
+.quotes { margin-bottom: 4rem; }
+.quote {
+  border-left: 3px solid var(--orange);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  background: var(--aubergine);
+  border-radius: 0 6px 6px 0;
+}
+.quote__text {
+  color: var(--white-warm);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+.quote__footer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.quote__code {
+  font-family: var(--font-mono);
+  color: var(--orange);
+  font-style: normal;
+}
+.quote__level {
+  background: var(--aubergine-light);
+  color: var(--white-warm);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-style: normal;
+}
+.quote__label { font-style: normal; }
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.timeline__item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--aubergine-light);
+  align-items: start;
+}
+.timeline__year {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange);
+  padding-top: 0.1rem;
+}
+.timeline__event {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* STACK */
+.stack__intro {
+  color: var(--gray);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+.stack__intro code {
+  color: var(--orange);
+  background: var(--aubergine-dark);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+.stack-table { display: flex; flex-direction: column; gap: 0; }
+.stack-table__header, .stack-table__row {
+  display: grid;
+  grid-template-columns: 140px 260px 1fr;
+  gap: 1.5rem;
+  padding: 0.9rem 1rem;
+  align-items: start;
+}
+.stack-table__header {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-dim);
+  border-bottom: 1px solid var(--aubergine-light);
+}
+.stack-table__row {
+  border-bottom: 1px solid var(--aubergine-dark);
+  background: var(--aubergine-dark);
+}
+.stack-table__row:nth-child(odd) { background: rgba(48, 10, 36, 0.4); }
+.stack-table__layer {
+  font-weight: 700;
+  color: var(--white-warm);
+  font-size: 0.9rem;
+}
+.stack-table__tech {
+  color: var(--orange);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.stack-table__note {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* CONTACT */
+.contact-section { max-width: 700px; }
+.contact__bio {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.contact__bio em { color: var(--orange-light); font-style: italic; }
+.contact__links { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn--primary {
+  background: var(--orange);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--orange-light);
+  color: #fff;
+}
+.btn--ghost {
+  border: 1px solid var(--aubergine-mid);
+  color: var(--gray);
+}
+.btn--ghost:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* FOOTER */
+.footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--aubergine-light);
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__brand {
+  font-weight: 700;
+  color: var(--white-warm);
+  font-size: 1rem;
+}
+.footer__note { font-size: 0.8rem; }
+
+
+/* TESTIMONIALS */
+.testimonials__intro {
+  color: var(--gray);
+  max-width: 700px;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.testimonials__intro em { color: var(--orange-light); font-style: italic; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.tcard {
+  background: var(--aubergine);
+  border: 1px solid var(--aubergine-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.tcard__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.tcard__level {
+  background: var(--aubergine-light);
+  color: var(--white-warm);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
+.tcard__context {
+  font-size: 0.78rem;
+  width: 100%;
+}
+.tcard__quote {
+  border-left: 3px solid var(--orange);
+  padding-left: 1rem;
+  margin: 0;
+}
+.tcard__quote p {
+  color: var(--white-warm);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+.tcard__german {
+  background: var(--aubergine-dark);
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+}
+.tcard__german-label {
+  display: block;
+  font-size: 0.72rem;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.tcard__german-text {
+  color: var(--orange-light);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.tcard__tag {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-top: auto;
+}
+.testimonials-note {
+  background: var(--aubergine);
+  border: 1px solid var(--aubergine-light);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem;
+  max-width: 800px;
+}
+.testimonials-note p {
+  color: var(--gray);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .stack-table__header, .stack-table__row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .timeline__item { grid-template-columns: 4rem 1fr; gap: 1rem; }
+  .hero__stats { gap: 1.5rem; }
+  .nav__links { gap: 1rem; font-size: 0.8rem; }
+  .footer__inner { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
