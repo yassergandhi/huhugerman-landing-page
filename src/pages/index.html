@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ══ SEO PRIMARIO ═════════════════════════════════════════════ -->
+    <title>Alemán Real para Vivir en Alemania | huhuGERMAN — No el alemán del libro</title>
+    <meta name="description" content="El 41% de los estudiantes internacionales abandona Alemania por shock lingüístico. huhuGERMAN entrena comprensión auditiva del Umgangssprache desde A1. Validado desde 2011." />
+    <meta name="keywords"    content="alemán real, Umgangssprache, aprender alemán auténtico, shock lingüístico Alemania, alemán para inmigrantes, alemán coloquial, vivir en Alemania, comprensión auditiva alemán" />
+    <meta name="author"      content="Yasser Gandhi Hernández Esquivel" />
+    <meta name="robots"      content="index, follow" />
+    <link rel="canonical"    href="https://huhugerman.com" />
+    <link rel="alternate"    hreflang="es" href="https://huhugerman.com" />
+
+    <!-- ══ OPEN GRAPH ══════════════════════════════════════════════ -->
+    <meta property="og:type"         content="website" />
+    <meta property="og:url"          content="https://huhugerman.com" />
+    <meta property="og:title"        content="No el alemán del libro. El alemán de la calle. | huhuGERMAN" />
+    <meta property="og:description"  content="El 41% abandona Alemania por shock lingüístico. huhuGERMAN cierra ese gap desde México, desde A1. 15 años de investigación docente." />
+    <meta property="og:image"        content="https://huhugerman.com/og-image.jpg" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale"       content="es_MX" />
+    <meta property="og:site_name"    content="huhuGERMAN" />
+
+    <!-- ══ TWITTER CARD ════════════════════════════════════════════ -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="No el alemán del libro. El alemán de la calle. | huhuGERMAN" />
+    <meta name="twitter:description" content="El 41% abandona Alemania por shock lingüístico. huhuGERMAN entrena comprensión auditiva del alemán real desde A1." />
+    <meta name="twitter:image"       content="https://huhugerman.com/og-image.jpg" />
+
+    <!-- ══ SCHEMA JSON-LD — Course + Person (E-E-A-T) ══════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Course",
+          "@id": "https://huhugerman.com/#course",
+          "name": "huhuGERMAN",
+          "description": "Sistema de andamiaje lingüístico para desarrollar comprensión auditiva del alemán auténtico (Umgangssprache). 12 sesiones asíncronas. Validado en aula universitaria desde 2011.",
+          "url": "https://huhugerman.com",
+          "inLanguage": "es",
+          "educationalLevel": "A1–B1",
+          "teaches": ["Comprensión auditiva del alemán coloquial","Umgangssprache","Tolerancia al input auténtico","Estrategias metacognitivas de escucha","Alemán real para vivir en Alemania"],
+          "provider": { "@type": "Person", "@id": "https://huhugerman.com/#instructor" },
+          "offers": { "@type": "Offer", "availability": "https://schema.org/PreOrder", "priceCurrency": "MXN", "description": "Lista de espera abierta. Cupos limitados." }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://huhugerman.com/#instructor",
+          "name": "Yasser Gandhi Hernández Esquivel",
+          "jobTitle": "Learning Systems Architect",
+          "description": "Instructor de alemán C1, investigador pedagógico, desarrollador senior. 15 años de docencia universitaria. Tesis de licenciatura 2015 y maestría en Pedagogía UNAM 2020. 11 publicaciones Scopus.",
+          "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Universidad Nacional Autónoma de México", "alternateName": "UNAM" }],
+          "knowsAbout": ["Didáctica del alemán","Umgangssprache","Comprensión auditiva","Pedagogía universitaria","SLA"],
+          "sameAs": ["https://www.linkedin.com/in/yassergandhi","https://yassergandhi.dev"]
+        }
+      ]
+    }
+    </script>
+
+    <!-- ══ FONTS ════════════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,900&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --edeka-blue:    #003da5;
+            --edeka-yellow:  #ffed00;
+            --premium-black: #050505;
+            --premium-white: #f8f8f8;
+        }
+
+        html { font-size: 16px; }
+        @media (min-width: 768px)  { html { font-size: 18px; } }
+        @media (min-width: 1280px) { html { font-size: 20px; } }
+        @media (min-width: 1920px) { html { font-size: 24px; } }
+        @media (min-width: 2560px) { html { font-size: 28px; } }
+
+        body {
+            background-color: var(--premium-black);
+            color: var(--premium-white);
+            font-family: 'Ubuntu', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-heading { font-family: 'Barlow Condensed', sans-serif; }
+        .font-mono    { font-family: 'Ubuntu Mono', monospace; }
+
+        /* ── STICKY CTA ─────────────────────────────────────────── */
+        #sticky-cta {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 8000;
+            background: var(--edeka-yellow);
+            color: var(--edeka-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(12px, 2vw, 24px);
+            padding: clamp(10px, 1.5vw, 16px) clamp(16px, 3vw, 32px);
+            transform: translateY(100%);
+            transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 -4px 30px rgba(0,0,0,0.4);
+        }
+        #sticky-cta.visible { transform: translateY(0); }
+        #sticky-cta .sc-txt {
+            font-family: 'Ubuntu Mono', monospace;
+            font-weight: 700;
+            font-size: clamp(0.65rem, 1vw, 0.85rem);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+        #sticky-cta .sc-btn {
+            background: var(--edeka-blue);
+            color: var(--edeka-yellow);
+            font-family: 'Ubuntu Mono', monospace;
+            font-weight: 700;
+            font-size: clamp(0.6rem, 0.9vw, 0.8rem);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 10px 22px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        #sticky-cta .sc-btn:hover { background: #002880; }
+
+        /* ── LOADER ─────────────────────────────────────────────── */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: var(--edeka-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1);
+        }
+        .loader-text {
+            font-size: clamp(3.5rem, 13vw, 10rem);
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            color: var(--edeka-yellow);
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+
+        /* ── HERO TYPOGRAPHY ────────────────────────────────────── */
+        h1 { font-size: clamp(3.5rem, 10vw, 11rem) !important; }
+        h2 { font-size: clamp(2.8rem, 7vw,  7rem)  !important; }
+        p.hero-p { font-size: clamp(1.25rem, 2.5vw, 2.2rem); line-height: 1.4; }
+
+        /* ── STACK WRAPPER ──────────────────────────────────────── */
+        .stack-wrapper {
+            position: relative;
+            width: 100%;
+            height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── POLAROID ───────────────────────────────────────────── */
+        .polaroid {
+            position: absolute;
+            width: clamp(260px, 30vw, 360px);
+            background: white;
+            padding: clamp(10px, 2vw, 18px) clamp(10px, 2vw, 18px) clamp(52px, 6vw, 72px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            color: #1a1a1a;
+            cursor: pointer;
+            border: 1px solid #c8c8c8;
+            transform-style: preserve-3d;
+            transition: transform 0.05s;
+            user-select: none;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .polaroid * { pointer-events: none; }
+
+        .polaroid .photo-area {
+            aspect-ratio: 1 / 1;
+            background: #ebebeb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(16px, 2.5vw, 28px);
+            border: 1px solid #e0e0e0;
+            margin-bottom: clamp(10px, 2vw, 20px);
+        }
+        .polaroid .hochdeutsch {
+            font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+            font-family: 'Ubuntu Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 8px;
+        }
+        .polaroid .umgangssprache {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            color: var(--edeka-blue);
+            text-align: center;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .polaroid .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: bold;
+            opacity: 0.28;
+            border-top: 1px solid #e8e8e8;
+            padding-top: clamp(6px, 1vw, 12px);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ── CARTA FINAL ────────────────────────────────────────── */
+        .card-final {
+            position: absolute;
+            width: clamp(260px, 30vw, 360px);
+            background: var(--edeka-blue);
+            color: white;
+            padding: clamp(24px, 3vw, 40px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            border: 2px solid var(--edeka-yellow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: clamp(10px, 1.5vw, 18px);
+            opacity: 0;
+            transform: scale(0.88) rotate(2deg);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .card-final.visible {
+            opacity: 1;
+            transform: scale(1) rotate(-1deg);
+            pointer-events: auto;
+        }
+        .card-final .pain-label {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--edeka-yellow);
+            opacity: 0.8;
+        }
+        .card-final .pain-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            line-height: 1;
+            color: var(--edeka-yellow);
+        }
+        .card-final .pain-body {
+            font-size: clamp(0.8rem, 1.3vw, 1rem);
+            line-height: 1.5;
+            opacity: 0.85;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .card-final .pain-cta {
+            display: inline-block;
+            margin-top: clamp(4px, 0.8vw, 12px);
+            background: var(--edeka-yellow);
+            color: var(--edeka-blue);
+            font-family: 'Ubuntu Mono', monospace;
+            font-weight: 700;
+            font-size: clamp(0.65rem, 1vw, 0.85rem);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 10px 20px;
+            text-decoration: none;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        /* ── PAPER FOLD ─────────────────────────────────────────── */
+        @keyframes paper-fold {
+            0%   { transform: var(--rest-transform) scaleY(1); filter: brightness(1); }
+            30%  { transform: var(--rest-transform) scaleY(0.05) translateY(-40%); filter: brightness(0.4); }
+            60%  { transform: var(--rest-transform) scaleY(0.05) translateY(-40%); filter: brightness(0.1); opacity: 0; }
+            100% { transform: var(--rest-transform) scaleY(1); filter: brightness(1); opacity: 0; }
+        }
+        .folding { animation: paper-fold 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+        /* ── TAP HINT ───────────────────────────────────────────── */
+        .tap-hint {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: clamp(0.65rem, 1vw, 0.8rem);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background: var(--edeka-blue);
+            color: white;
+            padding: 10px 20px;
+            display: inline-block;
+            animation: pulse-hint 2s ease-in-out infinite;
+            transition: opacity 0.3s;
+        }
+        @keyframes pulse-hint {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.5; }
+        }
+
+        /* ── RESEARCHER NOTE ────────────────────────────────────── */
+        .researcher-note {
+            border-left: 4px solid var(--edeka-yellow);
+            padding: clamp(16px, 2vw, 28px) clamp(20px, 2.5vw, 36px);
+            background: rgba(255,237,0,0.04);
+            margin-top: clamp(40px, 5vw, 64px);
+        }
+        .researcher-note blockquote {
+            font-size: clamp(1rem, 1.6vw, 1.35rem);
+            font-style: italic;
+            line-height: 1.55;
+            opacity: 0.88;
+            margin: 0 0 14px;
+            padding: 0;
+        }
+        .researcher-note cite {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: clamp(0.58rem, 0.85vw, 0.74rem);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--edeka-yellow);
+            opacity: 0.65;
+            font-style: normal;
+        }
+
+        /* ── NÚMEROS GIRATORIOS — Respaldo Científico ───────────── */
+        .sci-card {
+            border-top: 4px solid var(--edeka-yellow);
+            padding-top: clamp(16px, 2vw, 28px);
+            position: relative;
+            overflow: hidden;
+        }
+        .sci-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            font-size: clamp(7rem, 14vw, 16rem);
+            line-height: 0.85;
+            color: var(--edeka-yellow);
+            opacity: 0.12;
+            position: absolute;
+            top: -0.1em;
+            right: -0.05em;
+            pointer-events: none;
+            transform: rotate(0deg);
+            transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        opacity   0.5s ease;
+            user-select: none;
+        }
+        .sci-card:hover .sci-num,
+        .sci-card.in-view .sci-num {
+            transform: rotate(-12deg) translateY(-6px);
+            opacity: 0.22;
+        }
+
+        /* ── SCROLL REVEAL ──────────────────────────────────────── */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE BODY COPY ───────────────────────────────── */
+        .body-copy    { font-size: clamp(1rem, 1.6vw, 1.4rem);    line-height: 1.65; }
+        .section-body { font-size: clamp(0.95rem, 1.5vw, 1.3rem); line-height: 1.6;  }
+        .card-body    { font-size: clamp(1.1rem, 1.8vw, 1.6rem);  line-height: 1.55; }
+        .card-label   { font-size: clamp(0.65rem, 1vw, 0.85rem); }
+        .sub-head     { font-size: clamp(1.4rem, 2.5vw, 2.2rem); }
+    </style>
+</head>
+<body>
+
+<!-- ══ STICKY CTA ══════════════════════════════════════════════════ -->
+<div id="sticky-cta">
+    <span class="sc-txt">Lista de espera abierta — cupos limitados</span>
+    <a href="#waitlist" class="sc-btn">Entrar primero →</a>
+</div>
+
+<!-- ══ LOADER ══════════════════════════════════════════════════════ -->
+<div id="loader">
+    <div id="loader-msg" class="loader-text">SHOCK</div>
+</div>
+
+<main id="main-content" class="opacity-0 transition-opacity duration-1000">
+
+    <!-- ══ HERO ════════════════════════════════════════════════════ -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center px-6 lg:px-24 py-24">
+        <div class="max-w-[1800px] mx-auto w-full">
+            <div class="inline-flex items-center gap-4 mb-10 bg-white/5 border border-yellow-400/20 px-6 py-3">
+                <i class="fas fa-triangle-exclamation text-[var(--edeka-yellow)]" style="font-size: clamp(1rem,2vw,1.6rem)"></i>
+                <span class="font-mono uppercase tracking-[0.2em] text-[var(--edeka-yellow)] body-copy">
+                    Alerta: 41% de abandono en Alemania (DAAD)
+                </span>
+            </div>
+
+            <h1 class="font-heading italic font-black leading-[0.85] uppercase mb-16">
+                EL ALEMÁN REAL <br>
+                <span class="text-[var(--edeka-yellow)]">TE VA A GOLPEAR.</span>
+            </h1>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-start reveal">
+                <p class="hero-p font-light leading-tight">
+                    Aprobar un examen C1 no es hablar alemán. En la calle, el idioma es <span class="italic font-bold text-[var(--edeka-yellow)] underline">fricción pura</span>. Si no entrenas el oído para el caos, tu vida en Alemania tiene fecha de caducidad.
+                </p>
+                <div class="space-y-10">
+                    <p class="section-body opacity-50 font-mono leading-relaxed max-w-2xl">
+                        huhuGERMAN es el sistema de andamiaje lingüístico validado por 15 años de investigación. No enseñamos gramática de plástico; entrenamos tu cerebro para sostener la realidad.
+                    </p>
+                    <a href="#waitlist" class="inline-block bg-[var(--edeka-yellow)] text-[var(--edeka-blue)] px-12 py-6 font-black uppercase tracking-tighter hover:bg-white transition-all transform hover:scale-105" style="font-size: clamp(1.1rem,2vw,1.8rem)">
+                        Evitar el colapso <i class="fas fa-arrow-right ml-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bloque SEO — keywords en DOM indexable -->
+            <div class="reveal mt-20 pt-12 border-t border-white/10">
+                <p class="section-body opacity-30 font-mono max-w-4xl leading-relaxed">
+                    El shock lingüístico en Alemania no es falta de inteligencia — es la distancia entre el Hochdeutsch de los libros y el alemán coloquial que hablan los nativos. huhuGERMAN cierra ese gap desde México, desde A1, con input auténtico y método documentado desde 2011.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ SHOCK + POLAROIDS ════════════════════════════════════════ -->
+    <section class="py-40 bg-white text-black px-6">
+        <div class="max-w-[1800px] mx-auto grid lg:grid-cols-2 gap-32 items-center">
+            <div class="reveal">
+                <h2 class="font-heading italic font-black uppercase mb-12 leading-none">
+                    EL SHOCK DE <br> <span class="text-[var(--edeka-blue)]">NO ENTENDER.</span>
+                </h2>
+                <div class="space-y-12">
+                    <div class="flex gap-8">
+                        <i class="fas fa-headset text-[var(--edeka-blue)] flex-shrink-0" style="font-size: clamp(2rem,4vw,3.5rem)"></i>
+                        <div>
+                            <h3 class="font-black uppercase mb-4 sub-head">Aislamiento Acústico</h3>
+                            <p class="section-body opacity-70 leading-relaxed">En el aula todo es estéril. En Alexanderplatz, el ruido, la velocidad y las interjecciones te dejan fuera de la conversación. Ese es el inicio del abandono.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-8">
+                        <i class="fas fa-heart-pulse text-[var(--edeka-blue)] flex-shrink-0" style="font-size: clamp(2rem,4vw,3.5rem)"></i>
+                        <div>
+                            <h3 class="font-black uppercase mb-4 sub-head">Estrés Cognitivo</h3>
+                            <p class="section-body opacity-70 leading-relaxed">No entender genera miedo. El miedo bloquea el aprendizaje. huhuGERMAN rompe ese ciclo mediante la exposición controlada al input auténtico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <p class="font-mono text-black/40 uppercase tracking-widest mb-5" style="font-size: clamp(0.6rem,0.9vw,0.75rem);">
+                    Esto aprendiste en clase &nbsp;/&nbsp; Esto escucharás en la calle
+                </p>
+
+                <div class="stack-wrapper" id="stack"
+                     role="button" tabindex="0"
+                     aria-label="Toca para ver el contraste entre el alemán del libro y el alemán coloquial">
+                </div>
+
+                <div class="card-final" id="card-final" aria-live="polite">
+                    <div class="pain-label">El precio del alemán perfecto</div>
+                    <div class="pain-title">Años de estudio.<br>Silencio en la calle.</div>
+                    <p class="pain-body">
+                        Estudiaste la gramática perfecta. Aprendiste el vocabulario correcto.<br>
+                        Y cuando el panadero de Neukölln te habló, no entendiste nada.
+                        <br><br>
+                        <strong>Eso no es un fallo tuyo. Es un fallo del método.</strong>
+                    </p>
+                    <a href="#waitlist" class="pain-cta">Quiero el método real →</a>
+                </div>
+
+                <div class="text-center mt-10">
+                    <span class="tap-hint" id="tap-hint">Toca cualquier tarjeta para descubrir el alemán real</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ RESPALDO CIENTÍFICO / E-E-A-T ════════════════════════════ -->
+    <section class="py-40 px-6 bg-[var(--edeka-blue)] text-white overflow-hidden relative">
+        <div class="max-w-[1800px] mx-auto">
+            <h2 class="font-heading italic font-black uppercase mb-24 leading-none text-[var(--edeka-yellow)]">
+                RESPALDO <br>CIENTÍFICO.
+            </h2>
+            <div class="grid md:grid-cols-3 gap-20 relative z-10">
+
+                <div class="sci-card reveal">
+                    <span class="sci-num" aria-hidden="true">01</span>
+                    <p class="font-mono text-[var(--edeka-yellow)] uppercase tracking-widest mb-3"
+                       style="font-size: clamp(0.58rem,0.85vw,0.74rem); opacity:0.7;">2011 — presente</p>
+                    <h3 class="font-heading italic font-black uppercase mb-4 sub-head">Investigación en Aula</h3>
+                    <p class="section-body opacity-70 leading-relaxed">Validación docente desde 2011. Método probado con estudiantes universitarios reales en México, no en laboratorio.</p>
+                </div>
+
+                <div class="sci-card reveal">
+                    <span class="sci-num" aria-hidden="true">02</span>
+                    <p class="font-mono text-[var(--edeka-yellow)] uppercase tracking-widest mb-3"
+                       style="font-size: clamp(0.58rem,0.85vw,0.74rem); opacity:0.7;">Licenciatura — 2015</p>
+                    <h3 class="font-heading italic font-black uppercase mb-4 sub-head">Tesis de Licenciatura</h3>
+                    <p class="section-body opacity-70 leading-relaxed">Estrategias metacognitivas aplicadas a la comprensión auditiva del alemán auténtico. El marco que define por qué el Umgangssprache no puede enseñarse con un libro.</p>
+                </div>
+
+                <div class="sci-card reveal">
+                    <span class="sci-num" aria-hidden="true">03</span>
+                    <p class="font-mono text-[var(--edeka-yellow)] uppercase tracking-widest mb-3"
+                       style="font-size: clamp(0.58rem,0.85vw,0.74rem); opacity:0.7;">Maestría — 2020</p>
+                    <h3 class="font-heading italic font-black uppercase mb-4 sub-head">Maestría en Pedagogía</h3>
+                    <p class="section-body opacity-70 leading-relaxed">Estudio comparativo México-Alemania sobre formación docente e integración lingüística real. Base del argumento central de huhuGERMAN.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ TESTIMONIOS ══════════════════════════════════════════════
+         Orden narrativo: miedo → proceso → estrategia → síntesis
+         + dato investigador firmado (E-E-A-T)
+    ══════════════════════════════════════════════════════════════ -->
+    <section class="py-40 bg-zinc-900 px-6">
+        <div class="max-w-[1800px] mx-auto">
+            <h2 class="font-heading italic font-black uppercase mb-4 text-center">Voces de Sobrevivientes</h2>
+            <p class="text-center font-mono uppercase tracking-widest opacity-30 mb-24"
+               style="font-size: clamp(0.6rem,0.9vw,0.75rem);">
+                Estudiantes universitarios — 6 semanas de exposición al input auténtico
+            </p>
+
+            <!-- Grid 2×2 — narrativa secuencial -->
+            <div class="grid lg:grid-cols-2 gap-12 mb-4">
+
+                <article class="bg-black p-12 border-l-8 border-[var(--edeka-blue)] reveal">
+                    <p class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest opacity-60 mb-6">① El miedo inicial</p>
+                    <blockquote class="italic mb-8 opacity-85 card-body">
+                        "Hay muchos estereotipos de que los alemanes hablan gritando o enojados, cuando no es cierto. Se expresan como cualquier otra persona — solo que el tono de cada palabra tiene diferentes acentos y eso lo hace parecer agresivo."
+                    </blockquote>
+                    <cite class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest not-italic">Estudiante EA1OFO</cite>
+                </article>
+
+                <article class="bg-black p-12 border-l-8 border-[var(--edeka-blue)] reveal">
+                    <p class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest opacity-60 mb-6">② El proceso</p>
+                    <blockquote class="italic mb-8 opacity-85 card-body">
+                        "Las expresiones de asombro le dan sentido a lo que estamos tratando de expresar. Y el tener frases ocasionales en inglés es algo que compartimos culturalmente — eso me ayudó a entender a qué nos referíamos."
+                    </blockquote>
+                    <cite class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest not-italic">Estudiante EA1MPB</cite>
+                </article>
+
+                <article class="bg-black p-12 border-l-8 border-[var(--edeka-blue)] reveal">
+                    <p class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest opacity-60 mb-6">③ La estrategia propia</p>
+                    <blockquote class="italic mb-8 opacity-85 card-body">
+                        "Las groserías e interjecciones son básicas. Al escucharlas junto con la entonación te da a entender completamente el contexto en el que se está participando."
+                    </blockquote>
+                    <cite class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest not-italic">Estudiante EA1SPM</cite>
+                </article>
+
+                <article class="bg-black p-12 border-l-8 border-[var(--edeka-blue)] reveal">
+                    <p class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest opacity-60 mb-6">④ El resultado</p>
+                    <blockquote class="italic mb-8 opacity-85 card-body">
+                        "Sirve para practicar con un alemán más común y no tan cuadrado como el de los libros."
+                    </blockquote>
+                    <cite class="font-mono card-label text-[var(--edeka-yellow)] uppercase tracking-widest not-italic">Estudiante EA1EOU</cite>
+                </article>
+
+            </div>
+
+            <!-- Dato investigador firmado — E-E-A-T -->
+            <div class="researcher-note reveal max-w-4xl mx-auto">
+                <blockquote>
+                    "Con seis semanas de exposición al input auténtico, los estudiantes empiezan a leer temperatura emocional en alemán antes de conocer el vocabulario que la produce. Eso no es intuición — es comprensión auditiva funcionando."
+                </blockquote>
+                <cite>— Yasser Gandhi Hernández Esquivel &nbsp;·&nbsp; Observación en aula, 2024 &nbsp;·&nbsp; 15 años de investigación docente</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ WAITLIST ══════════════════════════════════════════════════ -->
+    <section id="waitlist" class="py-48 px-6 bg-[var(--edeka-yellow)] text-[var(--edeka-blue)] text-center">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-heading italic font-black uppercase leading-none mb-8">¿TE QUEDAS <br> O TE VAS?</h2>
+            <p class="font-heading italic font-black uppercase tracking-tight mb-4"
+               style="font-size: clamp(1.2rem,2.2vw,1.9rem);">
+                12 sesiones. Alemán real. Sin libro de texto.
+            </p>
+            <p class="section-body mb-20 opacity-70 max-w-2xl mx-auto">
+                El programa abre con cupos limitados para garantizar el andamiaje individual. Deja tu email y eres el primero en saber cuándo y cómo entrar.
+            </p>
+            <div style="
+                max-width: 480px;
+                margin: 0 auto;
+                background: white;
+                padding: clamp(28px, 4vw, 48px);
+                box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+                transform: rotate(0.6deg);
+            ">
+                <!--
+                    Kit form embed — c5ade38b05
+                    El contenedor externo controla el ancho y centrado.
+                    Kit renderiza en modo columna única dentro de 480px.
+                    Para cambiar copy: huhugerman.kit.com → Forms → c5ade38b05 → Edit
+                    Campos a editar en Kit:
+                      · Título:    LISTA DE ESPERA
+                      · Subtítulo: (vacío o eliminado — el copy está arriba)
+                      · Botón:     Quiero entrar primero →
+                      · Legal:     Sin spam. Sin venta de datos.
+                    NO cambiar el uid ni la URL del script.
+                -->
+                <script async data-uid="c5ade38b05" src="https://huhugerman.kit.com/c5ade38b05/index.js"></script>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 text-center opacity-30 font-mono uppercase tracking-[0.5em]"
+            style="font-size: clamp(0.6rem,0.9vw,0.8rem)">
+        huhuGERMAN // MODO SUPERVIVENCIA // BERLÍN - MÉXICO // 2024
+    </footer>
+
+</main>
+
+<script>
+    /* ══ LOADER — 1.5s (3 × 500ms) ══════════════════════════════════ */
+    const loader    = document.getElementById('loader');
+    const loaderMsg = document.getElementById('loader-msg');
+    const main      = document.getElementById('main-content');
+    const sequence  = ["SHOCK", "REALITÄT", "HUHUGERMAN"];
+    let seqIdx = 0;
+
+    const seqTimer = setInterval(() => {
+        seqIdx++;
+        if (seqIdx < sequence.length) {
+            loaderMsg.innerText = sequence[seqIdx];
+        } else {
+            clearInterval(seqTimer);
+            loader.style.transform = "translateY(-100%)";
+            main.classList.remove('opacity-0');
+            initScrollObserver();
+            initStickyBar();
+        }
+    }, 500);
+
+    /* ══ STICKY CTA ══════════════════════════════════════════════════
+       Aparece al salir del hero. Desaparece al llegar al #waitlist.
+    ════════════════════════════════════════════════════════════════ */
+    function initStickyBar() {
+        const bar      = document.getElementById('sticky-cta');
+        const hero     = document.getElementById('hero');
+        const waitlist = document.getElementById('waitlist');
+        if (!bar || !hero || !waitlist) return;
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.target === hero) {
+                    bar.classList.toggle('visible', !entry.isIntersecting);
+                }
+                if (entry.target === waitlist && entry.isIntersecting) {
+                    bar.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.05 });
+
+        io.observe(hero);
+        io.observe(waitlist);
+    }
+
+    /* ══ POLAROID DATA ════════════════════════════════════════════════ */
+    const CARDS = [
+        { h: "Guten Tag",          u: "Na, alles fit?",  c: "SALUDO"   },
+        { h: "Ich verstehe nicht", u: "Hä? Wie bitte?",  c: "FRICCIÓN" },
+        { h: "Das ist schlecht",   u: "Echt scheiße!",   c: "REALIDAD" },
+        { h: "Entschuldigung",     u: "Alter...",         c: "REACCIÓN" },
+        { h: "Sehr gut",           u: "Geil, Digga!",    c: "KIEZ"     },
+        { h: "Wie geht es dir?",   u: "Was geht?",       c: "BERLÍN"   },
+        { h: "Auf Wiedersehen",    u: "Tschüssi!",       c: "BYE"      },
+        { h: "Ich habe Hunger",    u: "Hab Kohldampf",   c: "HAMBRE"   },
+        { h: "Es ist egal",        u: "Ist mir Wurst",   c: "ACTITUD"  },
+        { h: "Lust haben",         u: "Bock haben",      c: "MÉTODO"   },
+    ];
+
+    /* ══ STACK ════════════════════════════════════════════════════════
+       deck[deck.length-1] = carta superior siempre.
+       Click/tap capturado en el wrapper completo.
+    ════════════════════════════════════════════════════════════════ */
+    const stackEl   = document.getElementById('stack');
+    const finalCard = document.getElementById('card-final');
+    const tapHint   = document.getElementById('tap-hint');
+
+    stackEl.appendChild(finalCard);
+
+    let deck = [];
+    let busy  = false;
+
+    function buildDeck() {
+        CARDS.forEach((p, i) => {
+            const card = document.createElement('div');
+            card.className = 'polaroid';
+
+            const rot = (Math.random() * 14 - 7).toFixed(2);
+            const tx  = (Math.random() * 20 - 10).toFixed(2);
+            const ty  = (Math.random() * 16 - 8).toFixed(2);
+            const restTransform = `rotate(${rot}deg) translate(${tx}px, ${ty}px)`;
+
+            card.style.transform = restTransform;
+            card.style.setProperty('--rest-transform', restTransform);
+            card.style.zIndex    = i + 1;
+            card.style.transition = 'transform 0.3s ease';
+
+            card.innerHTML = `
+                <div class="photo-area">
+                    <div class="hochdeutsch">${p.h}</div>
+                    <div class="umgangssprache">${p.u}</div>
+                </div>
+                <div class="card-meta">
+                    <span>${p.c}</span>
+                    <span>#${String(i + 1).padStart(2, '0')}</span>
+                </div>
+            `;
+
+            stackEl.appendChild(card);
+            deck.push(card);
+        });
+    }
+
+    function discardTop() {
+        if (busy || deck.length === 0) return;
+        busy = true;
+
+        const top = deck[deck.length - 1];
+        top.classList.add('folding');
+
+        top.addEventListener('animationend', () => {
+            top.remove();
+            deck.pop();
+
+            if (deck.length === 0) {
+                finalCard.classList.add('visible');
+                tapHint.style.opacity       = '0';
+                tapHint.style.pointerEvents = 'none';
+            } else {
+                deck.forEach((el, idx) => { el.style.zIndex = idx + 1; });
+                const n = deck.length;
+                tapHint.textContent = `${n} carta${n !== 1 ? 's' : ''} restante${n !== 1 ? 's' : ''}`;
+            }
+            busy = false;
+        }, { once: true });
+    }
+
+    stackEl.addEventListener('click', (e) => {
+        if (e.target.classList.contains('pain-cta')) return;
+        discardTop();
+    });
+
+    stackEl.addEventListener('touchstart', (e) => {
+        if (e.target.classList.contains('pain-cta')) return;
+        e.preventDefault();
+        discardTop();
+    }, { passive: false });
+
+    stackEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); discardTop(); }
+    });
+
+    buildDeck();
+
+    /* ══ SCROLL REVEAL ════════════════════════════════════════════════ */
+    function initScrollObserver() {
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Números giratorios en sci-cards
+        const sciObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('in-view');
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.sci-card').forEach(el => sciObs.observe(el));
+    }
+</script>
+</body>
+</html>
