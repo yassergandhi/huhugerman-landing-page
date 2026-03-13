@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="alemán real, integración Alemania, seguro lingüístico, preparación migratoria" />
+    <meta name="author" content="Yasser Gandhi Hernández Esquivel" />
+    <link rel="canonical" href="https://huhugerman.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://huhugerman.com/" />
+    <meta property="og:title" content="huhuGERMAN — Tu certificado B2 no te va a salvar en Alemania" />
+    <meta property="og:description" content="41% de estudiantes internacionales abandonan por brecha lingüística. Prepárate antes de llegar." />
+    <meta property="og:image" content="https://huhugerman.com/og-image.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="huhuGERMAN — Tu certificado B2 no te va a salvar en Alemania" />
+    <meta name="twitter:description" content="huhuGERMAN prepara para el alemán real desde A1." />
+    <meta name="twitter:image" content="https://huhugerman.com/og-image.svg" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: 'huhuGERMAN — Linguistic Survival Engineering',
+      description: 'Protocolo de preparación lingüística pre-migratoria para Alemania',
+      offers: {
+        '@type': 'Offer',
+        price: '197',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/LimitedAvailability'
+      }
+    })}></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:ital,wght@0,700;1,900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

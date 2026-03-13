@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Loader from '../components/Loader.astro';
+import HeroSection from '../components/HeroSection.astro';
+import RiskStackSection from '../components/RiskStackSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import PricingSection from '../components/PricingSection.astro';
+import FaqFooterSection from '../components/FaqFooterSection.astro';
+---
+
+<BaseLayout
+  title="huhuGERMAN | Seguro Lingüístico para Alemania · Evita Exclusión"
+  description="41% abandona Alemania por brecha lingüística. huhuGERMAN prepara para el alemán real desde A1."
+>
+  <SiteHeader />
+  <Loader />
+
+  <main id="main-content" style="opacity:0; transition:opacity .6s ease;">
+    <HeroSection />
+    <RiskStackSection />
+    <TestimonialsSection />
+    <PricingSection />
+    <FaqFooterSection />
+  </main>
+
+  <script>
+    const loader = document.getElementById('loader');
+    const main = document.getElementById('main-content');
+    const progress = document.getElementById('progress-bar');
+    const sticky = document.getElementById('sticky-cta');
+    const waitlist = document.getElementById('waitlist');
+
+    setTimeout(() => {
+      if (loader) loader.style.transform = 'translateY(-100%)';
+      if (main) main.style.opacity = '1';
+    }, 1300);
+
+    const updateUi = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+      if (progress) progress.style.width = `${pct}%`;
+
+      if (!sticky || !waitlist) return;
+      const r = waitlist.getBoundingClientRect();
+      const inWaitlist = r.top < window.innerHeight && r.bottom > 0;
+      sticky.classList.toggle('visible', pct > 32 && !inWaitlist);
+    };
+
+    window.addEventListener('scroll', updateUi, { passive: true });
+    updateUi();
+  </script>
+</BaseLayout>
