@@ -214,12 +214,16 @@
             transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1);
         }
         .loader-text {
-            font-size: clamp(3.5rem, 13vw, 10rem);
+            font-size: clamp(3rem, 16vw, 9rem);
             font-weight: 900;
             font-style: italic;
             text-transform: uppercase;
             color: var(--edeka-yellow);
             font-family: 'Barlow Condensed', sans-serif;
+            text-align: center;
+            line-height: 0.9;
+            letter-spacing: 0.03em;
+            padding: 0 6vw;
         }
 
         /* ── HERO TYPOGRAPHY ──────────────────────────────────── */
@@ -576,14 +580,7 @@
 
 <!-- ══ LOADER ══════════════════════════════════════════════════════ -->
 <div id="loader" aria-hidden="true">
-    <div class="text-center px-6 max-w-5xl w-full">
-        <div id="loader-msg" class="loader-text">41% de estudiantes abandonan Alemania.</div>
-        <div class="mt-8 h-2 w-full bg-white/20">
-            <div id="loader-progress" class="h-2 bg-[var(--edeka-yellow)]" style="width:0%"></div>
-        </div>
-        <p id="loader-question" class="mt-10 text-white font-mono uppercase tracking-widest opacity-0" style="font-size: clamp(0.8rem,1.1vw,1rem);">¿Estás listo para ver lo que nadie te dijo antes de comprar tu boleto?</p>
-        <button id="loader-continue" class="mt-5 bg-[var(--edeka-yellow)] text-[var(--edeka-blue)] px-7 py-3 font-black uppercase tracking-wider opacity-0 pointer-events-none">Continuar →</button>
-    </div>
+    <div id="loader-msg" class="loader-text">RIESGO</div>
 </div>
 
 <main id="main-content" class="opacity-0 transition-opacity duration-1000" style="padding-top: 55px;">
@@ -1120,38 +1117,18 @@ function renderPrice(regional) {
     /* ══ LOADER ════════════════════════════════════════════════════ */
     const loader    = document.getElementById("loader");
     const loaderMsg = document.getElementById("loader-msg");
-    const loaderProgress = document.getElementById("loader-progress");
-    const loaderQuestion = document.getElementById("loader-question");
-    const loaderContinue = document.getElementById("loader-continue");
     const main      = document.getElementById("main-content");
-    const defaultSeq = ["41% de estudiantes abandonan Alemania.", "Tu certificado B2 no te va a salvar.", "El alemán de la calle no está en los libros.", "huhuGERMAN — Linguistic Survival Engineering"];
-    let seqIdx = 0;
 
-    const seq = window._loaderSequence || defaultSeq;
-    loaderMsg.innerText = seq[0];
-    const seqTimer = setInterval(() => {
-        seqIdx++;
-        const pct = Math.min((seqIdx / seq.length) * 100, 100);
-        if (loaderProgress) loaderProgress.style.width = pct + "%";
-        if (seqIdx < seq.length) {
-            loaderMsg.innerText = seq[seqIdx];
-        } else {
-            clearInterval(seqTimer);
-            if (loaderQuestion) loaderQuestion.style.opacity = "1";
-            if (loaderContinue) {
-                loaderContinue.style.opacity = "1";
-                loaderContinue.style.pointerEvents = "auto";
-                loaderContinue.addEventListener("click", () => {
-                    loader.style.transform = "translateY(-100%)";
-                    main.classList.remove("opacity-0");
-                    initScrollObserver();
-                    initStickyBar();
-                    initProgressBar();
-                    animateCohortBar();
-                }, { once: true });
-            }
-        }
-    }, 3000);
+    if (loaderMsg) loaderMsg.innerText = "RIESGO";
+
+    setTimeout(() => {
+        if (loader) loader.style.transform = "translateY(-100%)";
+        main.classList.remove("opacity-0");
+        initScrollObserver();
+        initStickyBar();
+        initProgressBar();
+        animateCohortBar();
+    }, 1400);
 
     /* ══ SCROLL PROGRESS BAR ═══════════════════════════════════════ */
     function initProgressBar() {
