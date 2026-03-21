@@ -1,0 +1,79 @@
+---
+const cards = [
+  { book: 'Aufenthaltsgenehmigung verlängern', real: "Jo, wat willst'n? Unterlagen fehlen.", impact: 'Riesgo de visa' },
+  { book: 'Wie komme ich zum Hauptbahnhof?', real: 'Immer geradeaus, ne?', impact: 'Desorientación' },
+  { book: 'Kann ich mit Karte zahlen?', real: 'Nur Bargeld, Alter.', impact: 'Fricción social' },
+  { book: 'Ich habe eine Frage.', real: 'Ich check das nicht.', impact: 'Baja participación' },
+  { book: 'Ich habe Kopfschmerzen.', real: "Mir geht's beschissen.", impact: 'Diagnóstico incompleto' },
+  { book: 'Ich habe fünf Jahre Erfahrung.', real: 'Ich kann das, hab ich gemacht.', impact: 'No contratación' },
+  { book: 'Ist die Wohnung verfügbar?', real: 'Nur mit Schufa y sueldo alto.', impact: 'Ahorro drenado' },
+  { book: 'Die Heizung funktioniert nicht.', real: 'Heizung is kaputt.', impact: 'No te toman en serio' },
+  { book: 'Freut mich, Sie kennenzulernen.', real: "Na, wie geht's?", impact: 'Aislamiento social' },
+  { book: 'Ich brauche Hilfe, bitte.', real: 'Scheiße, Hilfe! Schnell!', impact: 'Segundos críticos' }
+];
+---
+<section class="section light-section">
+  <div class="container split">
+    <div>
+      <h2>Escenarios de dolor real</h2>
+      <p>Esto no es teoría de aula: es la fricción lingüística que te espera en calle, burocracia, vivienda, trabajo y salud.</p>
+      <p><strong>huhuGERMAN no es otro curso.</strong> Es un seguro pre-migratorio contra exclusión social por registro lingüístico.</p>
+    </div>
+    <div>
+      <div class="stack-wrapper" id="stack" role="button" tabindex="0" aria-label="Toca para revisar riesgos"></div>
+      <div class="card-final" id="card-final">
+        <h3>Ya viste el riesgo completo</h3>
+        <p>Tu plan falla por falta de exposición real, no por falta de esfuerzo.</p>
+        <button id="reset-risks" class="nav-btn" style="border:none; cursor:pointer;">Volver a ver los riesgos</button>
+      </div>
+      <p id="tap-hint" class="eyebrow" style="text-align:center; color:#666; margin-top:.7rem;">Toca una tarjeta para pasar al siguiente riesgo</p>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ cards }}>
+  const stackEl = document.getElementById('stack');
+  const finalCard = document.getElementById('card-final');
+  const tapHint = document.getElementById('tap-hint');
+  let deck = [];
+
+  function buildDeck() {
+    cards.forEach((item, i) => {
+      const card = document.createElement('article');
+      card.className = 'polaroid';
+      const rot = ((Math.random() * 12) - 6).toFixed(2);
+      card.style.transform = `rotate(${rot}deg)`;
+      card.style.zIndex = String(i + 1);
+      card.innerHTML = `<div class="photo"><div class="book">${item.book}</div><div class="real">${item.real}</div></div><div class="meta"><span>${item.impact}</span><span>#${String(i + 1).padStart(2, '0')}</span></div>`;
+      stackEl?.appendChild(card);
+      deck.push(card);
+    });
+  }
+
+  function discardTop() {
+    const top = deck.pop();
+    if (!top) return;
+    top.remove();
+    if (deck.length === 0) {
+      finalCard?.classList.add('visible');
+      if (tapHint) tapHint.textContent = 'Riesgo completo';
+    } else if (tapHint) {
+      tapHint.textContent = `Quedan ${deck.length} riesgos`;
+    }
+  }
+
+  stackEl?.addEventListener('click', discardTop);
+  stackEl?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); discardTop(); }
+  });
+
+  document.getElementById('reset-risks')?.addEventListener('click', () => {
+    deck = [];
+    stackEl?.querySelectorAll('.polaroid').forEach((n) => n.remove());
+    finalCard?.classList.remove('visible');
+    if (tapHint) tapHint.textContent = 'Toca una tarjeta para pasar al siguiente riesgo';
+    buildDeck();
+  });
+
+  buildDeck();
+</script>
