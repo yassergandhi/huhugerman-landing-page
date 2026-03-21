@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://huhugerman.com/sitemap.xml
