@@ -1,1496 +1,2012 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>huhuGERMAN — Alemania no solo te habla. Te lee.</title>
-  <meta name="description" content="huhuGERMAN prepara al estudiante hispanohablante para el punto en que el alemán deja de ser contenido y empieza a operar como trámite, institución, oralidad, expectativa y lectura social." />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <meta name="author" content="Yasser Gandhi Hernández Esquivel" />
-  <meta name="theme-color" content="#050607" />
-  <meta name="format-detection" content="telephone=no, address=no, email=no" />
-
-  <link rel="canonical" href="https://huhugerman.com/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
-
-  <meta property="og:locale" content="es_ES" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="huhuGERMAN" />
-  <meta property="og:title" content="huhuGERMAN — Alemania no solo te habla. Te lee." />
-  <meta property="og:description" content="Preparación de alta consecuencia para cuando el alemán deja de ser tema de clase y empieza a operar como lectura social, trámite, institución y costo real." />
-  <meta property="og:url" content="https://huhugerman.com/" />
-  <meta property="og:image" content="https://huhugerman.com/og/huhugerman-home.jpg" />
-  <meta property="og:image:alt" content="huhuGERMAN: Alemania no solo te habla. Te lee." />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="huhuGERMAN — Alemania no solo te habla. Te lee." />
-  <meta name="twitter:description" content="El problema no interrumpe el aprendizaje. El problema es el aprendizaje." />
-  <meta name="twitter:image" content="https://huhugerman.com/og/huhugerman-home.jpg" />
-
-  <style>
-    :root {
-      --osterstrasse: #11161c;
-      --jungfernstieg: #b8c7d1;
-      --reeperbahn: #c62a1f;
-      --berlin-dark: #050607;
-      --berlin-light: #e8ecef;
-      --offenburg: #d6a63c;
-      --berghain: #2a2f36;
-      --petrol-sheen: #6e7f8b;
-      --line-soft: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.16);
-      --shadow-heavy: 0 28px 60px rgba(0, 0, 0, 0.72);
-      --radius-xs: 6px;
-      --radius-sm: 10px;
-      --radius-md: 16px;
-      --transition-polaroid: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-      --max-width: 1120px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background:
-        radial-gradient(circle at top right, rgba(110, 127, 139, 0.08), transparent 28%),
-        linear-gradient(180deg, #050607 0%, #0a0d10 46%, #050607 100%);
-      color: var(--berlin-light);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.45;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; }
-    button { font: inherit; }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .serif {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--offenburg);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 6vw, 4rem);
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: -0.04em;
-      font-weight: 900;
-      margin-bottom: 1.25rem;
-    }
-
-    .section-intro {
-      max-width: 720px;
-      color: var(--jungfernstieg);
-      font-size: 1.05rem;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
-      width: auto;
-      height: auto;
-      padding: 0.75rem 1rem;
-      background: #fff;
-      color: #000;
-      z-index: 4000;
-    }
-
-    /* Loader */
-    #loader {
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(10, 13, 16, 0.98)),
-        radial-gradient(circle at center, rgba(198, 42, 31, 0.07), transparent 35%);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 3000;
-      padding: 2rem;
-      transition: opacity 0.6s ease;
-    }
-
-    .loader-text {
-      font-size: 0.64rem;
-      letter-spacing: 0.38em;
-      color: var(--reeperbahn);
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .loader-track {
-      width: min(220px, 70vw);
-      height: 1px;
-      background: rgba(255,255,255,0.12);
-      overflow: hidden;
-    }
-
-    #loader-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--offenburg), var(--jungfernstieg));
-      transition: width 0.3s;
-    }
-
-    /* Nav */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1.15rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2000;
-      mix-blend-mode: difference;
-    }
-
-    .logo {
-      font-weight: 900;
-      font-size: 1rem;
-      letter-spacing: -0.03em;
-    }
-
-    .status {
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--offenburg);
-    }
-
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 0 60px;
-      position: relative;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 3rem;
-      align-items: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.8rem, 9vw, 7rem);
-      line-height: 0.84;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.055em;
-      margin-bottom: 1.2rem;
-      text-wrap: balance;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
-      max-width: 620px;
-      color: var(--jungfernstieg);
-      margin-bottom: 2rem;
-    }
-
-    .hero-note {
-      max-width: 640px;
-      color: rgba(232, 236, 239, 0.84);
-      font-size: 0.95rem;
-      border-left: 2px solid rgba(214, 166, 60, 0.45);
-      padding-left: 1rem;
-    }
-
-    .hero-aside {
-      border: 1px solid var(--line-soft);
-      background: linear-gradient(180deg, rgba(17, 22, 28, 0.82), rgba(7, 8, 10, 0.9));
-      border-radius: var(--radius-md);
-      padding: 1.4rem;
-      box-shadow: var(--shadow-heavy);
-    }
-
-    .hero-aside h2 {
-      font-size: 0.82rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--offenburg);
-      margin-bottom: 1rem;
-    }
-
-    .hero-aside ul {
-      list-style: none;
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .hero-aside li {
-      border-top: 1px solid var(--line-soft);
-      padding-top: 0.9rem;
-      color: var(--jungfernstieg);
-      font-size: 0.95rem;
-    }
-
-    .hero-aside li strong {
-      color: var(--berlin-light);
-      display: block;
-      margin-bottom: 0.2rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    /* Stack */
-    .stack-wrap {
-      margin-top: 1rem;
-    }
-
-    .stack-area {
-      position: relative;
-      min-height: 520px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      perspective: 1200px;
-      isolation: isolate;
-    }
-
-    .polaroid {
-      position: absolute;
-      width: 308px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.94), rgba(239,239,234,0.98)),
-        repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0 1px, transparent 1px 3px);
-      padding: 12px 12px 60px;
-      color: #000;
-      box-shadow:
-        0 30px 70px rgba(0,0,0,0.62),
-        0 8px 18px rgba(0,0,0,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.72);
-      cursor: pointer;
-      transition: transform var(--transition-polaroid), opacity 0.5s, box-shadow 0.35s ease, filter 0.35s ease;
-      user-select: none;
-      border: 1px solid rgba(20,20,20,0.18);
-      border-radius: 3px;
-      outline: none;
-      overflow: visible;
-      transform-style: preserve-3d;
-      filter: saturate(0.95);
-    }
-
-    .polaroid::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      width: 92px;
-      height: 22px;
-      transform: translateX(-50%) rotate(-2deg);
-      background: linear-gradient(180deg, rgba(210,214,218,0.82), rgba(165,170,176,0.38));
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-      opacity: 0.82;
-      pointer-events: none;
-    }
-
-    .polaroid::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 3px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 28%, transparent 72%, rgba(0,0,0,0.06));
-      mix-blend-mode: multiply;
-      pointer-events: none;
-    }
-
-    .polaroid:hover {
-      box-shadow:
-        0 36px 82px rgba(0,0,0,0.70),
-        0 10px 24px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.72);
-      filter: saturate(1.02);
-    }
-
-    .polaroid:focus-visible {
-      box-shadow:
-        0 36px 82px rgba(0,0,0,0.70),
-        0 0 0 3px rgba(214, 166, 60, 0.45);
-    }
-
-    .scene-box {
-      width: 100%;
-      height: 220px;
-      background:
-        radial-gradient(circle at top right, rgba(184,199,209,0.11), transparent 22%),
-        linear-gradient(180deg, #0b0d0f 0%, #13181d 100%);
-      color: white;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid #262c33;
-    }
-
-    .scene-box::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(180deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 4px),
-        linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.025) 48%, transparent 100%);
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
-
-    .scene-type {
-      font-size: 0.5rem;
-      color: var(--reeperbahn);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 10px;
-    }
-
-    .book-ver {
-      font-size: 0.75rem;
-      color: #70757c;
-      text-decoration: line-through;
-      margin-bottom: 7px;
-    }
-
-    .real-ver {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.9rem;
-      line-height: 1.24;
-      color: var(--offenburg);
-    }
-
-    .polaroid .caption {
-      margin-top: 15px;
-      font-size: 0.82rem;
-      font-weight: 900;
-      line-height: 1.12;
-      text-transform: uppercase;
-      color: #111;
-    }
-
-    .polaroid.discarded {
-      transform: translateY(-150%) rotate(25deg) scale(0.8) !important;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .risk-card .scene-box {
-      background: linear-gradient(180deg, rgba(198, 42, 31, 0.10), rgba(5, 6, 7, 1) 35%, rgba(17, 22, 28, 1) 100%);
-      border: 1px solid rgba(198, 42, 31, 0.35);
-    }
-
-    .risk-card .real-ver {
-      color: var(--berlin-light);
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .stat-card {
-      animation: statPulse 2.2s ease-in-out infinite;
-    }
-
-    .stat-card .scene-box {
-      background:
-        radial-gradient(circle at 50% 18%, rgba(214,166,60,0.18), transparent 30%),
-        linear-gradient(180deg, rgba(198,42,31,0.18) 0%, rgba(10,13,16,1) 38%, rgba(17,22,28,1) 100%);
-      border: 1px solid rgba(214,166,60,0.34);
-      box-shadow: inset 0 0 34px rgba(214,166,60,0.07);
-    }
-
-    .stat-card .real-ver {
-      color: #f4d07a;
-      text-shadow: 0 0 18px rgba(214,166,60,0.18);
-    }
-
-    .stat-card:not(.discarded)::before {
-      background: linear-gradient(180deg, rgba(214,166,60,0.82), rgba(170,126,34,0.34));
-      box-shadow: 0 2px 10px rgba(214,166,60,0.18);
-    }
-
-    @keyframes statPulse {
-      0%, 100% { transform: translate(var(--stack-x, 0px), var(--stack-y, 0px)) rotate(var(--stack-r, 0deg)) scale(1); }
-      50% { transform: translate(var(--stack-x, 0px), calc(var(--stack-y, 0px) - 4px)) rotate(var(--stack-r, 0deg)) scale(1.025); }
-    }
-
-    .stack-nav {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.62rem;
-      letter-spacing: 0.28em;
-      opacity: 0.52;
-      text-transform: uppercase;
-    }
-
-    /* Authority / risk strip */
-    .risk-strip {
-      padding: 0 0 80px;
-    }
-
-    .risk-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .risk-box {
-      border: 1px solid var(--line-soft);
-      padding: 1rem;
-      background: linear-gradient(180deg, rgba(17, 22, 28, 0.7), rgba(8, 9, 11, 0.82));
-      border-radius: var(--radius-sm);
-    }
-
-    .risk-box strong {
-      display: block;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--offenburg);
-      margin-bottom: 0.5rem;
-    }
-
-    .risk-box p {
-      color: var(--jungfernstieg);
-      font-size: 0.94rem;
-    }
-
-    /* Comparison */
-    .comparison {
-      background: linear-gradient(180deg, var(--osterstrasse) 0%, #0b1015 100%);
-      padding: 100px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .comp-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .comp-card {
-      padding: 2rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-md);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.1));
-    }
-
-    .comp-card h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 1.5rem;
-      line-height: 0.96;
-      text-transform: uppercase;
-    }
-
-    .comp-card ul { list-style: none; }
-
-    .comp-card li {
-      padding: 1.15rem 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: var(--jungfernstieg);
-    }
-
-    .comp-card li strong {
-      display: block;
-      color: var(--offenburg);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.16em;
-    }
-
-    /* Archive */
-    .archive {
-      padding: 100px 0;
-      background: #000;
-    }
-
-    .archive-header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1.5rem;
-      align-items: end;
-      margin-bottom: 3rem;
-    }
-
-    .archive-meta {
-      color: var(--jungfernstieg);
-      max-width: 420px;
-      font-size: 0.95rem;
-    }
-
-    .archive-list {
-      display: grid;
-      gap: 0;
-    }
-
-    .archive-item {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid #17191c;
-    }
-
-    .archive-year {
-      flex: 0 0 130px;
-      font-weight: 900;
-      color: var(--reeperbahn);
-      font-size: 0.98rem;
-    }
-
-    .archive-content {
-      flex: 1;
-      min-width: 280px;
-      max-width: 760px;
-    }
-
-    .archive-content h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.08rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .archive-content p {
-      color: var(--jungfernstieg);
-      max-width: 680px;
-    }
-
-    /* Offer */
-    .offer {
-      padding: 100px 0;
-      background: linear-gradient(180deg, #050607 0%, #0a0d10 100%);
-    }
-
-    .offer-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2rem;
-      align-items: start;
-      margin-top: 3rem;
-    }
-
-    .offer-copy {
-      border: 1px solid var(--line-soft);
-      background: linear-gradient(180deg, rgba(17,22,28,0.45), rgba(5,6,7,0.55));
-      border-radius: var(--radius-md);
-      padding: 2rem;
-    }
-
-    .offer-copy p {
-      color: var(--jungfernstieg);
-      margin-bottom: 1rem;
-      max-width: 700px;
-    }
-
-    .offer-points {
-      list-style: none;
-      display: grid;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .offer-points li {
-      border-top: 1px solid var(--line-soft);
-      padding-top: 1rem;
-      color: var(--berlin-light);
-    }
-
-    .offer-points li strong {
-      display: block;
-      color: var(--offenburg);
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      margin-bottom: 0.4rem;
-    }
-
-    .offer-card {
-      border: 1px solid rgba(198,42,31,0.22);
-      background: linear-gradient(180deg, rgba(198,42,31,0.08), rgba(5,6,7,0.78));
-      border-radius: var(--radius-md);
-      padding: 1.8rem;
-      box-shadow: var(--shadow-heavy);
-    }
-
-    .offer-card h3 {
-      font-size: 1.3rem;
-      text-transform: uppercase;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .offer-card p {
-      color: var(--jungfernstieg);
-      margin-bottom: 1rem;
-    }
-
-    .offer-card ul {
-      list-style: none;
-      display: grid;
-      gap: 0.85rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .offer-card li {
-      padding-left: 1rem;
-      position: relative;
-      color: var(--berlin-light);
-    }
-
-    .offer-card li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: var(--offenburg);
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      margin-top: 1.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--reeperbahn);
-      color: white;
-      padding: 1.15rem 2rem;
-      text-decoration: none;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.11em;
-      border-radius: 999px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 14px 28px rgba(198, 42, 31, 0.24);
-    }
-
-    .btn:hover,
-    .btn:focus-visible {
-      transform: translateY(-1px) scale(1.02);
-      box-shadow: 0 20px 36px rgba(198, 42, 31, 0.3);
-    }
-
-    .btn-secondary {
-      display: inline-block;
-      color: var(--berlin-light);
-      text-decoration: none;
-      padding: 1rem 1.2rem;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      border-color: rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.03);
-    }
-
-    /* FAQ */
-    .faq {
-      padding: 100px 0;
-      background: #000;
-      border-top: 1px solid #141618;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .faq-item {
-      border: 1px solid var(--line-soft);
-      border-radius: var(--radius-sm);
-      background: linear-gradient(180deg, rgba(17,22,28,0.42), rgba(5,6,7,0.72));
-      overflow: hidden;
-    }
-
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 1.15rem 1.2rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .faq-item summary::-webkit-details-marker { display: none; }
-
-    .faq-item p {
-      padding: 0 1.2rem 1.2rem;
-      color: var(--jungfernstieg);
-      max-width: 840px;
-    }
-
-    /* Footer */
-    footer {
-      padding: 3rem 0 4rem;
-      border-top: 1px solid #111;
-      font-size: 0.74rem;
-      opacity: 0.9;
-      background: #050607;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .footer-grid p,
-    .footer-grid a {
-      color: var(--jungfernstieg);
-      text-decoration: none;
-    }
-
-    .footer-grid strong {
-      color: var(--berlin-light);
-    }
-
-    .footer-note {
-      margin-top: 0.5rem;
-      max-width: 540px;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .comp-grid,
-      .offer-grid,
-      .risk-grid,
-      .archive-header {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 110px;
-      }
-
-      .hero-aside {
-        order: 2;
-      }
-
-      .stack-area {
-        min-height: 480px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      nav {
-        padding: 1rem;
-      }
-
-      .status {
-        max-width: 42vw;
-        text-align: right;
-        line-height: 1.35;
-      }
-
-      .hero {
-        text-align: center;
-      }
-
-      .hero-note {
-        margin-inline: auto;
-        text-align: left;
-      }
-
-      .stack-area {
-        min-height: 420px;
-      }
-
-      .polaroid {
-        width: 262px;
-      }
-
-      .scene-box {
-        height: 205px;
-      }
-
-      .archive-item {
-        gap: 0.75rem;
-      }
-
-      .archive-year {
-        flex: 0 0 100%;
-      }
-
-      .btn-row {
-        justify-content: center;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  
-
-    .stack-actions {
-      display: flex;
-      justify-content: center;
-      margin-top: 1.5rem;
-    }
-
-    .stack-reset {
-      appearance: none;
-      border: 1px solid rgba(214, 166, 60, 0.35);
-      background: rgba(17, 22, 28, 0.9);
-      color: var(--berlin-light);
-      padding: 0.95rem 1.3rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.72rem;
-      font-weight: 800;
-      cursor: pointer;
-      border-radius: 999px;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .stack-reset.is-visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .stack-reset:hover,
-    .stack-reset:focus-visible {
-      border-color: var(--offenburg);
-      outline: none;
-    }
-
-    .stat-card .scene-box {
-      background:
-        linear-gradient(180deg, rgba(214, 166, 60, 0.12), rgba(5, 6, 7, 0.98) 38%, rgba(17, 22, 28, 1) 100%);
-      border: 1px solid rgba(214, 166, 60, 0.42);
-    }
-
-    .stat-source {
-      margin-top: 0.85rem;
-      font-size: 0.54rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(232, 236, 239, 0.68);
-      line-height: 1.45;
-    }
-
-    .contact {
-      padding: 0 0 120px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .contact-copy,
-    .contact-card {
-      border: 1px solid var(--line-soft);
-      background: linear-gradient(180deg, rgba(17,22,28,0.78), rgba(7,8,10,0.92));
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-    }
-
-    .contact-copy p + p {
-      margin-top: 1rem;
-    }
-
-    .contact-meta {
-      margin-top: 1.25rem;
-      color: var(--jungfernstieg);
-      font-size: 0.92rem;
-    }
-
-    #kit-contact-wrap {
-      min-height: 240px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://huhugerman.com/#website",
-        "url": "https://huhugerman.com/",
-        "name": "huhuGERMAN",
-        "inLanguage": "es",
-        "publisher": {
-          "@id": "https://huhugerman.com/#person"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO PRIMARY METADATA — OPTIMIZADO -->
+    <title>huhuGERMAN | Preparación 1:1 para el alemán real antes de llegar a Alemania</title>
+    <meta name="description" content="Preparación preventiva 1:1 para hispanohablantes que viajan a Alemania. Reduce vulnerabilidad, mejora comprensión global y enfrenta el alemán real antes de llegar. 15 años de trayectoria UNAM-Hamburg.">
+    <meta name="keywords" content="alemán para hispanohablantes, preparación Alemania, alemán real, comprensión auditiva alemán, curso alemán 1:1, alemán antes de viajar, Umgangssprache, Hochdeutsch, integración Alemania, estudiantes internacionales Alemania, preparación preventiva alemán, vulnerabilidad lingüística, cultura alemana real">
+    <meta name="author" content="Yasser Gandhi Hernández Esquivel">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://huhugerman.com/">
+    
+    <!-- OPEN GRAPH / SOCIAL — OPTIMIZADO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://huhugerman.com/">
+    <meta property="og:title" content="huhuGERMAN | Preparación 1:1 para el alemán real antes de llegar a Alemania">
+    <meta property="og:description" content="Alemania no solo te habla. Te lee. Preparación preventiva para no llegar vulnerable. 15 años de trayectoria docente UNAM-Hamburg.">
+    <meta property="og:image" content="https://huhugerman.com/og/huhugerman-home.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="huhuGERMAN">
+    <meta property="og:updated_time" content="2026-03-21T00:00:00Z">
+    
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="huhuGERMAN | Preparación 1:1 para el alemán real">
+    <meta name="twitter:description" content="Alemania no solo te habla. Te lee. Preparación preventiva para hispanohablantes.">
+    <meta name="twitter:image" content="https://huhugerman.com/og/huhugerman-home.jpg">
+    <meta name="twitter:creator" content="@yassergandhi">
+    
+    <!-- ALTERNATE LANGUAGES -->
+    <link rel="alternate" hreflang="es-MX" href="https://huhugerman.com/">
+    <link rel="alternate" hreflang="es-ES" href="https://huhugerman.com/">
+    <link rel="alternate" hreflang="es-AR" href="https://huhugerman.com/">
+    <link rel="alternate" hreflang="es-CO" href="https://huhugerman.com/">
+    <link rel="alternate" hreflang="x-default" href="https://huhugerman.com/">
+    
+    <!-- PRECONNECT & FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- DNS PREFETCH FOR EXTERNAL LINKS -->
+    <link rel="dns-prefetch" href="https://www.berlin.de">
+    <link rel="dns-prefetch" href="https://www.bvg.de">
+    <link rel="dns-prefetch" href="https://www.uni-hamburg.de">
+    <link rel="dns-prefetch" href="https://www.revista.unam.mx">
+    <link rel="dns-prefetch" href="https://www.bmi.bund.de">
+    <link rel="dns-prefetch" href="https://yassergandhi.dev">
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#c8d94e">
+    
+    <!-- THEME COLOR -->
+    <meta name="theme-color" content="#0b1419">
+    <meta name="msapplication-TileColor" content="#0b1419">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- SCHEMA JSON-LD: WEBSITE + PERSON + ORGANIZATION + FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://huhugerman.com/#website",
+                "url": "https://huhugerman.com/",
+                "name": "huhuGERMAN",
+                "description": "Preparación 1:1 para el alemán real antes de llegar a Alemania",
+                "inLanguage": "es",
+                "publisher": {
+                    "@id": "https://huhugerman.com/#person"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://huhugerman.com/?s={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://huhugerman.com/#person",
+                "name": "Yasser Gandhi Hernández Esquivel",
+                "url": "https://yassergandhi.dev/",
+                "sameAs": [
+                    "https://www.linkedin.com/in/yassergandhi/",
+                    "https://huhugerman.com/",
+                    "https://yassergandhi.dev/"
+                ],
+                "jobTitle": "Germanista C1 · Docente-Investigador · Desarrollador Senior",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "CELEX-UAM Azcapotzalco",
+                    "url": "https://www.uam.mx/"
+                },
+                "alumniOf": [
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "Universidad Nacional Autónoma de México",
+                        "url": "https://www.unam.mx/"
+                    },
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "Sprachzentrum Universität Hamburg",
+                        "url": "https://www.uni-hamburg.de/sprachenzentrum.html"
+                    }
+                ],
+                "knowsAbout": [
+                    "Alemán como lengua extranjera",
+                    "Comprensión auditiva",
+                    "Metacognición en aprendizaje de idiomas",
+                    "Formación docente comparativa México-Alemania",
+                    "Umgangssprache",
+                    "Preparación para movilidad académica"
+                ]
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://huhugerman.com/#organization",
+                "name": "huhuGERMAN",
+                "url": "https://huhugerman.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://huhugerman.com/og/huhugerman-logo.png",
+                    "width": 600,
+                    "height": 600
+                },
+                "description": "Preparación 1:1 para hispanohablantes que van a Alemania. No es curso tradicional. Trabaja comprensión global, oralidad rápida, lectura cultural.",
+                "foundingDate": "2022",
+                "founder": {
+                    "@id": "https://huhugerman.com/#person"
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://huhugerman.com/#webpage",
+                "url": "https://huhugerman.com/",
+                "name": "huhuGERMAN | Preparación para el alemán real",
+                "isPartOf": {
+                    "@id": "https://huhugerman.com/#website"
+                },
+                "about": {
+                    "@id": "https://huhugerman.com/#organization"
+                },
+                "description": "Preparación 1:1 para hispanohablantes que van a Alemania. Trabaja comprensión global, oralidad rápida, lectura cultural y estrategias frente al cambio al inglés.",
+                "lastReviewed": "2026-03-21"
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://huhugerman.com/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "¿Es un curso tradicional de alemán?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Es preparación 1:1 para el punto donde el alemán funciona como oralidad, tono social, presión y contexto real. No hay niveles, no hay certificados, no hay promesas de fluidez."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Promete fluidez?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Promete menos errores evitables, mejor lectura del entorno y más capacidad de respuesta cuando el idioma ya opera como realidad."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Por qué 1:1 y no en grupo?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Porque esta preparación depende de tu caso, tu objetivo, tu personalidad y tu voluntad para comunicarte. El 1:1 permite trabajar desde ahí, no desde una plantilla genérica."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Cómo sé si necesito esto antes de viajar?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Si estudiaste alemán pero no sabes qué hacer cuando te hablan rápido, te cambian al inglés o entras a una situación que el libro no preparó, este trabajo es pertinente. Si no estás seguro, por eso existe la evaluación inicial."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        /* ============================================
+           TOKENS CSS — COLORES PREMIUM BERLÍN 2017
+           ============================================ */
+        :root {
+            /* ——— PALETA PRINCIPAL ——— */
+            --osterstrasse: #0d1821;
+            --jungfernstieg: #1f2f3a;
+            --offenburg: #d4e847;
+            --bvg-yellow: #ffd400;
+            --zoe-black: #050505;
+            --reeperbahn: #e04830;
+            --berlin-dark: #030504;
+            --fernsehturm: #8a9ba8;
+            --hackescher: #3d4a55;
+            --spaeti-glow: #f8f0e0;
+            --hotel-zoe: #e8f0a8;
+            --nachtfahrt: #152230;
+            
+            /* ——— TIPOGRAFÍA ——— */
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-narrative: 'Sora', sans-serif;
+            --font-technical: 'DM Mono', monospace;
+            --font-body: 'Space Grotesk', sans-serif;
+            
+            /* ——— ESPACIADO ——— */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            
+            /* ——— TRANSICIONES ——— */
+            --transition-fast: 150ms ease;
+            --transition-medium: 300ms ease;
+            --transition-slow: 600ms ease;
+            
+            /* ——— SOMBRAS PREMIUM ——— */
+            --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 60px rgba(212, 232, 71, 0.15);
+            --shadow-text: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://huhugerman.com/#webpage",
-        "url": "https://huhugerman.com/",
-        "name": "huhuGERMAN — Alemania no solo te habla. Te lee.",
-        "isPartOf": {
-          "@id": "https://huhugerman.com/#website"
-        },
-        "about": {
-          "@id": "https://huhugerman.com/#person"
-        },
-        "description": "Preparación de alta consecuencia para cuando el alemán deja de ser contenido y empieza a operar como trámite, institución, oralidad, expectativa y lectura social.",
-        "inLanguage": "es"
-      },
-      {
-        "@type": "Person",
-        "@id": "https://huhugerman.com/#person",
-        "name": "Yasser Gandhi Hernández Esquivel",
-        "url": "https://yassergandhi.dev/",
-        "sameAs": [
-          "https://www.linkedin.com/in/yassergandhi/",
-          "https://yassergandhi.dev/"
-        ],
-        "jobTitle": "Docente e investigador de alemán"
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://huhugerman.com/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿huhuGERMAN es un curso tradicional de alemán?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. huhuGERMAN no compite contra cursos tradicionales. Trabaja la zona donde el idioma deja de ser contenido escolar y empieza a operar como lectura social, trámite, institución, oralidad y costo real."
+        
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--berlin-dark);
+            color: var(--spaeti-glow);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ============================================
+           BRAND SPLIT — huhu / GERMAN
+           ============================================ */
+        .brand-huhu {
+            color: var(--spaeti-glow);
+            font-weight: 400;
+        }
+        
+        .brand-german {
+            color: var(--offenburg);
+            font-weight: 600;
+        }
+        
+        /* ============================================
+           ANCHOR TAG STATES — OPTIMIZADO
+           ============================================ */
+        a:link {
+            color: var(--offenburg);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:visited {
+            color: var(--fernsehturm);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: var(--bvg-yellow);
+            text-decoration: none;
+        }
+        
+        a:active {
+            color: var(--offenburg);
+            text-decoration: none;
+        }
+        
+        .nav-logo:link,
+        .nav-logo:visited,
+        .nav-logo:hover,
+        .nav-logo:active {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .footer-external a:link,
+        .footer-external a:visited,
+        .footer-external a:hover,
+        .footer-external a:active {
+            text-decoration: none;
+        }
+        
+        /* ============================================
+           BOTONES — CONTRASTE CORREGIDO
+           ============================================ */
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--offenburg) 0%, var(--hotel-zoe) 100%);
+            color: var(--zoe-black);
+            font-family: var(--font-technical);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 1rem 2rem;
+            transition: all var(--transition-fast);
+            border: 2px solid var(--offenburg);
+            box-shadow: 0 4px 20px rgba(212, 232, 71, 0.3);
+        }
+        
+        .btn-primary:link,
+        .btn-primary:visited {
+            color: var(--zoe-black);
+            text-decoration: none;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--bvg-yellow) 0%, var(--offenburg) 100%);
+            border-color: var(--bvg-yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 232, 71, 0.5);
+            color: var(--zoe-black);
+            text-decoration: none;
+        }
+        
+        .btn-primary:active {
+            color: var(--zoe-black);
+            text-decoration: none;
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--spaeti-glow);
+            font-family: var(--font-technical);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 1rem 2rem;
+            transition: all var(--transition-fast);
+            border: 2px solid var(--hackescher);
+        }
+        
+        .btn-secondary:link,
+        .btn-secondary:visited {
+            color: var(--spaeti-glow);
+            text-decoration: none;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--offenburg);
+            color: var(--offenburg);
+            background: rgba(212, 232, 71, 0.08);
+            text-decoration: none;
+        }
+        
+        .btn-secondary:active {
+            color: var(--offenburg);
+            text-decoration: none;
+        }
+        
+        /* ============================================
+           LOADER
+           ============================================ */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, var(--osterstrasse) 0%, var(--berlin-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity var(--transition-slow), visibility var(--transition-slow);
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 8vw, 5rem);
+            letter-spacing: 0.2em;
+            color: var(--reeperbahn);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+            line-height: 1.2;
+            text-shadow: var(--shadow-text);
+        }
+        
+        .loader-title span {
+            display: block;
+        }
+        
+        .loader-subtitle {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--offenburg);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: var(--jungfernstieg);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(212, 232, 71, 0.3);
+        }
+        
+        .loader-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--offenburg), var(--bvg-yellow));
+            animation: load 2.5s ease-in-out forwards;
+            box-shadow: 0 0 30px rgba(212, 232, 71, 0.6);
+        }
+        
+        @keyframes load {
+            0% { width: 0%; }
+            40% { width: 30%; }
+            70% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        .loader-scene {
+            font-family: var(--font-narrative);
+            font-size: 0.9rem;
+            color: var(--fernsehturm);
+            margin-top: var(--space-md);
+            text-align: center;
+            max-width: 400px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(3, 5, 4, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--hackescher);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            text-shadow: var(--shadow-text);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--fernsehturm);
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-links a:hover {
+            color: var(--bvg-yellow);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué problema intenta evitar?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Busca reducir la vulnerabilidad de llegar a Alemania con una preparación que funciona en el aula pero colapsa en escenas de presión, ambigüedad, oralidad rápida o trato institucional."
+        }
+        
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-xl) var(--space-md);
+            background: radial-gradient(ellipse at top, var(--osterstrasse) 0%, var(--berlin-dark) 70%, var(--zoe-black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(212, 232, 71, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            line-height: 0.85;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-md);
+            text-shadow: var(--shadow-text);
+        }
+        
+        .hero-content h1 .line-one {
+            display: block;
+            color: var(--spaeti-glow);
+        }
+        
+        .hero-content h1 .fracture {
+            color: var(--offenburg);
+            display: block;
+            text-shadow: 0 0 40px rgba(212, 232, 71, 0.4);
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--fernsehturm);
+            margin-bottom: var(--space-lg);
+            max-width: 500px;
+            line-height: 1.8;
+        }
+        
+        .hero-narrative {
+            background: linear-gradient(135deg, var(--jungfernstieg) 0%, var(--nachtfahrt) 100%);
+            padding: var(--space-md);
+            border-left: 4px solid var(--offenburg);
+            font-family: var(--font-narrative);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--spaeti-glow);
+            box-shadow: var(--shadow-card);
+            border-radius: 2px;
+        }
+        
+        .hero-narrative strong {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bvg-yellow);
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .hero-narrative p {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .hero-narrative .narrative-close {
+            font-family: var(--font-body);
+            font-weight: 500;
+            color: var(--offenburg);
+            margin-top: var(--space-sm);
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--hackescher);
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin-top: var(--space-lg);
+        }
+        
+        .hero-disclaimer {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--fernsehturm);
+            margin-top: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
             }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué promete realmente?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No promete fluidez como eslogan. Promete menos ceguera, mejor lectura del entorno, menos costo evitable y más capacidad de intervención cuando el alemán ya empezó a funcionar como realidad."
+            
+            .hero-narrative {
+                order: -1;
             }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://huhugerman.com/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Inicio",
-            "item": "https://huhugerman.com/"
-          }
-        ]
-      }
-    ]
-  }
-  </script>
+        }
+        
+        /* ============================================
+           PROBLEM SECTION
+           ============================================ */
+        .problem {
+            padding: var(--space-xl) var(--space-md);
+            background: var(--berlin-dark);
+        }
+        
+        .problem-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-sm);
+            text-shadow: var(--shadow-text);
+        }
+        
+        .section-header h2 .highlight {
+            color: var(--reeperbahn);
+            text-shadow: 0 0 30px rgba(224, 72, 48, 0.4);
+        }
+        
+        .fracture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .fracture-card {
+            background: linear-gradient(135deg, var(--jungfernstieg) 0%, var(--nachtfahrt) 100%);
+            padding: var(--space-md);
+            border: 1px solid var(--hackescher);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .fracture-card.class {
+            border-left: 4px solid var(--fernsehturm);
+        }
+        
+        .fracture-card.reality {
+            border-left: 4px solid var(--reeperbahn);
+        }
+        
+        .fracture-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-sm);
+            color: var(--spaeti-glow);
+        }
+        
+        .fracture-card ul {
+            list-style: none;
+        }
+        
+        .fracture-card li {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--fernsehturm);
+            padding: var(--space-xs) 0;
+            padding-left: var(--space-sm);
+            position: relative;
+        }
+        
+        .fracture-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--offenburg);
+        }
+        
+        .stat-block {
+            background: linear-gradient(135deg, var(--osterstrasse) 0%, var(--jungfernstieg) 100%);
+            padding: var(--space-md);
+            border: 1px solid var(--hackescher);
+            text-align: center;
+            margin-bottom: var(--space-md);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--reeperbahn);
+            line-height: 1;
+            text-shadow: 0 0 40px rgba(224, 72, 48, 0.5);
+        }
+        
+        .stat-label {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--spaeti-glow);
+            margin: var(--space-sm) 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-source {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--fernsehturm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .problem-close {
+            font-family: var(--font-narrative);
+            font-size: 1.125rem;
+            color: var(--offenburg);
+            text-align: center;
+            margin-top: var(--space-md);
+            font-weight: 300;
+        }
+        
+        @media (max-width: 768px) {
+            .fracture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           POLAROID STACK — CORREGIDO
+           ============================================ */
+        .scenes {
+            padding: var(--space-xl) var(--space-md);
+            background: linear-gradient(180deg, var(--zoe-black) 0%, var(--berlin-dark) 100%);
+        }
+        
+        .scenes-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-intro {
+            font-family: var(--font-narrative);
+            font-size: 1.125rem;
+            color: var(--fernsehturm);
+            margin-bottom: var(--space-lg);
+            max-width: 700px;
+            font-weight: 300;
+        }
+        
+        .polaroid-stack-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 650px;
+            margin: 0 auto var(--space-lg) auto;
+            perspective: 1000px;
+        }
+        
+        .polaroid-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--spaeti-glow);
+            padding: var(--space-sm);
+            transform-origin: center bottom;
+            transition: transform var(--transition-medium), opacity var(--transition-medium);
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+        }
+        
+        /* STACK ORDER — CORREGIDO */
+        .polaroid-card:nth-child(1) { transform: rotate(-3deg) translateZ(0); z-index: 12; }
+        .polaroid-card:nth-child(2) { transform: rotate(-2.5deg) translateZ(-15px); z-index: 11; }
+        .polaroid-card:nth-child(3) { transform: rotate(-2deg) translateZ(-30px); z-index: 10; }
+        .polaroid-card:nth-child(4) { transform: rotate(-1.5deg) translateZ(-45px); z-index: 9; }
+        .polaroid-card:nth-child(5) { transform: rotate(-1deg) translateZ(-60px); z-index: 8; }
+        .polaroid-card:nth-child(6) { transform: rotate(-0.5deg) translateZ(-75px); z-index: 7; }
+        .polaroid-card:nth-child(7) { transform: rotate(0deg) translateZ(-90px); z-index: 6; }
+        .polaroid-card:nth-child(8) { transform: rotate(0.5deg) translateZ(-105px); z-index: 5; }
+        .polaroid-card:nth-child(9) { transform: rotate(1deg) translateZ(-120px); z-index: 4; }
+        .polaroid-card:nth-child(10) { transform: rotate(1.5deg) translateZ(-135px); z-index: 3; }
+        .polaroid-card:nth-child(11) { transform: rotate(2deg) translateZ(-150px); z-index: 2; }
+        .polaroid-card:nth-child(12) { transform: rotate(2.5deg) translateZ(-165px); z-index: 1; }
+        
+        .polaroid-card:hover {
+            transform: rotate(0deg) scale(1.02) translateZ(0);
+            z-index: 100;
+        }
+        
+        .polaroid-card.discarded {
+            transform: translateX(100vw) rotate(20deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .polaroid-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: var(--jungfernstieg);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--fernsehturm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* CARD 11 — REEPERBAHN — TEXTO LEGIBLE */
+        .polaroid-card:nth-child(11) {
+            background: linear-gradient(135deg, var(--reeperbahn) 0%, #a83520 100%);
+        }
+        
+        .polaroid-card:nth-child(11) .polaroid-image {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--spaeti-glow);
+        }
+        
+        .polaroid-card:nth-child(11) .polaroid-caption,
+        .polaroid-card:nth-child(11) .polaroid-quote {
+            color: var(--spaeti-glow);
+            font-weight: 600;
+            text-shadow: var(--shadow-text);
+        }
+        
+        /* CARD 12 — OFFENBURG — TEXTO LEGIBLE */
+        .polaroid-card:nth-child(12) {
+            background: linear-gradient(135deg, var(--offenburg) 0%, var(--hotel-zoe) 100%);
+        }
+        
+        .polaroid-card:nth-child(12) .polaroid-image {
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--zoe-black);
+        }
+        
+        .polaroid-card:nth-child(12) .polaroid-caption,
+        .polaroid-card:nth-child(12) .polaroid-quote {
+            color: var(--zoe-black);
+            font-weight: 600;
+        }
+        
+        .polaroid-caption {
+            font-family: var(--font-narrative);
+            font-size: 0.9rem;
+            color: var(--zoe-black);
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        
+        .polaroid-quote {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--osterstrasse);
+            margin-top: var(--space-xs);
+            font-weight: 500;
+        }
+        
+        .polaroid-reset {
+            text-align: center;
+            margin-top: var(--space-lg);
+            display: none;
+        }
+        
+        .polaroid-reset button {
+            background: transparent;
+            border: 2px solid var(--offenburg);
+            color: var(--offenburg);
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: 0 0 20px rgba(212, 232, 71, 0.2);
+        }
+        
+        .polaroid-reset button:hover {
+            background: var(--offenburg);
+            color: var(--zoe-black);
+            box-shadow: 0 0 40px rgba(212, 232, 71, 0.5);
+        }
+        
+        .stack-instruction {
+            text-align: center;
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--offenburg);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-md);
+        }
+        
+        /* ============================================
+           FOR WHO SECTION
+           ============================================ */
+        .forwho {
+            padding: var(--space-xl) var(--space-md);
+            background: var(--berlin-dark);
+        }
+        
+        .forwho-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .forwho-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+        
+        .forwho-yes, .forwho-no {
+            padding: var(--space-md);
+            border: 1px solid var(--hackescher);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .forwho-yes {
+            background: linear-gradient(135deg, var(--osterstrasse) 0%, var(--jungfernstieg) 100%);
+            border-left: 4px solid var(--offenburg);
+        }
+        
+        .forwho-no {
+            background: linear-gradient(135deg, var(--jungfernstieg) 0%, var(--nachtfahrt) 100%);
+            border-left: 4px solid var(--reeperbahn);
+        }
+        
+        .forwho-yes h3, .forwho-no h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-md);
+            text-shadow: var(--shadow-text);
+        }
+        
+        .forwho-yes h3 {
+            color: var(--offenburg);
+        }
+        
+        .forwho-no h3 {
+            color: var(--reeperbahn);
+        }
+        
+        .forwho-yes ul, .forwho-no ul {
+            list-style: none;
+        }
+        
+        .forwho-yes li, .forwho-no li {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--fernsehturm);
+            padding: var(--space-xs) 0;
+            padding-left: var(--space-sm);
+            position: relative;
+        }
+        
+        .forwho-yes li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--offenburg);
+        }
+        
+        .forwho-no li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: var(--reeperbahn);
+        }
+        
+        @media (max-width: 768px) {
+            .forwho-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           METHOD SECTION
+           ============================================ */
+        .method {
+            padding: var(--space-xl) var(--space-md);
+            background: linear-gradient(180deg, var(--osterstrasse) 0%, var(--berlin-dark) 100%);
+        }
+        
+        .method-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        
+        .method-item {
+            background: linear-gradient(135deg, var(--jungfernstieg) 0%, var(--nachtfahrt) 100%);
+            padding: var(--space-md);
+            border: 1px solid var(--hackescher);
+            transition: border-color var(--transition-fast);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .method-item:hover {
+            border-color: var(--offenburg);
+            box-shadow: 0 0 30px rgba(212, 232, 71, 0.3);
+        }
+        
+        .method-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--offenburg);
+            line-height: 1;
+            display: block;
+            margin-bottom: var(--space-sm);
+            text-shadow: 0 0 20px rgba(212, 232, 71, 0.4);
+        }
+        
+        .method-item h3 {
+            font-family: var(--font-body);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--spaeti-glow);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .method-item p {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--fernsehturm);
+            line-height: 1.7;
+        }
+        
+        .method-close {
+            background: linear-gradient(135deg, var(--berlin-dark) 0%, var(--zoe-black) 100%);
+            padding: var(--space-md);
+            border: 1px solid var(--hackescher);
+            margin-top: var(--space-lg);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .method-close p {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--fernsehturm);
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* ============================================
+           AUTHORITY TIMELINE
+           ============================================ */
+        .authority {
+            padding: var(--space-xl) var(--space-md);
+            background: var(--berlin-dark);
+        }
+        
+        .authority-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--offenburg) 0%, var(--hackescher) 100%);
+            box-shadow: 0 0 20px rgba(212, 232, 71, 0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-lg);
+            padding-left: var(--space-md);
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: calc(-1 * var(--space-lg) + 3px);
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--offenburg);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(212, 232, 71, 0.6);
+        }
+        
+        .timeline-year {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--offenburg);
+            display: block;
+            margin-bottom: var(--space-xs);
+            text-shadow: 0 0 20px rgba(212, 232, 71, 0.4);
+        }
+        
+        .timeline-item p {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--fernsehturm);
+            line-height: 1.7;
+        }
+        
+        .timeline-item strong {
+            color: var(--spaeti-glow);
+        }
+        
+        .timeline-close {
+            font-family: var(--font-narrative);
+            font-size: 1rem;
+            color: var(--fernsehturm);
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--hackescher);
+            font-weight: 300;
+        }
+        
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact {
+            padding: var(--space-xl) var(--space-md);
+            background: linear-gradient(180deg, var(--osterstrasse) 0%, var(--berlin-dark) 100%);
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--jungfernstieg) 0%, var(--nachtfahrt) 100%);
+            padding: var(--space-lg);
+            border: 1px solid var(--hackescher);
+            margin-top: var(--space-lg);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .contact-box p {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--fernsehturm);
+            margin-bottom: var(--space-md);
+            line-height: 1.7;
+        }
+        
+        .contact-details {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--hackescher);
+        }
+        
+        .contact-subject, .contact-prompt, .contact-close {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--fernsehturm);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-subject strong {
+            color: var(--spaeti-glow);
+        }
+        
+        .contact-close {
+            font-family: var(--font-narrative);
+            color: var(--offenburg);
+            margin-top: var(--space-md);
+            font-weight: 300;
+        }
+        
+        /* ============================================
+           FAQ SECTION
+           ============================================ */
+        .faq {
+            padding: var(--space-xl) var(--space-md);
+            background: var(--berlin-dark);
+        }
+        
+        .faq-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .faq-item {
+            background: linear-gradient(135deg, var(--jungfernstieg) 0%, var(--nachtfahrt) 100%);
+            padding: var(--space-md);
+            border: 1px solid var(--hackescher);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .faq-item h3 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--spaeti-glow);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .faq-item p {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--fernsehturm);
+            line-height: 1.7;
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: var(--space-lg) var(--space-md);
+            background: linear-gradient(180deg, var(--zoe-black) 0%, var(--berlin-dark) 100%);
+            border-top: 1px solid var(--hackescher);
+            position: relative;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-nav a {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--fernsehturm);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-nav a:hover {
+            color: var(--offenburg);
+        }
+        
+        .footer-external {
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-external a {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .footer-external .brand-huhu {
+            color: var(--spaeti-glow);
+        }
+        
+        .footer-external .brand-german {
+            color: var(--offenburg);
+        }
+        
+        .footer-external a:hover .brand-huhu,
+        .footer-external a:hover .brand-german {
+            color: var(--bvg-yellow);
+        }
+        
+        .footer-copy {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--fernsehturm);
+            line-height: 1.8;
+        }
+        
+        .footer::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 100px;
+            background: radial-gradient(ellipse at bottom, rgba(138, 155, 168, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        /* ============================================
+           ACCESSIBILITY
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--offenburg);
+            color: var(--zoe-black);
+            padding: var(--space-sm);
+            z-index: 10000;
+            transition: top var(--transition-fast);
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            .hero { padding: var(--space-lg) var(--space-sm); }
+            .hero-content h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+            .polaroid-stack-container { max-width: 100%; height: 550px; }
+            .section-header h2 { font-size: clamp(2rem, 7vw, 3rem); }
+            .method-grid { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .contact-box { padding: var(--space-md); }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-container, .problem-container, .scenes-container,
+            .forwho-container, .method-container, .authority-container, .faq-container {
+                max-width: 900px;
+            }
+            .polaroid-stack-container { max-width: 400px; height: 600px; }
+            .hero-grid { gap: var(--space-md); }
+        }
+        
+        @media (min-width: 2560px) {
+            html { font-size: 20px; }
+            .hero-container, .problem-container, .scenes-container,
+            .forwho-container, .method-container, .authority-container,
+            .faq-container, .contact-container, .footer-container {
+                max-width: 2000px;
+            }
+            .hero-content h1 { font-size: clamp(4rem, 6vw, 8rem); }
+            .section-header h2 { font-size: clamp(3rem, 5vw, 5rem); }
+            .polaroid-stack-container { max-width: 700px; height: 850px; }
+            .fracture-grid { gap: var(--space-lg); }
+            .forwho-grid { gap: var(--space-xl); }
+        }
+        
+        @media (min-width: 3440px) {
+            html { font-size: 24px; }
+            .hero-container, .problem-container, .scenes-container,
+            .forwho-container, .method-container, .authority-container,
+            .faq-container, .contact-container, .footer-container {
+                max-width: 2800px;
+            }
+            .polaroid-stack-container { max-width: 900px; height: 1050px; }
+        }
+    </style>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
-
-  <div id="loader" aria-hidden="true">
-    <div class="loader-text">Detección de ceguera institucional…</div>
-    <div class="loader-track"><div id="loader-bar"></div></div>
-  </div>
-
-  <nav aria-label="Navegación principal">
-    <div class="logo">huhuGERMAN</div>
-    <div class="status">Lectura social · trámite · oralidad · costo</div>
-  </nav>
-
-  <main id="contenido">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow">Preparación preventiva para Alemania</p>
-          <h1 class="hero-title" id="hero-title">Alemania no <br>solo te habla. <br><span class="serif">Te lee.</span></h1>
-          <p class="hero-subtitle">Diez escenas donde el alemán escolar deja de servir. Antes del viaje, del trámite, del silencio incómodo y del costo evitable.</p>
-          <p class="hero-note">huhuGERMAN no compite contra cursos de alemán. Prepara al estudiante hispanohablante para el punto en que el idioma deja de ser contenido y empieza a funcionar como interacción, trámite, institución, expectativa, oralidad y lectura social.</p>
+    <!-- SKIP LINK -->
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    
+    <!-- LOADER -->
+    <div class="loader" id="loader" role="status" aria-label="Cargando sitio">
+        <h1 class="loader-title">
+            <span>ANTES.</span>
+            <span>DE.</span>
+            <span>LLEGAR.</span>
+        </h1>
+        <p class="loader-subtitle">La ventana se cierra al viajar</p>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
         </div>
-
-        <aside class="hero-aside" aria-label="Lectura rápida del problema">
-          <h2>Lo que aquí se trabaja</h2>
-          <ul>
-            <li><strong>No fluidez ornamental</strong>Se trabaja la escena donde el libro ya no basta y el entorno deja de ayudarte.</li>
-            <li><strong>No promesa genérica</strong>La preparación se orienta a reducir vulnerabilidad, aislamiento y costo evitable.</li>
-            <li><strong>No discurso aspiracional</strong>La autoridad nace de aula, archivo, relectura, observación sostenida y fricción vivida.</li>
-          </ul>
-        </aside>
-      </div>
-
-      <div class="stack-wrap" aria-labelledby="stack-title">
-        <h2 id="stack-title" class="eyebrow">Escenas de fricción</h2>
-        <div class="stack-area" id="stack">
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 01: el umbral" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 01: el umbral</div>
-              <div class="book-ver">“Ich lerne Deutsch seit A1.”</div>
-              <div class="real-ver">„In Deutschland ist das nicht genug. Du brauchst Bildung.“</div>
-            </div>
-            <div class="caption">La brecha empieza antes del viaje: cuando crees que A1, A2 o B1 bastan.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 02: REWE Kasse" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 02: REWE Kasse</div>
-              <div class="book-ver">“Möchten Sie den Beleg?”</div>
-              <div class="real-ver">„Bon? Punkte? Karte oder bar? Machen Se mal.“</div>
-            </div>
-            <div class="caption">La caja no espera a que proceses. Ya te viene encima.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 03: WG-Küche" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 03: WG-Küche</div>
-              <div class="book-ver">“Wer hat den Fisch gegessen?”</div>
-              <div class="real-ver">„Alter, was stinkt hier so? Wer war das? Boah, ey.“</div>
-            </div>
-            <div class="caption">Así suena lo cotidiano cuando ya nadie te habla para ayudarte.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 04: Stammtisch" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 04: Stammtisch</div>
-              <div class="book-ver">“Wie geht es dir?”</div>
-              <div class="real-ver">„Na ja, muss. Und bei dir? Läuft oder was?“</div>
-            </div>
-            <div class="caption">La incomodidad social rara vez avisa que empezó.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 05: el colapso" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 05: el colapso</div>
-              <div class="book-ver">“Können Sie das wiederholen?”</div>
-              <div class="real-ver">„Auf Englisch geht’s schneller.“</div>
-            </div>
-            <div class="caption">A veces el cambio al inglés no te salva. Te saca de la escena.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 06: Ruhezeit" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 06: Ruhezeit</div>
-              <div class="book-ver">“Es ist laut.”</div>
-              <div class="real-ver">„Sonntag ist Ruhetag. Das ist eine Frechheit. Polizei?“</div>
-            </div>
-            <div class="caption">Un conflicto mínimo puede escalar cuando no sabes leer el tono.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 07: Termin" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 07: Termin</div>
-              <div class="book-ver">“Haben Sie einen Termin?”</div>
-              <div class="real-ver">„Nächste Woche. Ohne Termin keine Bearbeitung. Raus.“</div>
-            </div>
-            <div class="caption">La institución detecta rápido quién no sabe sostener la escena.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 08: el Späti" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 08: el Späti</div>
-              <div class="book-ver">“Ich möchte ein Bier, bitte.”</div>
-              <div class="real-ver">„Pfand? Einzeln oder Kiste? Nee, ham wa grad nich.“</div>
-            </div>
-            <div class="caption">La calle no repite ni ordena. Solo sigue.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 09: DB Streik" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 09: DB Streik</div>
-              <div class="book-ver">“Der Zug kommt um 10 Uhr.”</div>
-              <div class="real-ver">„Heute nur Ersatzverkehr ab Gleis vier. Fahrräder nicht. Schnell, bitte.“</div>
-            </div>
-            <div class="caption">El anuncio pasa una vez. Tu tren también.</div>
-          </article>
-
-          <article class="polaroid" tabindex="0" role="button" aria-label="Escena 10: el controlador" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Escena 10: el controlador</div>
-              <div class="book-ver">“Fahrkarte, bitte.”</div>
-              <div class="real-ver">„Ausweis. Sie sind ohne gültiges Ticket unterwegs. 60 Euro.“</div>
-            </div>
-            <div class="caption">Aquí ya no corriges una frase. Corriges tarde.</div>
-          </article>
-
-          <article class="polaroid risk-card" tabindex="0" role="button" aria-label="Tarjeta de riesgo acumulado" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Penúltima tarjeta: el riesgo</div>
-              <div class="book-ver">“Todavía no hablo perfecto, pero ya aprenderé allá.”</div>
-              <div class="real-ver">MALA LECTURA → MAL TRÁMITE → AISLAMIENTO → COSTO EVITABLE → VULNERABILIDAD.</div>
-            </div>
-            <div class="caption">No es falta de talento. Es llegar desarmado a un entorno que ya te está leyendo.</div>
-          </article>
-
-          <article class="polaroid stat-card" tabindex="0" role="button" aria-label="Tarjeta final con cifra real" onclick="discard(this)" onkeydown="handleKey(event, this)">
-            <div class="scene-box">
-              <div class="scene-type">Tarjeta final: la cifra</div>
-              <div class="book-ver">“Ya estando allá, me adapto.”</div>
-              <div class="real-ver">41% DE ESTUDIANTES INTERNACIONALES DE LICENCIATURA EN ALEMANIA TERMINAN SIN GRADUARSE.</div>
-              <div class="stat-source">Dato reportado por DAAD en su Annual Report 2024 sobre abandono en estudiantes internacionales de bachelor.</div>
-            </div>
-            <div class="caption">No todo se rompe el primer día. A veces el costo aparece cuando ya estás dentro.</div>
-          </article>
-        </div>
-        <div class="stack-nav">Toca cada tarjeta. La última no cierra suave: remata el riesgo.</div>
-        <div class="stack-actions">
-          <button id="resetStackBtn" class="stack-reset" type="button" aria-controls="stack">Volver a ver las tarjetas</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="risk-strip container" aria-label="Riesgos que se acumulan">
-      <div class="risk-grid">
-        <div class="risk-box"><strong>Trámite</strong><p>No basta entender palabras sueltas. Hay que sostener el intercambio cuando la institución marca distancia.</p></div>
-        <div class="risk-box"><strong>Oralidad</strong><p>El alemán real llega con velocidad, cortes, acentos, economía verbal y poca paciencia.</p></div>
-        <div class="risk-box"><strong>Lectura social</strong><p>Muchos tropiezos no vienen de gramática deficiente sino de una escena mal leída.</p></div>
-        <div class="risk-box"><strong>Costo</strong><p>La mala preparación no siempre se ve en clase. Se ve cuando algo se cobra, se rechaza o se cierra.</p></div>
-      </div>
-    </section>
-
-    <section class="comparison" aria-labelledby="comparison-title">
-      <div class="container">
-        <p class="eyebrow">La brecha central</p>
-        <h2 id="comparison-title" class="section-title">Del aula <br><span class="serif">a la escena.</span></h2>
-        <p class="section-intro">El problema no es que el estudiante no haya estudiado. El problema es haber estudiado algo que no alcanza cuando el entorno ya no se comporta como material didáctico.</p>
-
-        <div class="comp-grid">
-          <article class="comp-card">
-            <h2>Cultura de <br><span class="serif">libro</span></h2>
-            <ul>
-              <li><strong>Propósito</strong>Aprobar niveles, presentar examen, demostrar avance visible.</li>
-              <li><strong>Contenido</strong>Gramática higienizada, audios lentos, conversaciones pedagógicamente amables.</li>
-              <li><strong>Efecto</strong>Produce seguridad escolar que puede colapsar en escenarios de presión, oralidad rápida o trato institucional.</li>
-            </ul>
-          </article>
-
-          <article class="comp-card">
-            <h2>Realidad <br><span class="serif">operante</span></h2>
-            <ul>
-              <li><strong>Propósito</strong>Intervenir en la escena, defender un trámite, sostener un intercambio y evitar costo evitable.</li>
-              <li><strong>Contenido</strong>Ruido real, Umgangssprache, tono social, expectativa institucional, silencios tensos.</li>
-              <li><strong>Efecto</strong>Mejor lectura del entorno y menos vulnerabilidad cuando el alemán ya dejó de ser contenido.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="archive" aria-labelledby="archive-title">
-      <div class="container">
-        <div class="archive-header">
-          <div>
-            <p class="eyebrow">Archivo y trazabilidad</p>
-            <h2 id="archive-title" class="section-title">Autoridad con <br><span class="serif">registro.</span></h2>
-          </div>
-          <p class="archive-meta">La aparición pública de huhuGERMAN no sale de una ocurrencia repentina. Sale de una acumulación larga de aula, archivo, investigación, relectura y fricción vivida.</p>
-        </div>
-
-        <div class="archive-list">
-          <article class="archive-item">
-            <div class="archive-year">2011—2026</div>
-            <div class="archive-content">
-              <h3>Observación docente sostenida</h3>
-              <p>Años de trabajo detectando el punto donde el alemán escolar deja de proteger al estudiante frente a escenas de oralidad, institución, procedimiento o presión social.</p>
-            </div>
-          </article>
-
-          <article class="archive-item">
-            <div class="archive-year">2015</div>
-            <div class="archive-content">
-              <h3>Primer anclaje formal</h3>
-              <p>Investigación y sistematización sobre comprensión, estrategias, autonomía y lectura del proceso de aprendizaje.</p>
-            </div>
-          </article>
-
-          <article class="archive-item">
-            <div class="archive-year">2017—2019</div>
-            <div class="archive-content">
-              <h3>Fricción vivida en Alemania</h3>
-              <p>La experiencia no se limita al aula: incluye contacto directo con escena urbana, oralidad no canónica, expectativa social y realidad institucional alemana.</p>
-            </div>
-          </article>
-
-          <article class="archive-item">
-            <div class="archive-year">2020</div>
-            <div class="archive-content">
-              <h3>Relectura crítica</h3>
-              <p>Formalización de una postura cultural y docente que no reduce Alemania a datos de Landeskunde ni el idioma a temas escolares acumulables.</p>
-            </div>
-          </article>
-
-          <article class="archive-item">
-            <div class="archive-year">2026</div>
-            <div class="archive-content">
-              <h3>Consolidación operativa</h3>
-              <p>Refinamiento del SSOT, trazabilidad documental, validación pública y articulación entre archivo, bio, sitio, LinkedIn y oferta.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="offer" aria-labelledby="offer-title">
-      <div class="container">
-        <p class="eyebrow">La oferta, sin humo</p>
-        <h2 id="offer-title" class="section-title">No llegues <br><span class="serif">desarmado.</span></h2>
-        <p class="section-intro">Esto no se vende como promesa de fluidez. Se plantea como preparación preventiva para el momento en que el entorno alemán ya te está leyendo y el costo de la mala lectura deja de ser teórico.</p>
-
-        <div class="offer-grid">
-          <div class="offer-copy">
-            <p>huhuGERMAN trabaja la zona que muchos cursos dejan fuera: la transición entre “sé temas” y “puedo intervenir cuando la escena se pone rápida, áspera, institucional o socialmente cargada”.</p>
-            <p>Aquí el valor no está en acumular certificados ni aparentar progreso. Está en llegar con menos ceguera, menos vulnerabilidad y mejor calibración de lo que realmente te espera.</p>
-
-            <ul class="offer-points">
-              <li><strong>Promesa real</strong>Menos costo evitable. Mejor lectura. Más capacidad de intervención.</li>
-              <li><strong>Problema real</strong>El alemán puede aprobarse en clase y aun así fallar en ventanilla, tren, cocina compartida, vecindad o conversación social.</li>
-              <li><strong>Diferencia real</strong>Lo que aquí se trabaja es difícil de sustituir con clases comunes porque no parte de contenido aislado, sino de escenas con consecuencia.</li>
-            </ul>
-          </div>
-
-          <aside class="offer-card" aria-label="Preparación preventiva">
-            <h3>Preparación preventiva</h3>
-            <p>Para quienes entendieron a tiempo que el problema no era “me falta vocabulario”, sino llegar mal calibrados al punto donde Alemania ya empezó a leerlos.</p>
-            <ul>
-              <li>Lectura de escenas de alta fricción</li>
-              <li>Trabajo sobre oralidad, tono y expectativa</li>
-              <li>Preparación previa a trámite, llegada o exposición real</li>
-              <li>Puente entre archivo, experiencia y necesidad concreta</li>
-            </ul>
-
-            <div class="btn-row">
-              <a href="#contacto" class="btn">Solicitar preparación preventiva</a>
-              <a href="https://yassergandhi.dev/" class="btn-secondary" rel="noopener">Ver archivo de Yasser</a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contacto" aria-labelledby="contact-title">
-      <div class="container">
-        <p class="eyebrow">Contacto y filtro</p>
-        <h2 id="contact-title" class="section-title">Pide acceso <br><span class="serif">desde aquí.</span></h2>
-        <div class="contact-grid">
-          <div class="contact-copy">
-            <p>Si esta lectura te pegó, deja tus datos aquí.</p>
-            <p>No para “tomar un curso”, sino para revisar si necesitas este tipo de preparación antes de que la escena real te cobre la factura.</p>
-            <p class="contact-meta">Si prefieres revisar primero quién está detrás de esto, abajo tienes el archivo y las vías de contacto.</p>
-            <div class="contact-links">
-              <a href="https://yassergandhi.dev/" class="btn-secondary" rel="noopener">Ver archivo de Yasser</a>
-              <a href="https://www.linkedin.com/in/yassergandhi/" class="btn-secondary" rel="noopener">LinkedIn</a>
-              <a href="mailto:yassergandhi.dev@gmail.com" class="btn-secondary">Correo</a>
-            </div>
-          </div>
-          <aside class="contact-card" aria-label="Formulario de Kit">
-            <div id="kit-contact-wrap">
-              <script async data-uid="c5ade38b05" src="https://huhugerman.kit.com/c5ade38b05/index.js"></script>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2 id="faq-title" class="section-title">Lo que esto <br><span class="serif">sí es.</span></h2>
-
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>¿huhuGERMAN es un curso tradicional de alemán?</summary>
-            <p>No. No compite contra cursos convencionales. Trabaja la parte del problema que suele aparecer cuando el estudiante ya estudió bastante, pero llega mal preparado al punto donde el idioma opera como trámite, interacción, tono, institución y lectura social.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>¿Promete fluidez?</summary>
-            <p>No. La promesa no es “fluidez” como palabra vacía. La promesa es menos ceguera, menos costo evitable, mejor lectura del entorno y más capacidad de intervenir cuando la escena deja de parecerse al libro.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>¿Por qué esta oferta no suena como una escuela?</summary>
-            <p>Porque el foco no está en vender niveles ni progreso aparente. Está en nombrar una brecha real: el punto donde el alemán escolar ya no basta para sostener una escena social o institucional con consecuencia.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <p><strong>huhuGERMAN</strong></p>
-        <p>© 2026 Yasser Gandhi Hernández Esquivel</p>
-        <p class="footer-note">huhu: interjección coloquial alemana. h.u.h.u.: instrumento pedagógico. huhuGERMAN: espacio público de trabajo y preparación.</p>
-      </div>
-      <div style="text-align:right;">
-        <p>Osterstraße · Jungfernstieg · Reeperbahn · Berlin · Offenburg · Berghain</p>
-        <p><a href="https://yassergandhi.dev/" rel="noopener">yassergandhi.dev</a></p>
-      </div>
+        <p class="loader-scene">
+            No es un curso. Es preparación preventiva.<br>
+            El costo de no actuar empieza antes del vuelo.
+        </p>
     </div>
-  </footer>
-
-  <script>
-    function positionPolaroids() {
-      const cards = Array.from(document.querySelectorAll('.polaroid'));
-      const offsets = [
-        { x: 12, y: -2, r: 4 },
-        { x: 2, y: 4, r: -3 },
-        { x: -8, y: 8, r: 2 },
-        { x: 7, y: 12, r: -5 },
-        { x: -12, y: 16, r: 3 },
-        { x: 5, y: 20, r: -2 },
-        { x: -5, y: 24, r: 5 },
-        { x: 10, y: 28, r: -4 },
-        { x: -10, y: 32, r: 2 },
-        { x: 4, y: 36, r: -3 },
-        { x: -2, y: 40, r: 1 },
-        { x: 8, y: 44, r: -2 }
-      ];
-
-      cards.forEach((card, index) => {
-        const o = offsets[index] || { x: 0, y: index * 4, r: 0 };
-        card.style.zIndex = String(cards.length - index);
-        card.style.setProperty('--stack-x', `${o.x}px`);
-        card.style.setProperty('--stack-y', `${o.y}px`);
-        card.style.setProperty('--stack-r', `${o.r}deg`);
-        card.style.transform = `translate(${o.x}px, ${o.y}px) rotate(${o.r}deg)`;
-      });
-    }
-
-    function toggleResetButton(show) {
-      const btn = document.getElementById('resetStackBtn');
-      if (!btn) return;
-      btn.classList.toggle('is-visible', show);
-    }
-
-    function resetStack() {
-      document.querySelectorAll('.polaroid').forEach(p => p.classList.remove('discarded'));
-      positionPolaroids();
-      toggleResetButton(false);
-    }
-
-    function discard(el) {
-      el.classList.add('discarded');
-      const active = document.querySelectorAll('.polaroid:not(.discarded)');
-      if (active.length === 0) {
-        toggleResetButton(true);
-      }
-    }
-
-    function handleKey(event, el) {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        discard(el);
-      }
-    }
-
-    window.addEventListener('load', () => {
-      positionPolaroids();
-      const resetBtn = document.getElementById('resetStackBtn');
-      if (resetBtn) {
-        resetBtn.addEventListener('click', resetStack);
-      }
-      const bar = document.getElementById('loader-bar');
-      const loader = document.getElementById('loader');
-      let p = 0;
-      const t = setInterval(() => {
-        p += Math.random() * 24;
-        if (p >= 100) {
-          p = 100;
-          clearInterval(t);
-          setTimeout(() => {
-            loader.style.opacity = '0';
+    
+    <!-- NAVIGATION -->
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="huhuGERMAN inicio">
+                <span class="brand-huhu">huhu</span><span class="brand-german">GERMAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#problema">El problema</a></li>
+                <li><a href="#escenas">Escenas</a></li>
+                <li><a href="#para-quien">Para quién</a></li>
+                <li><a href="#metodo">Cómo funciona</a></li>
+                <li><a href="#autoridad">Origen</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- MAIN CONTENT -->
+    <main id="contenido">
+        
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1 id="hero-title">
+                            <span class="line-one">Alemania no solo te habla.</span>
+                            <span class="fracture">Te lee.</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Puedes llegar con meses de estudio, dominar las declinaciones y aún así 
+                            quedar fuera de la escena. No por desconocimiento. Porque el alemán real 
+                            llega con velocidad, tono, presión y muy poca paciencia.
+                        </p>
+                        <div class="cta-group">
+                            <a href="#contacto" class="btn-primary">Evaluar mi preparación antes de viajar</a>
+                            <a href="#escenas" class="btn-secondary">Conocer las escenas reales</a>
+                        </div>
+                        <p class="hero-disclaimer">
+                            No es curso tradicional. No es gestoría. Preparación 1:1 para no llegar vulnerable.
+                        </p>
+                    </div>
+                    
+                    <aside class="hero-narrative" aria-label="Historia Berlín 2017">
+                        <strong>Berlín · Diciembre 2017 · 11:47 PM</strong>
+                        <p>
+                            Las maletas se habían perdido. Cuatro días sin ropa. El agente de la 
+                            aerolínea nos habló en inglés. Yo insistí en alemán. Me había costado 
+                            diez años aprenderlo para cederlo en el primer intercambio real.
+                        </p>
+                        <p>
+                            Hotel Zoe. Denis en recepción. Paredes amarillo-verde limón. 
+                            Habitación negra. Olor a limón premium. Nos orientó sin que se lo 
+                            pidiéramos. Primera R alemana escuchada en la calle, en un Rossmann 
+                            a las once de la noche.
+                        </p>
+                        <p>
+                            Salimos a caminar. Frío. Niebla. <a href="https://www.berlin.de/sehenswuerdigkeiten/3560707-3558930-fernsehturm.html" target="_blank" rel="noopener" aria-label="Hackescher Markt Berlin">Hackescher Markt</a>. Al fondo, 
+                            la <a href="https://www.berlin.de/sehenswuerdigkeiten/3560707-3558930-fernsehturm.html" target="_blank" rel="noopener" aria-label="Fernsehturm Berlin">Fernsehturm</a>. Esa noche aprendí más de cultura alemana que en 
+                            muchos meses de libro.
+                        </p>
+                        <p class="narrative-close">
+                            Berlín te habla. Depende de ti si entiendes.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PROBLEM SECTION -->
+        <section class="problem" id="problema" aria-labelledby="problem-title">
+            <div class="problem-container">
+                <div class="section-header">
+                    <h2 id="problem-title">El problema no es que no estudies.<br><span class="highlight">El problema es exponerte mal.</span></h2>
+                </div>
+                
+                <div class="fracture-grid">
+                    <div class="fracture-card class">
+                        <h3>Lo que pasa en clase</h3>
+                        <ul>
+                            <li>El input llega limpio, lento y pensado para ayudarte</li>
+                            <li>El error no tiene consecuencias reales</li>
+                            <li>La gramática organiza el mundo antes de que lo habites</li>
+                            <li>El Hochdeutsch es el idioma. Punto.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fracture-card reality">
+                        <h3>Lo que pasa en Alemania</h3>
+                        <ul>
+                            <li>La gente recorta, acelera y espera reacción</li>
+                            <li>Te cambian al inglés sin preguntarte</li>
+                            <li>Las normas no se explican. Se leen o se pagan</li>
+                            <li>El Umgangssprache es el idioma real</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stat-block">
+                    <p class="stat-number">41%</p>
+                    <p class="stat-label">
+                        de estudiantes internacionales de licenciatura abandona antes de terminar 
+                        (DAAD-DZHW, trayectoria completa). No es solo dificultad lingüística. 
+                        Es llegar vulnerable a un entorno que no se adapta a ti.
+                    </p>
+                    <p class="stat-source">
+                        <a href="https://www.bmi.bund.de/SharedDocs/downloads/DE/veroeffentlichungen/2026/inra-studie.html" target="_blank" rel="noopener" aria-label="InRa-Studie 2026 BMI">InRa-Studie 2026 (BMI)</a>: las barreras lingüísticas funcionan como 
+                        multiplicador de vulnerabilidad institucional.
+                    </p>
+                </div>
+                
+                <p class="problem-close">
+                    El riesgo no es no entender palabras. El riesgo es perder la escena.
+                </p>
+            </div>
+        </section>
+        
+        <!-- SCENES SECTION -->
+        <section class="scenes" id="escenas" aria-labelledby="scenes-title">
+            <div class="scenes-container">
+                <div class="section-header">
+                    <h2 id="scenes-title">Escenas reales.<br><span class="highlight">Lo que encuentras cuando el libro se acaba.</span></h2>
+                </div>
+                
+                <p class="section-intro">
+                    Una Nachtfahrt. El <a href="https://www.bvg.de/de" target="_blank" rel="noopener" aria-label="BVG Berlin">BVG</a> a las 11pm. La luz del Späti en la calle. 
+                    Un Tram que llega sin esperarte. El alemán real no llega ordenado. 
+                    Llega en escenas. Toca cada tarjeta para descartarla y avanzar.
+                </p>
+                
+                <p class="stack-instruction">→ Toca o haz clic para descartar cada escena ←</p>
+                
+                <!-- POLAROID STACK — 12 CARDS -->
+                <div class="polaroid-stack-container" id="polaroidStackContainer">
+                    <!-- Card 01 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 01: El umbral">
+                        <div class="polaroid-image">Escena 01 · El umbral</div>
+                        <p class="polaroid-caption">"Ich lerne Deutsch. A2."</p>
+                        <p class="polaroid-quote">"Haber estudiado no impide que la escena te pase por encima."</p>
+                    </div>
+                    
+                    <!-- Card 02 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 02: Aeropuerto">
+                        <div class="polaroid-image">Escena 02 · Aeropuerto</div>
+                        <p class="polaroid-caption">"Entschuldigung, mein Koffer…"</p>
+                        <p class="polaroid-quote">"We can do it in English." — y ahí empieza el problema.</p>
+                    </div>
+                    
+                    <!-- Card 03 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 03: REWE Kasse">
+                        <div class="polaroid-image">Escena 03 · REWE Kasse</div>
+                        <p class="polaroid-caption">"Möchten Sie den Beleg?"</p>
+                        <p class="polaroid-quote">"Bon? Karte? Punkte? Tschüss."</p>
+                    </div>
+                    
+                    <!-- Card 04 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 04: Hotel / Rossmann">
+                        <div class="polaroid-image">Escena 04 · Hotel / Rossmann</div>
+                        <p class="polaroid-caption">"Wo kann ich Kleidung kaufen?"</p>
+                        <p class="polaroid-quote">Denis lo dijo en Umgangssprache. Y se entendió.</p>
+                    </div>
+                    
+                    <!-- Card 05 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 05: Tram Hackescher Markt">
+                        <div class="polaroid-image">Escena 05 · Tram</div>
+                        <p class="polaroid-caption">"Der Zug kommt in drei Minuten."</p>
+                        <p class="polaroid-quote">"Nächste Haltestelle: Hackescher Markt."</p>
+                    </div>
+                    
+                    <!-- Card 06 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 06: Späti 11pm">
+                        <div class="polaroid-image">Escena 06 · Späti 11pm</div>
+                        <p class="polaroid-caption">"Ich möchte ein Bier, bitte."</p>
+                        <p class="polaroid-quote">"Pfand? Nee, ham wa grad nich."</p>
+                    </div>
+                    
+                    <!-- Card 07 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 07: WG / Norma">
+                        <div class="polaroid-image">Escena 07 · WG / Norma</div>
+                        <p class="polaroid-caption">"Es tut mir leid."</p>
+                        <p class="polaroid-quote">"So macht man das hier nicht."</p>
+                    </div>
+                    
+                    <!-- Card 08 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 08: Ausländerbehörde">
+                        <div class="polaroid-image">Escena 08 · Ausländerbehörde</div>
+                        <p class="polaroid-caption">"Guten Tag, ich brauche Hilfe."</p>
+                        <p class="polaroid-quote">"Haben Sie einen Termin? Ohne Termin keine Bearbeitung."</p>
+                    </div>
+                    
+                    <!-- Card 09 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 09: Nachtruhe">
+                        <div class="polaroid-image">Escena 09 · Nachtruhe</div>
+                        <p class="polaroid-caption">"Es ist laut."</p>
+                        <p class="polaroid-quote">"Nachtruhe beginnt um 22 Uhr. Das wissen Sie doch."</p>
+                    </div>
+                    
+                    <!-- Card 10 -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Escena 10: El estereotipo">
+                        <div class="polaroid-image">Escena 10 · Estereotipo</div>
+                        <p class="polaroid-caption">"Die Deutschen sind sehr pünktlich und kalt."</p>
+                        <p class="polaroid-quote">Denis en recepción. Amable. Con nombres. Sin guión.</p>
+                    </div>
+                    
+                    <!-- Card 11 — ADVERTENCIA DE RIESGO -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Tarjeta 11: Advertencia de riesgo">
+                        <div class="polaroid-image">⚠️ Riesgo acumulado</div>
+                        <p class="polaroid-caption">"Ya aprenderé allá."</p>
+                        <p class="polaroid-quote">Mala lectura → cambio al inglés → aislamiento → vulnerabilidad sostenida. No es falta de talento. Es llegar vulnerable a un entorno que no se adapta a ti.</p>
+                    </div>
+                    
+                    <!-- Card 12 — CONTEXTO / ESTRATEGIA -->
+                    <div class="polaroid-card" tabindex="0" role="button" aria-label="Tarjeta 12: El contexto">
+                        <div class="polaroid-image">✓ El contexto</div>
+                        <p class="polaroid-caption">"Ya estando allá me adapto."</p>
+                        <p class="polaroid-quote">Alemania recibe cientos de miles de estudiantes internacionales cada año. Llegar mejor preparado no es lujo. Es estrategia. Precisamente por eso importa llegar con más lectura, más estrategia y menos ingenuidad.</p>
+                    </div>
+                </div>
+                
+                <div class="polaroid-reset" id="polaroidReset">
+                    <button type="button" id="resetPolaroids">Ver de nuevo los riesgos</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FOR WHO SECTION -->
+        <section class="forwho" id="para-quien" aria-labelledby="forwho-title">
+            <div class="forwho-container">
+                <div class="section-header">
+                    <h2 id="forwho-title">No es para cualquiera.<br><span class="highlight">Sí es para ti si...</span></h2>
+                </div>
+                
+                <div class="forwho-grid">
+                    <div class="forwho-yes">
+                        <h3>Encaja</h3>
+                        <ul>
+                            <li>Vas a viajar, estudiar o mudarte a Alemania y ya sabes que el idioma del libro no agota el problema</li>
+                            <li>Ya estudiaste alemán pero no te sientes listo para la oralidad real, el tono social o la lectura de contexto</li>
+                            <li>Te preocupa el cambio al inglés, la primera ventanilla o entrar mal a una escena que importa</li>
+                            <li>Quieres trabajar tu parte personal dentro de la comunicación, no solo acumular estructuras gramaticales</li>
+                            <li>Entiendes que todo dependerá de tu personalidad y voluntad para comunicarte</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="forwho-no">
+                        <h3>No encaja si</h3>
+                        <ul>
+                            <li>Buscas un curso por niveles con libros, ejercicios y progreso escolar</li>
+                            <li>Solo necesitas gramática o preparación para un examen de certificación</li>
+                            <li>Esperas promesas de fluidez o transformación rápida</li>
+                            <li>No estás dispuesto a trabajar tu disposición a entrar en la escena aunque no estés seguro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- METHOD SECTION -->
+        <section class="method" id="metodo" aria-labelledby="method-title">
+            <div class="method-container">
+                <div class="section-header">
+                    <h2 id="method-title">La preparación parte de tu caso real.<br><span class="highlight">El 1:1 no es un lujo. Es la única forma.</span></h2>
+                </div>
+                
+                <p class="section-intro">
+                    Porque la preparación depende de quién eres, cuándo vas, qué nivel tienes, 
+                    cómo te comunicas y qué tipo de exposición te espera. Una plantilla genérica 
+                    no puede hacer eso.
+                </p>
+                
+                <div class="method-grid">
+                    <div class="method-item">
+                        <span class="method-number">01</span>
+                        <h3>Comprensión global</h3>
+                        <p>Captar lo esencial cuando no entiendes cada palabra. Funcionar dentro de la escena aunque no todo sea claro.</p>
+                    </div>
+                    
+                    <div class="method-item">
+                        <span class="method-number">02</span>
+                        <h3>Oralidad y tono social</h3>
+                        <p>El Umgangssprache, la velocidad real, el registro de la calle. La diferencia entre lo que se enseña y lo que se habla.</p>
+                    </div>
+                    
+                    <div class="method-item">
+                        <span class="method-number">03</span>
+                        <h3>El cambio al inglés</h3>
+                        <p>Qué hacer cuando la otra persona decide cambiar. Cómo no ceder automáticamente. Cuándo decidir tú.</p>
+                    </div>
+                    
+                    <div class="method-item">
+                        <span class="method-number">04</span>
+                        <h3>Lectura cultural y normas</h3>
+                        <p>Los ritos, las normas no escritas, las expectativas que nadie explica pero que sí te leen.</p>
+                    </div>
+                    
+                    <div class="method-item">
+                        <span class="method-number">05</span>
+                        <h3>Voluntad para comunicarte</h3>
+                        <p>Tu disposición a entrar en la escena aunque no estés seguro. Eso también se trabaja. Y depende de ti.</p>
+                    </div>
+                </div>
+                
+                <div class="method-close">
+                    <p>
+                        No partimos de teoría. Partimos de dónde te vas a jugar la vida real.
+                        Revisamos tu exposición real, detectamos qué riesgo es evitable y 
+                        diseñamos el trabajo desde ahí.
+                    </p>
+                    <p>
+                        La preparación funciona cuando quien la diseña también vivió la fricción. 
+                        No como anécdota. Como punto de partida.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AUTHORITY TIMELINE -->
+        <section class="authority" id="autoridad" aria-labelledby="authority-title">
+            <div class="authority-container">
+                <div class="section-header">
+                    <h2 id="authority-title">Esto no salió de una ocurrencia.<br><span class="highlight">Salió de 15 años de observación.</span></h2>
+                </div>
+                
+                <div class="timeline" role="list">
+                    <div class="timeline-item" role="listitem">
+                        <span class="timeline-year">2011</span>
+                        <p>Primeras clases de alemán en la <strong>FCPyS-UNAM</strong>. Inicio de la observación sobre la brecha entre input escolar e input real.</p>
+                    </div>
+                    
+                    <div class="timeline-item" role="listitem">
+                        <span class="timeline-year">2015</span>
+                        <p>Tesis de licenciatura: <strong>estrategias metacognitivas en la comprensión auditiva</strong>. Primera formalización del método con grupos A1–A2. UNAM.</p>
+                    </div>
+                    
+                    <div class="timeline-item" role="listitem">
+                        <span class="timeline-year">2017</span>
+                        <p>Primera llegada a Berlín. Maletas perdidas. Hackescher Markt. Hotel Zoe. Denis. La R alemana en Rossmann. Los estereotipos que se derrumban.</p>
+                    </div>
+                    
+                    <div class="timeline-item" role="listitem">
+                        <span class="timeline-year">2017</span>
+                        <p>Publicación en <strong><a href="https://www.revista.unam.mx/vol.18/num5/art39/index.html" target="_blank" rel="noopener" aria-label="Revista Digital Universitaria UNAM">Revista Digital Universitaria UNAM</a></strong>: el caso Emilio, alumno que aprendió con YouTube y ganó una beca del Goethe-Institut.</p>
+                    </div>
+                    
+                    <div class="timeline-item" role="listitem">
+                        <span class="timeline-year">2019</span>
+                        <p>Estancia de investigación en el <strong><a href="https://www.uni-hamburg.de/sprachenzentrum.html" target="_blank" rel="noopener" aria-label="Sprachzentrum Universität Hamburg">Sprachzentrum der Universität Hamburg</a></strong>. Testimonios de profesores alemanes sobre por qué los estudiantes internacionales abandonan.</p>
+                    </div>
+                    
+                    <div class="timeline-item" role="listitem">
+                        <span class="timeline-year">2020</span>
+                        <p>Tesis de maestría en Pedagogía, UNAM: <strong>formación docente comparativa México-Alemania</strong>. Marco Gadamer. Bildung. La brecha Hochdeutsch/Umgangssprache documentada.</p>
+                    </div>
+                    
+                    <div class="timeline-item" role="listitem">
+                        <span class="timeline-year">2026</span>
+                        <p><span class="brand-huhu">huhu</span><span class="brand-german">GERMAN</span>: consolidación pública del trabajo. El archivo largo, la práctica de aula y la fricción vivida ahora tienen nombre y forma de intervención.</p>
+                    </div>
+                </div>
+                
+                <p class="timeline-close">
+                    Denis en el Hotel Zoe orientó. El Tram llegó. La Fernsehturm se veía al fondo. 
+                    Esa noche aprendí más de la cultura alemana que en muchos meses de libro.
+                </p>
+            </div>
+        </section>
+        
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contacto" aria-labelledby="contact-title">
+            <div class="contact-container">
+                <div class="section-header">
+                    <h2 id="contact-title">Revisa tu preparación antes de llegar.<br><span class="highlight">Primero revisamos si esto realmente aplica a tu caso.</span></h2>
+                </div>
+                
+                <p class="section-intro">
+                    Cuándo viajas, qué nivel tienes, qué exposición te espera y en quésituaciones 
+                    sientes más vulnerabilidad. La evaluación sirve para ver tu punto de partida 
+                    real y decidir si el 1:1 es el formato que necesitas.
+                </p>
+                
+                <div class="contact-box">
+                    <p>
+                        No vendo papel, niveles ni certificados. Si lo que necesitas es un curso 
+                        tradicional, te lo digo. Y si no es así, diseñamos la preparación desde 
+                        tu caso, no desde una plantilla.
+                    </p>
+                    
+                    <a href="mailto:yassergandhi.dev.com?subject=Quiero%20revisar%20mi%20preparaci%C3%B3n%20antes%20de%20llegar%20a%20Alemania" class="btn-primary">
+                        Escribir ahora
+                    </a>
+                    
+                    <div class="contact-details">
+                        <p class="contact-subject">
+                            <strong>Asunto sugerido:</strong> Quiero revisar mi preparación antes de llegar a Alemania
+                        </p>
+                        <p class="contact-prompt">
+                            Cuéntame cuándo viajas, qué nivel tienes y qué te preocupa del alemán real.
+                        </p>
+                        <p class="contact-close">
+                            No es un formulario. Es el inicio de una conversación que parte de donde importa: 
+                            tu riesgo real, no tu nivel en el libro.
+                        </p>
+                    </div>
+                    
+                    <a href="https://yassergandhi.dev/" class="btn-secondary" target="_blank" rel="noopener">
+                        Ver perfil profesional
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ SECTION -->
+        <section class="faq" id="faq" aria-labelledby="faq-title">
+            <div class="faq-container">
+                <div class="section-header">
+                    <h2 id="faq-title">Preguntas frecuentes</h2>
+                </div>
+                
+                <div class="faq-grid" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">¿Es un curso tradicional de alemán?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">No. Es preparación 1:1 para el punto donde el alemán funciona como oralidad, tono social, presión y contexto real. No hay niveles, no hay certificados, no hay promesas de fluidez.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">¿Promete fluidez?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">No. Promete menos errores evitables, mejor lectura del entorno y más capacidad de respuesta cuando el idioma ya opera como realidad.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">¿Por qué 1:1 y no en grupo?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Porque esta preparación depende de tu caso, tu objetivo, tu personalidad y tu voluntad para comunicarte. El 1:1 permite trabajar desde ahí, no desde una plantilla genérica.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">¿Cómo sé si necesito esto antes de viajar?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Si estudiaste alemán pero no sabes qué hacer cuando te hablan rápido, te cambian al inglés o entras a una escena que el libro no preparó, este trabajo es pertinente. Si no estás seguro, por eso existe la evaluación inicial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <nav class="footer-nav" aria-label="Navegación footer">
+                <a href="#problema">El problema</a>
+                <a href="#escenas">Situaciones</a>
+                <a href="#metodo">Cómo funciona</a>
+                <a href="#autoridad">Origen</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            
+            <div class="footer-external">
+                <a href="https://yassergandhi.dev/" target="_blank" rel="noopener">
+                    <span class="brand-huhu">yasser</span><span class="brand-german">gandhi.dev</span>
+                </a>
+            </div>
+            
+            <p class="footer-copy">
+                © 2026 <span class="brand-huhu">huhu</span><span class="brand-german">GERMAN</span> · Yasser Gandhi Hernández Esquivel · huhugerman.com<br>
+                Preparación 1:1 para el alemán real antes de llegar a Alemania.<br>
+                No es un curso. No es un certificado. Es otra cosa.
+            </p>
+        </div>
+    </footer>
+    
+    <!-- SCRIPTS -->
+    <script>
+        // LOADER DISMISS
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
             setTimeout(() => {
-              loader.style.display = 'none';
-            }, 600);
-          }, 400);
+                loader.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 2500);
+        });
+        
+        // POLAROID STACK DISCARD MECHANIC
+        const polaroidCards = document.querySelectorAll('.polaroid-card');
+        const resetButton = document.getElementById('polaroidReset');
+        const resetPolaroidsBtn = document.getElementById('resetPolaroids');
+        let currentCardIndex = 0;
+        
+        function discardCard(card) {
+            card.classList.add('discarded');
+            currentCardIndex++;
+            
+            if (currentCardIndex === 11) {
+                resetButton.style.display = 'block';
+                resetButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
-        bar.style.width = p + '%';
-      }, 120);
-    });
-
-    window.addEventListener('resize', positionPolaroids);
-  </script>
+        
+        polaroidCards.forEach((card, index) => {
+            const handleClick = (e) => {
+                e.stopPropagation();
+                
+                const visibleCards = Array.from(polaroidCards).filter(c => !c.classList.contains('discarded'));
+                if (visibleCards[0] === card) {
+                    discardCard(card);
+                }
+            };
+            
+            card.addEventListener('click', handleClick);
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const visibleCards = Array.from(polaroidCards).filter(c => !c.classList.contains('discarded'));
+                    if (visibleCards[0] === card) {
+                        discardCard(card);
+                    }
+                }
+            });
+        });
+        
+        resetPolaroidsBtn.addEventListener('click', () => {
+            polaroidCards.forEach(card => {
+                card.classList.remove('discarded');
+            });
+            resetButton.style.display = 'none';
+            currentCardIndex = 0;
+        });
+        
+        resetButton.style.display = 'none';
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        document.body.style.overflow = 'hidden';
+    </script>
 </body>
 </html>
