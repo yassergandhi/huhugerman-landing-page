@@ -1,0 +1,205 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogTitle?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonical, ogTitle, noindex } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Yasser Gandhi Hernández Esquivel" />
+  {noindex
+    ? <meta name="robots" content="noindex" />
+    : <meta name="robots" content="index, follow" />
+  }
+  <meta name="theme-color" content="#040608" />
+
+  {canonical && <link rel="canonical" href={canonical} />}
+
+  <link rel="me" href="https://orcid.org/0000-0002-8736-184X" />
+  <meta name="citation_author" content="Hernández Esquivel, Yasser Gandhi" />
+  <meta name="citation_author_institution" content="CELEX, UAM Azcapotzalco" />
+
+  <meta property="og:type" content="website" />
+  {canonical && <meta property="og:url" content={canonical} />}
+  <meta property="og:title" content={ogTitle || title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://huhugerman.com/og/huhugerman-riesgo-2026.jpg" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="huhuGERMAN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={ogTitle || title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://huhugerman.com/og/huhugerman-riesgo-2026.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <style is:global>
+    :root {
+      --bg:        #040608;
+      --bg-2:      #090d12;
+      --bg-3:      #0d1218;
+      --surface:   #111820;
+      --surface-2: #141d28;
+      --line:      #1e2a38;
+      --text:      #f0eae0;
+      --text-soft: #9aabba;
+      --text-mid:  #c5d0dc;
+      --acid:      #d4e847;
+      --acid-2:    #eeff72;
+      --danger:    #ff6b55;
+      --yellow:    #f0c400;
+      --shadow:    0 20px 60px rgba(0,0,0,.45);
+      --radius:    22px;
+      --radius-sm: 14px;
+      --container: 1240px;
+      --navh:      68px;
+      --font-display:   "Bebas Neue", sans-serif;
+      --font-narrative: "Ubuntu", serif;
+      --font-body:      "Ubuntu", sans-serif;
+      --font-mono:      "DM Mono", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(ellipse at top, rgba(212,232,71,.07) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 0%, rgba(255,107,85,.09) 0%, transparent 35%),
+        linear-gradient(180deg, #080c11 0%, var(--bg) 30%, #060810 100%);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--acid); text-decoration: none; }
+    a:hover { color: var(--acid-2); }
+    a:visited { color: var(--acid); }
+    .container { width: min(var(--container), calc(100% - 2rem)); margin: 0 auto; }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.05; }
+
+    /* ── site header (páginas internas) ── */
+    .site-header {
+      padding: .8rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    /* ── brand ── */
+    .brand {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-display); font-size: 1.65rem; letter-spacing: .06em;
+      color: var(--text); white-space: nowrap;
+    }
+    .brand:visited { color: var(--text); }
+    .brand .german { color: var(--acid); }
+
+    /* ── source-chip ── */
+    .source-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .35rem .65rem; border-radius: 999px;
+      background: rgba(212,232,71,.07); border: 1px solid rgba(212,232,71,.18);
+      color: var(--acid); font-family: var(--font-mono); font-size: .72rem;
+      font-weight: 600; white-space: nowrap;
+    }
+    .source-chip:hover { background: rgba(212,232,71,.14); color: var(--acid-2); }
+    .source-chip:visited { color: var(--acid); }
+
+    /* ── footer ── */
+    footer {
+      padding: 1.8rem 0 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.05);
+      background: rgba(0,0,0,.12);
+    }
+    .footer-inner {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto; display: grid; gap: 1.1rem;
+    }
+    .footer-top {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 1rem;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .footer-links a {
+      font-family: var(--font-mono); font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--text-soft); padding: .35rem .6rem;
+      border-radius: 8px; border: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-links a:visited { color: var(--text-soft); }
+    .footer-links a:hover { color: var(--text); }
+    .footer-sources { display: flex; flex-wrap: wrap; gap: .5rem; }
+    footer small {
+      color: var(--text-soft); font-family: var(--font-mono);
+      font-size: .72rem; letter-spacing: .04em; line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Ir al inicio — huhuGERMAN">
+        <span>huhu</span><span class="german">GERMAN</span>
+      </a>
+    </div>
+  </header>
+
+  <slot />
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a class="brand" href="/" aria-label="Inicio huhuGERMAN">
+          <span>huhu</span><span class="german">GERMAN</span>
+        </a>
+        <nav class="footer-links" aria-label="Navegación footer">
+          <a href="/#riesgo">Riesgo real</a>
+          <a href="/#escenas">Escenas</a>
+          <a href="/#preparacion">Preparación</a>
+          <a href="/#autoridad">Autoría</a>
+          <a href="/#fuentes">Fuentes</a>
+          <a href="/#contacto">Contacto</a>
+          <a href="https://yassergandhi.dev/" target="_blank" rel="noopener noreferrer">yassergandhi.dev</a>
+        </nav>
+      </div>
+
+      <div class="footer-sources" aria-label="Fuentes verificables">
+        <a class="source-chip" href="https://valletta.diplo.de/mt-en/service/05-visaeinreise/2437296-2437296"
+           target="_blank" rel="noopener noreferrer">Visa · Embajada Alemana</a>
+        <a class="source-chip" href="https://www.tk.de/en/become-a-member/contribution-foreign-students-german-health-insurance-2038022"
+           target="_blank" rel="noopener noreferrer">Seguro · TK 2026</a>
+        <a class="source-chip" href="https://www.make-it-in-germany.com/en/looking-for-foreign-professionals/entering/admission-labour-market/students"
+           target="_blank" rel="noopener noreferrer">Trabajo · Make it in Germany</a>
+        <a class="source-chip" href="https://aktuelles.uni-frankfurt.de/english/distinct-welcome-culture/"
+           target="_blank" rel="noopener noreferrer">Integración · BintHo</a>
+        <a class="source-chip" href="https://www.uni-leipzig.de/newsdetail/artikel/wie-rassismus-in-deutschen-behoerden-wirkt-2026-02-17"
+           target="_blank" rel="noopener noreferrer">InRa-Studie 2026</a>
+        <a class="source-chip" href="https://www.gesetze-im-internet.de/bgb/__551.html"
+           target="_blank" rel="noopener noreferrer">BGB §551 · Kaution</a>
+      </div>
+
+      <small>
+        © 2026 huhuGERMAN · Yasser Gandhi Hernández Esquivel<br />
+        Preparación preventiva personalizada para Alemania. No es un curso. No es una promesa de fluidez.<br />
+        Es reducción de vulnerabilidad antes de que el costo sea irreversible.
+      </small>
+    </div>
+  </footer>
+</body>
+</html>

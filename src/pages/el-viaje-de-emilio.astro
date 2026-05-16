@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="El viaje de Emilio a Alemania | huhuGERMAN"
+  description="Marco Manuel tenía beca PAD, Easy German y 180 días de Duolingo. No lo preparó para la Ausländerbehörde sin cita y sin las fotocopias correctas."
+  canonical="https://huhugerman.com/el-viaje-de-emilio"
+>
+  <main>
+    <div class="container">
+
+      <section class="page-hero">
+        <p class="label">Casos documentados · corpus CELEX-UAM 2026</p>
+        <h1>El viaje de Emilio</h1>
+        <p class="subtitle">Este no es un caso inventado.</p>
+      </section>
+
+      <section class="narrative">
+
+        <div class="case-block">
+          <div class="case-header">
+            <span class="case-id">EA corpus 2026</span>
+            <h2>Marco Manuel</h2>
+          </div>
+          <p>Estudiante universitario. Nivel B1+ documentado. Beca PAD — Pedagogischer Austauschdienst / Goethe-Institut. Alemania real en el horizonte.</p>
+          <p>Su preparación hasta el vuelo: Easy German, DW Deutsch lernen, Duolingo streak de 180 días. Todo correcto. Todo insuficiente para lo que viene después.</p>
+        </div>
+
+        <div class="case-block">
+          <h2>El problema con Easy German</h2>
+          <p>Easy German es excelente contenido. Genuinamente.</p>
+          <p>Comprensión auditiva real, hablantes nativos, alemán coloquial en contexto. Mark interviewing people on the street. El alemán que existe fuera del aula, documentado y subtitulado.</p>
+          <p>Pero hay una diferencia fundamental:</p>
+          <div class="contrast">
+            <div class="contrast-item">
+              <span class="contrast-label no">Exposición</span>
+              <p>Ver a Mark entrevistando personas en la calle mejora comprensión declarativa. Sabes cómo suena el alemán real.</p>
+            </div>
+            <div class="contrast-item">
+              <span class="contrast-label yes">Disposición</span>
+              <p>Ser tú el que sostiene la conversación cuando hay consecuencias requiere entrenamiento diferente. El entorno cambia. La presión es real. No hay subtítulos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-block research-block">
+          <h2>La investigación que lo documenta</h2>
+          <p>En 2017, el primer artículo formal sobre esta brecha:</p>
+          <blockquote>
+            <p>Hernández Esquivel, Y. G. (2017). Estrategias metacognitivas en la comprensión auditiva del alemán como lengua extranjera en estudiantes de nivel básico.</p>
+            <cite><a href="https://www.revista.unam.mx/vol.18/num5/art39/index.html" target="_blank" rel="noopener noreferrer">Revista Digital Universitaria, vol. 18, núm. 5</a></cite>
+          </blockquote>
+          <p>Hallazgo central: la exposición a input auténtico mejora comprensión declarativa. La disposición a sostenerse bajo presión requiere entrenamiento diferente.</p>
+          <p>No son lo mismo. Easy German trabaja lo primero. h.u.h.u. trabaja lo segundo.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-header">
+            <span class="case-id">EA corpus 2026</span>
+            <h2>Carlos</h2>
+          </div>
+          <p>Reservó vuelos en diciembre 2025. Llegó en enero 2026.</p>
+          <p>Primera semana: Ausländerbehörde sin cita previa. Número incorrecto de fotocopias. Funcionario que no cambió al inglés porque "esto es Alemania y usted solicitó visado de estudiante".</p>
+          <p>Carlos había visto Easy German también. No lo preparó para ese momento.</p>
+          <div class="cost-note">
+            <p>Resultado: cita reprogramada tres semanas después. Tres semanas sin el sello que necesitaba para inscribirse formalmente. Tres semanas de un Sperrkonto que sigue corriendo.</p>
+          </div>
+        </div>
+
+        <div class="case-block">
+          <h2>La diferencia</h2>
+          <p>No es el nivel de alemán. Marco Manuel y Carlos tenían niveles similares.</p>
+          <p>Es el entrenamiento para sostenerlo cuando funciona como presión institucional. Para no colapsar cuando el funcionario asume que los trámites en alemán son naturales. Para leer el formulario y entender qué piden, no solo las palabras sino el procedimiento detrás.</p>
+          <p>Eso no se aprende en Easy German. Se entrena en escenas con consecuencias reales.</p>
+        </div>
+
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-grid">
+          <div class="cta-card secondary">
+            <p class="label">Evidencia académica</p>
+            <h2>Ver la investigación</h2>
+            <p>Artículo RDU UNAM 2017, OSF preprint, tesis de licenciatura y maestría, ORCID, Google Scholar, corpus empírico 2026.</p>
+            <a href="/investigacion" class="btn-secondary">Trayectoria verificable</a>
+          </div>
+          <div class="cta-card primary">
+            <p class="label">Preparación preventiva</p>
+            <h2>Antes del vuelo</h2>
+            <p>Diagnóstico de 20 minutos. Si el caso aplica, se diseña el proceso desde ahí. Si no aplica, se dice directamente.</p>
+            <a href="/servicios" class="btn-primary">Ver qué se compra</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main { padding: 0 0 5rem; }
+
+  .page-hero {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3.5rem;
+  }
+  .label {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--acid);
+    margin-bottom: .75rem;
+  }
+  h1 {
+    font-size: clamp(3rem, 9vw, 7rem);
+    line-height: .95;
+    color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: .04em;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    max-width: 520px;
+  }
+
+  .narrative { max-width: 760px; }
+  .case-block {
+    margin-bottom: 2.75rem;
+    padding-bottom: 2.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .case-block:last-child { border-bottom: none; }
+  .case-header { margin-bottom: .75rem; }
+  .case-id {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--text-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: .2rem .6rem;
+    border-radius: 6px;
+    margin-bottom: .4rem;
+  }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--text); margin-bottom: .75rem; }
+  p { color: var(--text-mid); margin-bottom: .75rem; }
+  a { color: var(--acid); }
+  a:hover { color: var(--acid-2); }
+
+  .contrast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
+  }
+  .contrast-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+  }
+  .contrast-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: .2rem .6rem;
+    border-radius: 6px;
+    margin-bottom: .6rem;
+    font-weight: 600;
+  }
+  .contrast-label.no { color: var(--text-soft); background: rgba(255,255,255,.05); }
+  .contrast-label.yes { color: var(--acid); background: rgba(212,232,71,.1); }
+
+  .research-block {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border-left: 3px solid var(--acid);
+  }
+  blockquote {
+    margin: 1rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-2);
+    border-radius: var(--radius-sm);
+    border-left: 2px solid rgba(212,232,71,.3);
+  }
+  blockquote p { color: var(--text); font-style: italic; margin-bottom: .5rem; }
+  cite { font-family: var(--font-mono); font-size: .72rem; color: var(--text-soft); font-style: normal; }
+
+  .cost-note {
+    background: rgba(255,107,85,.07);
+    border: 1px solid rgba(255,107,85,.2);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+  }
+  .cost-note p { color: var(--text-mid); margin-bottom: 0; }
+
+  .cta-section {
+    border-top: 1px solid var(--line);
+    padding-top: 3rem;
+    margin-top: 1rem;
+  }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .cta-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+  .cta-card.primary { border-color: rgba(212,232,71,.25); background: var(--surface); }
+  .cta-card.secondary { background: var(--surface); }
+  .cta-card h2 { font-size: 1.6rem; color: var(--text); margin-bottom: .5rem; }
+  .cta-card p { color: var(--text-soft); margin-bottom: 1.25rem; font-size: .95rem; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: .75rem 1.75rem;
+    background: var(--acid);
+    color: #080b0f;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: .06em;
+    border-radius: 10px;
+  }
+  .btn-primary:hover { background: var(--acid-2); color: #080b0f; }
+  .btn-primary:visited { color: #080b0f; }
+  .btn-secondary {
+    display: inline-block;
+    padding: .75rem 1.75rem;
+    border: 1px solid rgba(212,232,71,.3);
+    color: var(--acid);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: .06em;
+    border-radius: 10px;
+  }
+  .btn-secondary:hover { border-color: var(--acid); color: var(--acid-2); }
+
+  @media (max-width: 640px) {
+    .contrast { grid-template-columns: 1fr; }
+    .cta-grid { grid-template-columns: 1fr; }
+  }
+</style>
