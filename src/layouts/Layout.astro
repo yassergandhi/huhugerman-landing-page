@@ -149,14 +149,36 @@ const { title, description, canonical, ogTitle, noindex } = Astro.props;
       color: var(--text-soft); font-family: var(--font-mono);
       font-size: .72rem; letter-spacing: .04em; line-height: 1.8;
     }
+
+    /* ── inner nav (páginas internas) ── */
+    .site-header-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .inner-nav { display: flex; align-items: center; gap: .2rem; flex-wrap: wrap; }
+    .inner-nav a {
+      color: var(--text-soft); font-size: .82rem; font-weight: 600;
+      padding: .4rem .65rem; border-radius: 8px; border: 1px solid transparent;
+      transition: color .15s, border-color .15s, background .15s;
+    }
+    .inner-nav a:visited { color: var(--text-soft); }
+    .inner-nav a:hover {
+      color: var(--text); border-color: rgba(212,232,71,.2);
+      background: rgba(212,232,71,.06);
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
+    <div class="container site-header-inner">
       <a class="brand" href="/" aria-label="Ir al inicio — huhuGERMAN">
         <span>huhu</span><span class="german">GERMAN</span>
       </a>
+      <nav class="inner-nav" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/metodo">Método</a>
+        <a href="/servicios">Servicios</a>
+        <a href="/investigacion">Investigación</a>
+      </nav>
     </div>
   </header>
 
