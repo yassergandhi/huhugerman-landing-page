@@ -11,9 +11,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
 
       <section class="page-hero">
-        <p class="label">Escenas reales</p>
+        <p class="label">Escenas reales · Situaciones proyectadas</p>
         <h1>El alemán fuera del libro</h1>
-        <p class="subtitle">Situaciones concretas donde el idioma ya no viene con subtítulos ni con tiempo para pensar. Tocá o hacé clic en cada tarjeta para ver la siguiente.</p>
+        <p class="subtitle">Situaciones posibles del entorno alemán, construidas a partir de observación docente acumulada. No son transcripciones de casos reales. Son las escenas que esperan antes del viaje.</p>
+        <p class="hero-note">Para evidencia de aula observada directamente, ver <a href="/cuando-el-aleman-llega-sin-aviso">el incidente documentado</a>.</p>
       </section>
 
       <section class="stack-section">
@@ -116,7 +117,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="cta-body">Conocer las situaciones antes de vivirlas reduce el tiempo de reacción y el costo del error. La preparación es para ese momento.</p>
         <div class="cta-group">
           <a href="/metodo" class="btn-primary">Qué entrena huhuGERMAN</a>
-          <a href="/cuando-el-aleman-llega-sin-aviso" class="btn-secondary">El alemán sin aviso</a>
+          <a href="/cuando-el-aleman-llega-sin-aviso" class="btn-secondary">Incidente de aula documentado →</a>
         </div>
       </section>
 
@@ -155,6 +156,14 @@ import Layout from '../layouts/Layout.astro';
     max-width: 540px;
     line-height: 1.65;
   }
+  .hero-note {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    color: var(--text-soft);
+    margin-top: .75rem;
+  }
+  .hero-note a { color: var(--acid); }
+  .hero-note a:hover { color: var(--acid-2); }
 
   .stack-section { margin-bottom: 4rem; }
   .stack-help {

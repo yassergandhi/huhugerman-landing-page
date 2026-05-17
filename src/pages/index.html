@@ -393,6 +393,30 @@
     .evidence-card p { color: var(--text-soft); font-size: .88rem; line-height: 1.55; margin-bottom: .75rem; }
     .evidence-card .source-chip { margin-top: auto; }
 
+    /* ── DIFERENCIA CENTRAL ── */
+    .diferencia-body {
+      max-width: 640px; color: var(--text-mid);
+      font-size: 1.05rem; line-height: 1.75; margin-top: -.5rem;
+    }
+
+    /* ── PARA QUIÉN ES ── */
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: .75rem; margin-top: .5rem;
+    }
+    .filter-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.1rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+    }
+    .filter-mark {
+      font-family: var(--font-display); font-size: 1.3rem;
+      color: var(--acid); flex-shrink: 0; line-height: 1.4;
+    }
+    .filter-item p { color: var(--text-mid); font-size: .93rem; line-height: 1.65; margin: 0; }
+
     /* ── ESCENAS TEASER ── */
     .scene-teaser {
       display: grid;
@@ -585,16 +609,16 @@
 
           <div class="hero-main">
             <div class="eyebrow">Preparación personalizada para Alemania antes de llegar</div>
-            <h1 id="hero-h1">Alemania no solo te habla.<span class="accent">Te lee.</span></h1>
+            <h1 id="hero-h1">Alemania no solo te habla.<span class="accent">Te interpreta.</span></h1>
             <p class="lead">
-              Puedes llegar con visa, cuenta bloqueada y un B1 en el bolsillo y aun así
-              quedar fuera de las situaciones que deciden tu permanencia.
-              <span class="hero-copy-strong">No porque no sepas gramática</span>
-              sino porque el alemán real ya tiene expectativas y normas que te van a evaluar y eso el libro no te enseñó.
+              Puedes llegar con años de estudio y un examen aprobado y aun así
+              bloquearte en la primera situación que no tiene subtítulos ni turno asignado.
+              <span class="hero-copy-strong">No porque no sepas gramática.</span>
+              Porque el alemán que operarás en Alemania no funciona como el alemán que estudiaste.
             </p>
             <div class="cta-group">
-              <a class="btn btn-primary" href="#contacto">Solicitar evaluación preventiva</a>
-              <a class="btn btn-secondary" href="/investigacion">Ver investigación</a>
+              <a class="btn btn-primary" href="#contacto">Hablar sobre tu preparación</a>
+              <a class="btn btn-secondary" href="/investigacion">Ver la trayectoria</a>
             </div>
             <p class="nav-note">No es un curso tradicional. No es gestoría. Es reducción de vulnerabilidad antes del vuelo.</p>
           </div>
@@ -672,15 +696,28 @@ y allí un Döner y los empleados veían darts en la tele — PDC, silencioso, c
       </div>
     </section>
 
+    <!-- DIFERENCIA CENTRAL ──────────────────────────────────────── -->
+    <section class="section alt" id="diferencia">
+      <div class="container">
+        <div class="section-label">El problema real</div>
+        <h2 class="section-title">
+          El problema no empieza<br>
+          <span class="danger">al llegar.</span>
+        </h2>
+        <p class="section-intro">Empieza antes, cuando se cree que el alemán estudiado es suficiente para el alemán que opera como presión, trámite, conversación y lectura social.</p>
+        <p class="diferencia-body">No es falta de gramática. Es la distancia entre un idioma aprendido y un idioma disponible cuando el contexto ya no es controlado. Esa distancia no se cierra con más horas de clase. Se trabaja de otra manera.</p>
+      </div>
+    </section>
+
     <!-- ESCENAS TEASER ──────────────────────────────────────────── -->
     <section class="section" id="escenas">
       <div class="container">
-        <div class="section-label">Escenas reales</div>
+        <div class="section-label">Escenas reales · Situaciones proyectadas</div>
         <h2 class="section-title">
           El alemán fuera<br>
           <span class="danger">del libro.</span>
         </h2>
-        <p class="section-intro">La ventanilla, la caja, la búsqueda de piso, el vecino que asume que sabés las normas. El alemán real no avisa.</p>
+        <p class="section-intro">Situaciones posibles del entorno alemán, construidas a partir de observación docente acumulada. No son transcripciones de casos. Son las escenas que esperan.</p>
 
         <div class="scene-teaser">
           <div class="scene-teaser-card">
@@ -705,8 +742,21 @@ y allí un Döner y los empleados veían darts en la tele — PDC, silencioso, c
       </div>
     </section>
 
+    <!-- INCIDENTE DOCUMENTADO ──────────────────────────────────── -->
+    <section class="section alt" id="incidente">
+      <div class="container">
+        <div class="section-label">Evidencia de aula</div>
+        <h2 class="section-title">
+          Cuando lo real llega<br>
+          <span class="danger">sin aviso al aula.</span>
+        </h2>
+        <p class="section-intro">En marzo de 2026, un hablante nativo de alemán entró al espacio de preparación de un grupo en CELEX-UAM Azcapotzalco. El intercambio fue breve. La mayoría no respondió de inmediato. No por falta de vocabulario: por la distancia entre reconocer el idioma y reaccionar cuando ya no hay estructura que lo ordene.</p>
+        <a href="/cuando-el-aleman-llega-sin-aviso" class="scenes-cta" style="margin-top:1rem;display:inline-block;">Leer el incidente documentado →</a>
+      </div>
+    </section>
+
     <!-- EXIT BLOCKS ──────────────────────────────────────────── -->
-    <section class="section alt" id="continuar">
+    <section class="section" id="continuar">
       <div class="container">
         <div class="section-label">Qué sigue</div>
         <h2 class="section-title">
@@ -724,12 +774,19 @@ y allí un Döner y los empleados veían darts en la tele — PDC, silencioso, c
             </div>
           </div>
           <div class="exit-card">
-            <span class="exit-card-label">Escenas documentadas</span>
+            <span class="exit-card-label">Escenas reales</span>
             <h3>Escenas</h3>
-            <p>Situaciones reales de alemán fuera del aula: interacciones, presión institucional, decisiones con consecuencia.</p>
+            <p>Situaciones de alemán fuera del aula: aeropuerto, ventanilla, búsqueda de piso, vecino, supermercado. Consecuencias reales.</p>
             <div class="exit-card-links">
               <a href="/escenas-reales">Ver todas las escenas →</a>
-              <a href="/cuando-el-aleman-llega-sin-aviso">Cuando llega sin avisar →</a>
+            </div>
+          </div>
+          <div class="exit-card">
+            <span class="exit-card-label">Evidencia de aula</span>
+            <h3>Incidente</h3>
+            <p>Un hablante nativo, un grupo de preparación, una reacción mínima. Documentado en CELEX-UAM Azcapotzalco, marzo 2026.</p>
+            <div class="exit-card-links">
+              <a href="/cuando-el-aleman-llega-sin-aviso">Leer el incidente →</a>
             </div>
           </div>
           <div class="exit-card">
@@ -745,20 +802,44 @@ y allí un Döner y los empleados veían darts en la tele — PDC, silencioso, c
       </div>
     </section>
 
+    <!-- PARA QUIÉN ES ──────────────────────────────────────────── -->
+    <section class="section alt" id="para-quien">
+      <div class="container">
+        <div class="section-label">Para quién es esto</div>
+        <h2 class="section-title">
+          Esto no es<br>
+          <span class="danger">para todos.</span>
+        </h2>
+        <div class="filter-grid">
+          <div class="filter-item">
+            <span class="filter-mark">→</span>
+            <p>Para quien está por invertir dinero serio en Alemania y quiere reducir el riesgo lingüístico antes del viaje.</p>
+          </div>
+          <div class="filter-item">
+            <span class="filter-mark">→</span>
+            <p>Para quien ya estudió alemán pero siente que hay algo entre lo que sabe y lo que puede usar cuando hay presión.</p>
+          </div>
+          <div class="filter-item">
+            <span class="filter-mark">→</span>
+            <p>Para quien entiende que el problema no es solo gramática y busca preparación operativa, no un curso más.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACTO ──────────────────────────────────────────────── -->
     <section class="section contact-section" id="contacto">
       <div class="container">
-        <h2>No llegues desarmado.</h2>
+        <h2>La preparación empieza con una conversación.</h2>
         <p>
-          Primero se revisa el caso real: cuándo viaja, qué nivel tiene, qué exposición le espera.
-          Si esto aplica, se diseña desde ahí. Si no aplica, se dice directamente.
+          Se revisa el caso real: cuándo es el viaje, qué exposición al alemán existe, qué zonas generan más incertidumbre. Si aplica, se diseña desde ahí. Si no aplica, se dice directamente.
         </p>
         <div class="cta-group">
           <a class="btn btn-primary"
-             href="mailto:hola@huhugerman.com?subject=Evaluación preventiva — huhuGERMAN">
-            Pedir evaluación preventiva
+             href="mailto:hola@huhugerman.com?subject=Preparación preventiva — huhuGERMAN">
+            Escribir para hablar sobre mi caso
           </a>
-          <a class="btn btn-secondary" href="/servicios">Ver qué se compra</a>
+          <a class="btn btn-secondary" href="/servicios">Ver qué incluye la preparación</a>
         </div>
       </div>
     </section>
