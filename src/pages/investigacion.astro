@@ -3,17 +3,25 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Trayectoria académica verificable | huhuGERMAN"
-  description="Artículo RDU UNAM 2017, OSF preprint, tesis UNAM 2015 y 2020, ORCID, Google Scholar. Corpus empírico CELEX-UAM Azcapotzalco, ene–mar 2026, 20 participantes, 118 respuestas."
+  title="Trayectoria de investigación | huhuGERMAN"
+  description="15 años de observación docente, dos tesis UNAM, artículo RDU 2017, trabajo de campo en Hamburgo con beca CONACYT, corpus empírico 2026. Una trayectoria acumulada, no una lista de certificados."
   canonical="https://huhugerman.com/investigacion"
 >
   <main>
     <div class="container">
 
       <section class="page-hero">
-        <p class="label">Evidencia verificable</p>
-        <h1>Trayectoria académica</h1>
-        <p class="subtitle">Verificable. No decorativa. Cada enlace abre a la fuente primaria.</p>
+        <p class="label">Archivo de continuidad · 2011–2026</p>
+        <h1>Trayectoria de investigación</h1>
+        <p class="subtitle">Quince años de observación docente, trabajo de campo y producción académica. No es un CV. Es el registro de un problema estudiado en profundidad.</p>
+      </section>
+
+      <section class="narrative-section">
+        <div class="narrative-body">
+          <p>Lo que sustenta huhuGERMAN no empezó como un proyecto de preparación. Empezó como una pregunta docente: ¿por qué estudiantes con buen desempeño en clase llegaban a Alemania y se bloqueaban en situaciones cotidianas?</p>
+          <p>Esa pregunta se formalizó en 2015 con la primera tesis. Tomó forma de publicación en 2017. Se profundizó con trabajo de campo en Hamburgo durante la maestría. Y continúa en 2026 con un corpus activo de observación en el aula.</p>
+          <p>Cada etapa está documentada. Cada fuente es verificable. Lo que sigue es el registro de ese proceso.</p>
+        </div>
       </section>
 
       <section class="identity-section">
@@ -45,7 +53,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="pub-body">
             <h3>Tesis de Licenciatura</h3>
             <p class="pub-meta">UNAM — Facultad de Ciencias Políticas y Sociales</p>
-            <p class="pub-desc">Estrategias metacognitivas en la comprensión auditiva del alemán como lengua extranjera. Primera formalización del método: exposición a input auténtico desde A1, trabajo con comprensión global antes que análisis gramatical.</p>
+            <p class="pub-desc">Estrategias metacognitivas en la comprensión auditiva del alemán como lengua extranjera. Primera formalización académica de los hallazgos de observación docente: exposición a input auténtico desde niveles iniciales, trabajo con comprensión global antes que análisis gramatical.</p>
             <a href="https://tesiunam.dgb.unam.mx/F/IDGMBGJSPDUNBGGBPQFUFNL5CB3PFJECLH4ADMNE2G2DU87HU8-19979?func=full-set-set&set_number=001362&set_entry=000001&format=999" target="_blank" rel="noopener noreferrer" class="pub-link">Ver en TESIUNAM ↗</a>
           </div>
         </article>
@@ -55,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="pub-body">
             <h3>Tesis de Maestría</h3>
             <p class="pub-meta">UNAM / Universität Hamburg (UHH)</p>
-            <p class="pub-desc">La brecha Hochdeutsch/Umgangssprache, Bildung y formación docente comparada México-Alemania. Documentación de entrevistas con docentes de alemán en Hamburg. Conexión entre práctica en aula y escenario migratorio. Trabajo realizado con beca CONACYT en el Sprachzentrum de la Universidad de Hamburgo.</p>
+            <p class="pub-desc">La brecha entre alemán formal y alemán coloquial, formación docente comparada México-Alemania. Documentación de entrevistas con docentes de alemán en Hamburgo. Trabajo realizado con beca CONACYT en el Sprachzentrum de la Universidad de Hamburgo. Conexión entre práctica en aula y escenario migratorio.</p>
             <a href="https://tesiunam.dgb.unam.mx/F/IDGMBGJSPDUNBGGBPQFUFNL5CB3PFJECLH4ADMNE2G2DU87HU8-19982?func=full-set-set&set_number=001362&set_entry=000002&format=999" target="_blank" rel="noopener noreferrer" class="pub-link">Ver en TESIUNAM ↗</a>
           </div>
         </article>
@@ -115,7 +123,7 @@ import Layout from '../layouts/Layout.astro';
               <span class="corpus-value">Cuestionario mixto sobre exposición al alemán real, expectativas de viaje y vulnerabilidad institucional percibida</span>
             </div>
           </div>
-          <p class="corpus-note">Casos documentados del corpus: Ximena (EA1X), Marco Manuel. Las identidades están anonimizadas en la documentación pública. El preprint en OSF incluye los datos agregados del corpus.</p>
+          <p class="corpus-note">Los casos documentados del corpus están anonimizados en la documentación pública. El preprint en OSF incluye los datos agregados.</p>
         </div>
       </section>
 
@@ -163,6 +171,18 @@ import Layout from '../layouts/Layout.astro';
     color: var(--text-soft);
     max-width: 520px;
   }
+
+  .narrative-section { margin-bottom: 3.5rem; }
+  .narrative-body {
+    max-width: 680px;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid rgba(212,232,71,.35);
+    border-radius: var(--radius-sm);
+  }
+  .narrative-body p { color: var(--text-mid); line-height: 1.75; margin-bottom: .85rem; }
+  .narrative-body p:last-child { margin-bottom: 0; }
 
   .identity-section { margin-bottom: 3.5rem; }
   .identity-card {
