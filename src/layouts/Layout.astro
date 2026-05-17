@@ -49,6 +49,7 @@ const { title, description, canonical, ogTitle, noindex, extraSchema } = Astro.p
 
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
   {canonical && (
     <script type="application/ld+json" set:html={JSON.stringify({

@@ -1,11 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const riesgoSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://huhugerman.com/riesgo",
+  "headline": "El costo real de llegar a Alemania sin preparación",
+  "description": "Sperrkonto, seguro médico, abandono universitario, barreras institucionales y exclusión social: evidencia estadística del impacto de la vulnerabilidad lingüística en la migración a Alemania.",
+  "url": "https://huhugerman.com/riesgo",
+  "inLanguage": "es-MX",
+  "author": {"@id": "https://huhugerman.com/#person"},
+  "publisher": {"@id": "https://huhugerman.com/#person"},
+  "isPartOf": {"@id": "https://huhugerman.com/#website"},
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Visum und Einreise — Deutsche Botschaft (2026)",
+      "url": "https://valletta.diplo.de/mt-en/service/05-visaeinreise/2437296-2437296"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Beitrag ausländischer Studierender — TK Techniker Krankenkasse (2026)",
+      "url": "https://www.tk.de/en/become-a-member/contribution-foreign-students-german-health-insurance-2038022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Admission to the Labour Market for Students — Make it in Germany",
+      "url": "https://www.make-it-in-germany.com/en/looking-for-foreign-professionals/entering/admission-labour-market/students"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Studierendenwerke — Wohnraumversorgung internationaler Studierender",
+      "url": "https://www.studierendenwerke.de"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "BintHo Study: Distinct Welcome Culture — Goethe-Universität Frankfurt (2023)",
+      "url": "https://aktuelles.uni-frankfurt.de/english/distinct-welcome-culture/"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "InRa-Studie: Wie Rassismus in deutschen Behörden wirkt — Universität Leipzig (2026)",
+      "url": "https://www.uni-leipzig.de/newsdetail/artikel/wie-rassismus-in-deutschen-behoerden-wirkt-2026-02-17"
+    }
+  ]
+});
 ---
 
 <Layout
   title="El costo real de llegar a Alemania sin preparación | huhuGERMAN"
   description="Sperrkonto, seguro médico, abandono universitario, barreras institucionales, exclusión social. La vulnerabilidad lingüística también tiene costo financiero, migratorio y humano."
   canonical="https://huhugerman.com/riesgo"
+  extraSchema={riesgoSchema}
 >
   <main>
     <div class="container">
