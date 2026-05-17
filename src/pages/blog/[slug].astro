@@ -1,0 +1,195 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('blog');
+  return entries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  canonical={entry.data.canonicalUrl}
+>
+  <main class="blog-post">
+    <div class="container">
+      <header class="post-header">
+        <span class="post-category">{entry.data.category}</span>
+        <h1>{entry.data.title}</h1>
+        <p class="post-description">{entry.data.description}</p>
+        <div class="post-meta">
+          <time datetime={entry.data.pubDate.toISOString()}>
+            {entry.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <div class="post-tags">
+            {entry.data.tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        </div>
+      </header>
+      <article class="post-body">
+        <Content />
+      </article>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blog-post {
+    padding: 4rem 0 6rem;
+  }
+
+  .post-header {
+    max-width: var(--measure);
+    margin: 0 auto 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .post-category {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--acid);
+    background: rgba(212,232,71,.08);
+    border: 1px solid rgba(212,232,71,.2);
+    padding: .3rem .75rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-header h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .post-description {
+    font-size: 1.1rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .post-meta time {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    color: var(--text-soft);
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    color: var(--text-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: .2rem .55rem;
+    border-radius: 6px;
+  }
+
+  .post-body {
+    max-width: var(--measure);
+    margin: 0 auto;
+    font-family: var(--font-narrative);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  .post-body :global(h2) {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--text);
+    margin: 2.5rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .post-body :global(h3) {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--text-mid);
+    margin: 2rem 0 .75rem;
+  }
+
+  .post-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: .5rem;
+  }
+
+  .post-body :global(strong) {
+    color: var(--acid);
+    font-weight: 600;
+  }
+
+  .post-body :global(em) {
+    color: var(--text-mid);
+    font-style: italic;
+  }
+
+  .post-body :global(hr) {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 2.5rem 0;
+  }
+
+  .post-body :global(a) {
+    color: var(--acid);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post-body :global(a:hover) {
+    color: var(--acid-2);
+  }
+
+  .post-body :global(blockquote) {
+    border-left: 3px solid var(--acid);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--text-mid);
+    font-style: italic;
+  }
+
+  .post-body :global(code) {
+    font-family: var(--font-mono);
+    font-size: .88em;
+    background: var(--surface);
+    padding: .15em .4em;
+    border-radius: 4px;
+    color: var(--acid);
+  }
+</style>
