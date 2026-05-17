@@ -3,17 +3,17 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Schau mal: cuando el alemán llega sin avisar | huhuGERMAN"
+  title="Cuando el alemán llega sin avisar | huhuGERMAN"
   description="16 de marzo de 2026. Un hablante nativo entró al aula de Alemán 1 sin aviso. Ximena respondió. El grupo no colapsó."
-  canonical="https://huhugerman.com/schau-mal"
+  canonical="https://huhugerman.com/cuando-el-aleman-llega-sin-aviso"
 >
   <main>
     <div class="container">
 
       <section class="page-hero">
         <p class="label">Incidente documentado · 16 marzo 2026</p>
-        <h1>Schau mal.</h1>
-        <p class="subtitle">"Mira." "Fíjate." "Ya ves." El alemán coloquial que llega sin avisar.</p>
+        <h1>Cuando el alemán llega sin avisar</h1>
+        <p class="subtitle"><em>Schau mal.</em> "Mira." "Fíjate." El alemán coloquial que llega sin protocolo, sin pausa, sin subtítulos.</p>
       </section>
 
       <section class="narrative">
@@ -81,7 +81,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="cta-body">El incidente del 16 de marzo no fue la excepción. Fue la regla. El alemán real llega sin avisar y sin subtítulos. La preparación es para ese momento.</p>
         <div class="cta-group">
           <a href="/servicios" class="btn-primary">Ver qué se compra</a>
-          <a href="/metodo" class="btn-secondary">Cómo funciona el método</a>
+          <a href="/metodo" class="btn-secondary">El método h.u.h.u.</a>
         </div>
       </section>
 
@@ -106,17 +106,18 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: .75rem;
   }
   h1 {
-    font-size: clamp(3.5rem, 10vw, 8rem);
-    line-height: .9;
+    font-size: clamp(2.8rem, 8vw, 6.5rem);
+    line-height: .95;
     color: var(--text);
     margin-bottom: 1rem;
-    letter-spacing: .04em;
+    letter-spacing: .02em;
   }
   .subtitle {
     font-size: 1.1rem;
     color: var(--text-soft);
     max-width: 520px;
   }
+  .subtitle em { color: var(--acid); font-style: normal; }
 
   .narrative { max-width: 720px; }
   .scene-block {
