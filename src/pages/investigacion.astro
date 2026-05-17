@@ -1,11 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const profileSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://huhugerman.com/investigacion",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://huhugerman.com/#person",
+    "name": "Yasser Gandhi Hernández Esquivel",
+    "jobTitle": "Docente-investigador",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "CELEX — Centro de Lenguas Extranjeras, UAM Azcapotzalco"
+    },
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "Universidad Nacional Autónoma de México"},
+      {"@type": "CollegeOrUniversity", "name": "Universidad de Guadalajara"}
+    ],
+    "sameAs": [
+      "https://orcid.org/0000-0002-8736-184X",
+      "https://scholar.google.com/citations?user=YnqLK4oAAAAJ",
+      "https://osf.io/b7895/overview",
+      "https://yassergandhi.dev/"
+    ]
+  }
+});
 ---
 
 <Layout
   title="Investigación | huhuGERMAN"
   description="Quince años de observación docente que se formalizaron en investigación. Tesis UNAM 2015 y 2020, díptico RDU 2017, corpus empírico CELEX 2026. La práctica primero, la pregunta después."
   canonical="https://huhugerman.com/investigacion"
+  extraSchema={profileSchema}
 >
   <main>
     <div class="container">
