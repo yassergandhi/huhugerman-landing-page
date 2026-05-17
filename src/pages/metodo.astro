@@ -56,6 +56,13 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
+      <section class="accomp-section">
+        <blockquote class="accomp-pull">
+          Una cosa es hablar alemán. Otra es acompañar a alguien cuando deja de entenderlo todo.
+        </blockquote>
+        <p class="accomp-body">El proceso es personalizado no solo porque se adapte al caso. Sino porque requiere leer cuándo intervenir y cuándo no. Eso no se automatiza ni se escala.</p>
+      </section>
+
       <section class="timeline-section">
         <h2 class="section-title">Qué está probado</h2>
         <p class="timeline-intro">Esta preparación no nació de un método importado ni de un curso de formación. Viene de 15 años de observación directa en el aula, trabajo de campo y producción académica verificable.</p>
@@ -227,4 +234,23 @@ import Layout from '../layouts/Layout.astro';
     letter-spacing: .06em; border-radius: 10px;
   }
   .btn-secondary:hover { border-color: var(--acid); color: var(--acid-2); }
+
+  .accomp-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--acid);
+    border-radius: var(--radius-sm);
+    max-width: var(--measure);
+  }
+  .accomp-pull {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--text);
+    letter-spacing: .03em;
+    line-height: 1.2;
+    margin-bottom: .75rem;
+  }
+  .accomp-body { color: var(--text-soft); font-size: .95rem; line-height: 1.7; margin: 0; }
 </style>
