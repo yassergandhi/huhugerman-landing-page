@@ -37,30 +37,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
-      <section class="publications-section">
-        <h2 class="section-title">Publicaciones</h2>
-
-        <article class="pub-card">
-          <span class="pub-year">2017</span>
-          <div class="pub-body">
-            <h3>Estrategias metacognitivas en la comprensión auditiva del alemán como lengua extranjera en estudiantes de nivel básico</h3>
-            <p class="pub-meta">Hernández Esquivel, Y. G. (2017). <em>Revista Digital Universitaria</em>, vol. 18, núm. 5.</p>
-            <p class="pub-desc">Primera documentación formal de la brecha entre exposición a input auténtico y disposición real bajo presión. El artículo identifica el gap Hochdeutsch/Umgangssprache en contexto de aprendizaje de nivel básico y propone estrategias metacognitivas para trabajarlo desde la primera etapa de estudio.</p>
-            <a href="https://www.revista.unam.mx/vol.18/num5/art39/index.html" target="_blank" rel="noopener noreferrer" class="pub-link">Leer en Revista Digital Universitaria ↗</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <span class="pub-year">2026</span>
-          <div class="pub-body">
-            <h3>OSF Preprint · Corpus CELEX-UAM Azcapotzalco</h3>
-            <p class="pub-meta">Hernández Esquivel, Y. G. (2026). Open Science Framework.</p>
-            <p class="pub-desc">Preprint con datos del corpus de investigación empírica. Documenta el corpus de 118 respuestas sistematizadas de 20 participantes. Disponible para revisión y citación antes de publicación formal en revista.</p>
-            <a href="https://osf.io/b7895/overview" target="_blank" rel="noopener noreferrer" class="pub-link">Ver en OSF ↗</a>
-          </div>
-        </article>
-      </section>
-
       <section class="theses-section">
         <h2 class="section-title">Tesis</h2>
 
@@ -81,6 +57,34 @@ import Layout from '../layouts/Layout.astro';
             <p class="pub-meta">UNAM / Universität Hamburg (UHH)</p>
             <p class="pub-desc">La brecha Hochdeutsch/Umgangssprache, Bildung y formación docente comparada México-Alemania. Documentación de entrevistas con docentes de alemán en Hamburg. Conexión entre práctica en aula y escenario migratorio. Trabajo realizado con beca CONACYT en el Sprachzentrum de la Universidad de Hamburgo.</p>
             <a href="https://tesiunam.dgb.unam.mx/F/IDGMBGJSPDUNBGGBPQFUFNL5CB3PFJECLH4ADMNE2G2DU87HU8-19982?func=full-set-set&set_number=001362&set_entry=000002&format=999" target="_blank" rel="noopener noreferrer" class="pub-link">Ver en TESIUNAM ↗</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="publications-section">
+        <h2 class="section-title">Publicaciones</h2>
+
+        <article class="pub-card">
+          <span class="pub-year">2017</span>
+          <div class="pub-body">
+            <h3>El viaje de Emilio — Dos perspectivas publicadas</h3>
+            <p class="pub-meta"><em>Revista Digital Universitaria</em>, UNAM, vol. 18, núm. 5.</p>
+            <p class="pub-desc">Perspectiva docente: estrategias metacognitivas en la comprensión auditiva del alemán como lengua extranjera en nivel básico. Perspectiva del estudiante: el mismo proceso documentado desde el aprendiente — qué cambió, qué funcionó, qué no prepararon los cursos convencionales.</p>
+            <div class="pub-links-row">
+              <a href="http://revista.unam.mx/vol.18/num5/art39/index.html" target="_blank" rel="noopener noreferrer" class="pub-link">Perspectiva docente (art. 39) ↗</a>
+              <a href="http://revista.unam.mx/vol.18/num5/art40/index.html" target="_blank" rel="noopener noreferrer" class="pub-link">Perspectiva del estudiante (art. 40) ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pub-card preprint-card">
+          <span class="pub-year">2026</span>
+          <div class="pub-body">
+            <span class="preprint-label">Investigación en desarrollo · Preprint</span>
+            <h3>Corpus CELEX-UAM Azcapotzalco — Consolidación teórica reciente</h3>
+            <p class="pub-meta">Hernández Esquivel, Y. G. (2026). Open Science Framework.</p>
+            <p class="pub-desc">Preprint con los datos del corpus empírico 2026. Documenta 118 respuestas sistematizadas de 20 participantes. Desarrolla la conexión teórica entre los hallazgos de 2015–2020 y las condiciones actuales de vulnerabilidad lingüística en contexto migratorio. Disponible para revisión y citación antes de publicación formal en revista indexada.</p>
+            <a href="https://osf.io/b7895/overview" target="_blank" rel="noopener noreferrer" class="pub-link">Ver en OSF ↗</a>
           </div>
         </article>
       </section>
@@ -111,7 +115,7 @@ import Layout from '../layouts/Layout.astro';
               <span class="corpus-value">Cuestionario mixto sobre exposición al alemán real, expectativas de viaje y vulnerabilidad institucional percibida</span>
             </div>
           </div>
-          <p class="corpus-note">Casos documentados: Ximena (EA1X), Marco Manuel, Carlos. Las identidades están anonimizadas en la documentación pública. El preprint en OSF incluye los datos agregados del corpus.</p>
+          <p class="corpus-note">Casos documentados del corpus: Ximena (EA1X), Marco Manuel. Las identidades están anonimizadas en la documentación pública. El preprint en OSF incluye los datos agregados del corpus.</p>
         </div>
       </section>
 
@@ -228,6 +232,7 @@ import Layout from '../layouts/Layout.astro';
   .pub-meta { font-family: var(--font-mono); font-size: .72rem; color: var(--text-soft); margin-bottom: .6rem; }
   .pub-meta em { font-style: italic; }
   .pub-desc { color: var(--text-mid); font-size: .9rem; margin-bottom: .75rem; }
+  .pub-links-row { display: flex; flex-wrap: wrap; gap: .75rem; }
   .pub-link {
     font-family: var(--font-mono);
     font-size: .72rem;
@@ -236,6 +241,21 @@ import Layout from '../layouts/Layout.astro';
   }
   .pub-link:hover { color: var(--acid-2); }
   .pub-link:visited { color: var(--acid); }
+
+  .preprint-card { border-color: rgba(212,232,71,.25); }
+  .preprint-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--acid);
+    background: rgba(212,232,71,.08);
+    border: 1px solid rgba(212,232,71,.25);
+    padding: .2rem .6rem;
+    border-radius: 6px;
+    margin-bottom: .75rem;
+  }
 
   .corpus-card {
     background: var(--surface);
