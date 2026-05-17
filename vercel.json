@@ -1,5 +1,12 @@
 {
   "framework": "astro",
   "buildCommand": "astro build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/schau-mal",
+      "destination": "/cuando-el-aleman-llega-sin-aviso",
+      "permanent": true
+    }
+  ]
 }
