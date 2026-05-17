@@ -5,7 +5,12 @@
   "redirects": [
     {
       "source": "/schau-mal",
-      "destination": "/cuando-el-aleman-llega-sin-aviso",
+      "destination": "/escenas-documentadas",
+      "permanent": true
+    },
+    {
+      "source": "/cuando-el-aleman-llega-sin-aviso",
+      "destination": "/escenas-documentadas",
       "permanent": true
     }
   ]
