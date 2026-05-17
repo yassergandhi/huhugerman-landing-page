@@ -1,11 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://www.revista.unam.mx/vol.18/num5/articulo-emilio/",
+  "name": "El viaje de Emilio a Alemania. Implicaciones en mi práctica docente",
+  "author": {"@id": "https://huhugerman.com/#person"},
+  "datePublished": "2017",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Revista Digital Universitaria",
+    "volumeNumber": "18",
+    "issueNumber": "5",
+    "publisher": {"@type": "Organization", "name": "Universidad Nacional Autónoma de México"}
+  },
+  "url": "https://www.revista.unam.mx/vol.18/num5/articulo-emilio/"
+});
 ---
 
 <Layout
   title="El viaje de Emilio: díptico pedagógico RDU UNAM 2017 | huhuGERMAN"
   description="En 2017 la UNAM publicó dos artículos sobre la misma experiencia: el docente y el estudiante documentaron el mismo proceso desde perspectivas distintas. Un archivo de una relación pedagógica real."
   canonical="https://huhugerman.com/el-viaje-de-emilio"
+  extraSchema={articleSchema}
 >
   <main>
     <div class="container">

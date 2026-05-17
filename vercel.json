@@ -12,6 +12,11 @@
       "source": "/cuando-el-aleman-llega-sin-aviso",
       "destination": "/escenas-documentadas",
       "permanent": true
+    },
+    {
+      "source": "/escenas-reales",
+      "destination": "/escenas",
+      "permanent": true
     }
   ]
 }
