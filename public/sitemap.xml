@@ -26,9 +26,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://huhugerman.com/schau-mal</loc>
+    <loc>https://huhugerman.com/escenas</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://huhugerman.com/escenas-documentadas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://huhugerman.com/el-viaje-de-emilio</loc>

@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Qué se compra | huhuGERMAN"
-  description="Diagnóstico de 20 minutos, proceso de 4–6 sesiones, input auténtico, actividades asíncronas, retroalimentación docente. 350–550 USD según el caso."
+  title="Preparación preventiva para Alemania | huhuGERMAN"
+  description="Diagnóstico sin cargo, proceso personalizado, entrenamiento situacional. La preparación preventiva representa una fracción mínima del costo total de llegada. No se vende fluidez. Se vende reducción de vulnerabilidad."
   canonical="https://huhugerman.com/servicios"
 >
   <main>
@@ -14,6 +14,25 @@ import Layout from '../layouts/Layout.astro';
         <p class="label">Preparación preventiva personalizada</p>
         <h1>Qué se compra</h1>
         <p class="subtitle">Acceso a un docente-investigador especializado. Tiempo específico para un caso específico.</p>
+      </section>
+
+      <section class="for-who-section">
+        <h2 class="section-title">Para quién es esto</h2>
+        <div class="for-who-grid">
+          <div class="for-who-item">
+            <span class="for-mark">→</span>
+            <p>Para quien está por invertir dinero serio en Alemania y quiere reducir el riesgo lingüístico antes del viaje.</p>
+          </div>
+          <div class="for-who-item">
+            <span class="for-mark">→</span>
+            <p>Para quien ya estudió alemán pero siente que hay algo entre lo que sabe y lo que puede usar cuando hay presión.</p>
+          </div>
+          <div class="for-who-item">
+            <span class="for-mark">→</span>
+            <p>Para quien entiende que el problema no es solo gramática y busca preparación operativa, no un curso más.</p>
+          </div>
+        </div>
+        <p class="for-who-note">Si el caso no encaja, se dice directamente en el diagnóstico. Sin cargo. Sin rodeos.</p>
       </section>
 
       <section class="includes-section">
@@ -33,7 +52,7 @@ import Layout from '../layouts/Layout.astro';
             <span class="service-num">02</span>
             <h3>Proceso de preparación</h3>
             <p class="service-duration">4–6 sesiones · 1:1 · Diseñado desde el diagnóstico</p>
-            <p>No grupal. No grabado. No estandarizado. Cada sesión trabaja una o más escenas del caso real: escenas institucionales, lectura social, pragmática, defensa bajo presión.</p>
+            <p>No grupal. No grabado. No estandarizado. Cada sesión trabaja una o más escenas del caso real: escenas institucionales, registro y pragmática, sostenerse bajo presión.</p>
           </article>
 
           <article class="service-card">
@@ -54,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
             <span class="service-num">05</span>
             <h3>Retroalimentación docente</h3>
             <p class="service-duration">Análisis específico del caso</p>
-            <p>No nota. No nivel CEFR. ¿Qué mejoró? ¿Dónde sigue la brecha? ¿Qué trabajar antes del vuelo? Análisis honesto de disposición real ante el alemán como presión.</p>
+            <p>No nota. No nivel CEFR. ¿Qué avanzó? ¿Dónde sigue la brecha? ¿Qué queda por trabajar antes del vuelo? Análisis honesto del avance real.</p>
           </article>
 
         </div>
@@ -69,10 +88,9 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="price-divider"></div>
           <div class="price-context">
-            <p>El Sperrkonto mínimo es <strong>11.904€</strong>.</p>
-            <p>El seguro médico es <strong>141–146€/mes</strong>.</p>
-            <p>Un mes de renta en Berlín promedia <strong>800–1,200€</strong>.</p>
-            <p>La preparación lingüística es el menor costo de este proyecto. Y es el único que reduce el riesgo de los demás.</p>
+            <p>El costo total de llegada a Alemania —cuenta bloqueada, visa, seguro, vuelo, primera renta y depósito— supera con frecuencia los <strong>€13,000–€15,000</strong>.</p>
+            <p>Frente a eso, la preparación preventiva representa una fracción mínima de la inversión.</p>
+            <p>No compite contra cursos. Compite contra el costo del error: un trámite mal entendido, un contrato mal firmado, una interacción institucional que se resolvió en el idioma equivocado.</p>
           </div>
         </div>
       </section>
@@ -146,6 +164,18 @@ import Layout from '../layouts/Layout.astro';
     color: var(--text-soft);
     max-width: 560px;
   }
+
+  .for-who-section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--line); }
+  .for-who-grid { display: grid; gap: .75rem; margin-top: .75rem; }
+  .for-who-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.1rem 1.25rem;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+  .for-mark { font-family: var(--font-display); font-size: 1.3rem; color: var(--acid); flex-shrink: 0; line-height: 1.3; }
+  .for-who-item p { color: var(--text-mid); font-size: .93rem; line-height: 1.65; margin: 0; grid-column: unset; }
+  .for-who-note { color: var(--text-soft); font-size: .88rem; margin-top: 1rem; font-style: italic; }
 
   .includes-section { margin-bottom: 3.5rem; }
   .section-title { font-size: clamp(1.6rem, 4vw, 2.5rem); color: var(--text); margin-bottom: 1.5rem; }
