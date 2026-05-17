@@ -14,7 +14,6 @@ import Layout from '../layouts/Layout.astro';
         <p class="label">Escenas reales · Situaciones proyectadas</p>
         <h1>El alemán fuera del libro</h1>
         <p class="subtitle">Situaciones posibles del entorno alemán, construidas a partir de observación docente acumulada. No son transcripciones de casos reales. Son las escenas que esperan antes del viaje.</p>
-        <p class="hero-note">Para evidencia de aula observada directamente, ver <a href="/escenas-documentadas">las escenas documentadas</a>.</p>
       </section>
 
       <section class="stack-section">
@@ -111,13 +110,55 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
+      <section class="doc-section">
+        <div class="doc-header">
+          <p class="doc-label">Evidencia de aula · CELEX-UAM Azcapotzalco · Marzo 2026</p>
+          <h2 class="doc-title">Cuando el alemán llega sin aviso</h2>
+        </div>
+        <div class="doc-body">
+          <p>Lo que sigue no es una escena proyectada. Es registro directo de observación en el aula de preparación del CELEX. Las identidades están anonimizadas. Los datos agregados están disponibles en el preprint de Open Science Framework.</p>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-meta">
+            <span class="doc-badge">Interacción espontánea con hablante nativo</span>
+          </div>
+
+          <div class="doc-blocks">
+            <div class="doc-block">
+              <h3>Lo que ocurrió</h3>
+              <p>Un hablante nativo de alemán entró al espacio de preparación durante una sesión. No como evaluador. No como autoridad. Solo como persona que habla alemán.</p>
+              <p>El intercambio fue breve. A velocidad cotidiana. Sin estructura pedagógica.</p>
+            </div>
+
+            <div class="doc-block">
+              <h3>La respuesta del grupo</h3>
+              <p>La mayoría de los participantes no respondió de inmediato.</p>
+              <p>No era ausencia de vocabulario. Era la distancia entre <em>entender el idioma</em> y <em>responder en el momento</em> cuando ya no hay estructura que lo ordene.</p>
+            </div>
+
+            <div class="doc-block doc-highlight">
+              <h3>Una reacción mínima, funcional</h3>
+              <p>Una participante respondió. Breve. En alemán. En el momento.</p>
+              <p>No fue gramática perfecta. Fue respuesta real sin esperar condiciones perfectas.</p>
+            </div>
+
+            <div class="doc-block">
+              <h3>Lo que muestra este tipo de situación</h3>
+              <p>La brecha no siempre es de vocabulario ni de gramática. Es la distancia entre <em>saber alemán</em> y <em>tener el idioma disponible cuando el contexto ya no es controlado</em>.</p>
+              <p>El corpus activo 2026 incluye 20 participantes y 118 respuestas sistematizadas del mismo espacio. <a href="/investigacion" class="doc-link">Ver trayectoria académica completa →</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="cta-section">
         <p class="label">Preparación preventiva</p>
         <h2 class="cta-title">Antes de que llegue la escena</h2>
         <p class="cta-body">Conocer las situaciones antes de vivirlas reduce el tiempo de reacción y el costo del error. La preparación es para ese momento.</p>
         <div class="cta-group">
           <a href="/metodo" class="btn-primary">Qué entrena huhuGERMAN</a>
-          <a href="/escenas-documentadas" class="btn-secondary">Escenas documentadas de aula →</a>
+          <a href="/investigacion" class="btn-secondary">Ver evidencia académica →</a>
         </div>
       </section>
 
@@ -156,15 +197,6 @@ import Layout from '../layouts/Layout.astro';
     max-width: 540px;
     line-height: 1.65;
   }
-  .hero-note {
-    font-family: var(--font-mono);
-    font-size: .72rem;
-    color: var(--text-soft);
-    margin-top: .75rem;
-  }
-  .hero-note a { color: var(--acid); }
-  .hero-note a:hover { color: var(--acid-2); }
-
   .stack-section { margin-bottom: 4rem; }
   .stack-help {
     font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
@@ -250,6 +282,56 @@ import Layout from '../layouts/Layout.astro';
     font-family: var(--font-body); font-size: .9rem; font-weight: 700; cursor: pointer;
   }
   .stack-reset button:hover { background: rgba(212,232,71,.14); color: var(--acid-2); }
+
+  .doc-section {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .doc-header { margin-bottom: 1.25rem; }
+  .doc-label {
+    font-family: var(--font-mono); font-size: .68rem;
+    text-transform: uppercase; letter-spacing: .1em;
+    color: var(--acid); margin-bottom: .5rem;
+  }
+  .doc-title { font-size: clamp(1.6rem, 4vw, 2.5rem); color: var(--text); margin-bottom: 0; }
+  .doc-body { max-width: 680px; margin-bottom: 1.5rem; }
+  .doc-body p { color: var(--text-soft); font-size: .92rem; line-height: 1.7; margin-bottom: 0; }
+
+  .doc-card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 2rem;
+  }
+  .doc-meta { margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+  .doc-badge {
+    font-family: var(--font-mono); font-size: .68rem;
+    text-transform: uppercase; letter-spacing: .1em;
+    color: var(--text-soft); padding: .3rem .7rem;
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  .doc-blocks { display: grid; gap: 0; }
+  .doc-block {
+    padding: 1.5rem 0; border-bottom: 1px solid var(--line);
+  }
+  .doc-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .doc-block h3 {
+    font-size: .95rem; color: var(--acid); margin-bottom: .5rem;
+    font-family: var(--font-body); font-weight: 700;
+  }
+  .doc-block p { color: var(--text-mid); font-size: .9rem; line-height: 1.7; margin-bottom: .5rem; }
+  .doc-block p:last-child { margin-bottom: 0; }
+  .doc-block em { color: var(--acid); font-style: normal; }
+  .doc-highlight {
+    background: var(--surface-2); border: 1px solid var(--line);
+    border-left: 3px solid var(--acid); border-radius: var(--radius-sm);
+    padding: 1.25rem 1.5rem; margin: 1rem 0;
+  }
+  .doc-link {
+    font-family: var(--font-mono); font-size: .72rem;
+    text-transform: uppercase; letter-spacing: .06em; color: var(--acid);
+  }
+  .doc-link:hover { color: var(--acid-2); }
 
   .cta-section {
     border-top: 1px solid var(--line);
