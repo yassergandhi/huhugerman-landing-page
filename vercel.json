@@ -5,17 +5,27 @@
   "redirects": [
     {
       "source": "/schau-mal",
-      "destination": "/escenas-documentadas",
+      "destination": "/escenas",
       "permanent": true
     },
     {
       "source": "/cuando-el-aleman-llega-sin-aviso",
-      "destination": "/escenas-documentadas",
+      "destination": "/escenas",
       "permanent": true
     },
     {
       "source": "/escenas-reales",
       "destination": "/escenas",
+      "permanent": true
+    },
+    {
+      "source": "/escenas-documentadas",
+      "destination": "/escenas",
+      "permanent": true
+    },
+    {
+      "source": "/riesgo-financiero",
+      "destination": "/riesgo",
       "permanent": true
     }
   ]
