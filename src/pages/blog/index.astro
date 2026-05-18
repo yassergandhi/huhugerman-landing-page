@@ -1,0 +1,355 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort((a, b) =>
+  b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const categories = ['Pre-Arrival', 'Arrival Crash', 'Social Architecture'] as const;
+
+const categoryColors: Record<string, string> = {
+  'Pre-Arrival':        'rgba(240,196,0,.12)',
+  'Arrival Crash':      'rgba(255,107,85,.12)',
+  'Social Architecture':'rgba(212,232,71,.12)',
+};
+const categoryBorders: Record<string, string> = {
+  'Pre-Arrival':        'rgba(240,196,0,.35)',
+  'Arrival Crash':      'rgba(255,107,85,.35)',
+  'Social Architecture':'rgba(212,232,71,.35)',
+};
+const categoryText: Record<string, string> = {
+  'Pre-Arrival':        '#f0c400',
+  'Arrival Crash':      '#ff6b55',
+  'Social Architecture':'#d4e847',
+};
+---
+
+<Layout
+  title="Blog — huhuGERMAN"
+  description="Análisis crítico, estrategia lingüística y preparación preventiva para alemán real. Artículos sobre supervivencia institucional y social en Alemania."
+  canonical="https://huhugerman.com/blog"
+>
+  <main class="blog-index">
+    <div class="container">
+
+      <header class="blog-header">
+        <p class="blog-eyebrow">Archivo de análisis</p>
+        <h1>Blog</h1>
+        <p class="blog-lead">
+          Artículos sobre la realidad lingüística e institucional de Alemania. Sin motivación superficial. Sin promesas de fluidez. Solo reducción de vulnerabilidad.
+        </p>
+      </header>
+
+      <div class="blog-controls">
+        <div class="search-wrap">
+          <label for="blogSearch" class="sr-only">Buscar artículos</label>
+          <input
+            id="blogSearch"
+            type="search"
+            placeholder="Buscar por título o etiqueta…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <svg class="search-icon" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filtrar por categoría">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          {categories.map(cat => (
+            <button
+              class="filter-btn"
+              data-filter={cat}
+              style={`--cat-bg:${categoryColors[cat]};--cat-border:${categoryBorders[cat]};--cat-text:${categoryText[cat]}`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p class="results-count" id="resultsCount" aria-live="polite">
+        {posts.length} artículo{posts.length !== 1 ? 's' : ''}
+      </p>
+
+      <ul class="post-grid" id="postGrid" role="list">
+        {posts.map(post => (
+          <li
+            class="post-card"
+            data-title={post.data.title.toLowerCase()}
+            data-tags={post.data.tags.join(' ').toLowerCase()}
+            data-category={post.data.category}
+          >
+            <a href={`/blog/${post.slug}`} class="card-link">
+              <span
+                class="card-category"
+                style={`background:${categoryColors[post.data.category]};border-color:${categoryBorders[post.data.category]};color:${categoryText[post.data.category]}`}
+              >
+                {post.data.category}
+              </span>
+              <h2 class="card-title">{post.data.title}</h2>
+              <p class="card-desc">{post.data.description}</p>
+              <footer class="card-footer">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                <div class="card-tags">
+                  {post.data.tags.map(tag => (
+                    <span class="card-tag">{tag}</span>
+                  ))}
+                </div>
+              </footer>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <p class="no-results" id="noResults" hidden>
+        No hay artículos que coincidan con tu búsqueda.
+      </p>
+
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const searchInput  = document.getElementById('blogSearch') as HTMLInputElement;
+  const filterBtns   = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards        = document.querySelectorAll<HTMLLIElement>('.post-card');
+  const countEl      = document.getElementById('resultsCount')!;
+  const noResultsEl  = document.getElementById('noResults')!;
+
+  let activeFilter = 'all';
+  let searchQuery  = '';
+
+  function applyFilters() {
+    let visible = 0;
+
+    cards.forEach(card => {
+      const title    = card.dataset.title    ?? '';
+      const tags     = card.dataset.tags     ?? '';
+      const category = card.dataset.category ?? '';
+
+      const matchesSearch   = !searchQuery || title.includes(searchQuery) || tags.includes(searchQuery);
+      const matchesCategory = activeFilter === 'all' || category === activeFilter;
+
+      const show = matchesSearch && matchesCategory;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    countEl.textContent = `${visible} artículo${visible !== 1 ? 's' : ''}`;
+    noResultsEl.hidden  = visible > 0;
+  }
+
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value.trim().toLowerCase();
+    applyFilters();
+  });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter ?? 'all';
+      applyFilters();
+    });
+  });
+</script>
+
+<style>
+  .blog-index { padding: 4rem 0 6rem; }
+
+  .blog-header {
+    max-width: 56ch;
+    margin-bottom: 3rem;
+  }
+  .blog-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--acid);
+    margin-bottom: .6rem;
+  }
+  .blog-header h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .blog-lead {
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  /* ── controls ── */
+  .blog-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  .search-wrap {
+    position: relative;
+    flex: 1 1 220px;
+    max-width: 360px;
+  }
+  #blogSearch {
+    width: 100%;
+    padding: .6rem 1rem .6rem 2.4rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    outline: none;
+    transition: border-color .15s;
+  }
+  #blogSearch::placeholder { color: var(--text-soft); }
+  #blogSearch:focus { border-color: rgba(212,232,71,.4); }
+  .search-icon {
+    position: absolute;
+    left: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-soft);
+    pointer-events: none;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    padding: .4rem .85rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: color .15s, background .15s, border-color .15s;
+  }
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--cat-bg, rgba(212,232,71,.1));
+    border-color: var(--cat-border, rgba(212,232,71,.35));
+    color: var(--cat-text, var(--acid));
+  }
+  .filter-btn[data-filter="all"].active {
+    background: rgba(212,232,71,.1);
+    border-color: rgba(212,232,71,.35);
+    color: var(--acid);
+  }
+
+  .results-count {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    color: var(--text-soft);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── grid ── */
+  .post-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .post-card { display: flex; }
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color .2s, background .2s;
+    width: 100%;
+  }
+  .card-link:hover {
+    border-color: rgba(212,232,71,.25);
+    background: var(--surface-2);
+  }
+  .card-link:visited { color: inherit; }
+
+  .card-category {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: .25rem .65rem;
+    border-radius: 999px;
+    border: 1px solid;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    line-height: 1.15;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .card-desc {
+    font-size: .9rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: auto;
+    padding-top: .75rem;
+    border-top: 1px solid var(--line);
+  }
+  .card-footer time {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    color: var(--text-soft);
+  }
+  .card-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
+  .card-tag {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--text-soft);
+    background: var(--bg-3);
+    border: 1px solid var(--line);
+    padding: .15rem .45rem;
+    border-radius: 5px;
+  }
+
+  .no-results {
+    text-align: center;
+    color: var(--text-soft);
+    font-family: var(--font-mono);
+    font-size: .9rem;
+    padding: 3rem 0;
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+  }
+</style>
