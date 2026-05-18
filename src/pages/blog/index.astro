@@ -94,7 +94,7 @@ const categoryText: Record<string, string> = {
               <p class="card-desc">{post.data.description}</p>
               <footer class="card-footer">
                 <time datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  {post.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
                 </time>
                 <div class="card-tags">
                   {post.data.tags.map(tag => (
