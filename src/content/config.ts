@@ -6,7 +6,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string().max(160),
     pubDate: z.date(),
-    category: z.enum(['Pre-Arrival', 'Arrival Crash', 'Social Architecture']),
+    category: z.enum(['Antes del vuelo', 'Los primeros días', 'Vivir ahí']),
     tags: z.array(z.string()),
     canonicalUrl: z.string().url(),
   }),
