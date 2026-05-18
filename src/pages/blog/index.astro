@@ -7,28 +7,28 @@ const posts = allPosts.sort((a, b) =>
   b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
-const categories = ['Pre-Arrival', 'Arrival Crash', 'Social Architecture'] as const;
+const categories = ['Antes del vuelo', 'Los primeros días', 'Vivir ahí'] as const;
 
 const categoryColors: Record<string, string> = {
-  'Pre-Arrival':        'rgba(240,196,0,.12)',
-  'Arrival Crash':      'rgba(255,107,85,.12)',
-  'Social Architecture':'rgba(212,232,71,.12)',
+  'Antes del vuelo':  'rgba(240,196,0,.12)',
+  'Los primeros días':'rgba(255,107,85,.12)',
+  'Vivir ahí':        'rgba(212,232,71,.12)',
 };
 const categoryBorders: Record<string, string> = {
-  'Pre-Arrival':        'rgba(240,196,0,.35)',
-  'Arrival Crash':      'rgba(255,107,85,.35)',
-  'Social Architecture':'rgba(212,232,71,.35)',
+  'Antes del vuelo':  'rgba(240,196,0,.35)',
+  'Los primeros días':'rgba(255,107,85,.35)',
+  'Vivir ahí':        'rgba(212,232,71,.35)',
 };
 const categoryText: Record<string, string> = {
-  'Pre-Arrival':        '#f0c400',
-  'Arrival Crash':      '#ff6b55',
-  'Social Architecture':'#d4e847',
+  'Antes del vuelo':  '#f0c400',
+  'Los primeros días':'#ff6b55',
+  'Vivir ahí':        '#d4e847',
 };
 ---
 
 <Layout
   title="Blog — huhuGERMAN"
-  description="Análisis crítico, estrategia lingüística y preparación preventiva para alemán real. Artículos sobre supervivencia institucional y social en Alemania."
+  description="Artículos sobre el alemán real que te espera en Alemania: supermercados, trámites, vivienda, convivencia. Sin promesas de fluidez. Solo preparación concreta."
   canonical="https://huhugerman.com/blog"
 >
   <main class="blog-index">
@@ -38,7 +38,7 @@ const categoryText: Record<string, string> = {
         <p class="blog-eyebrow">Archivo de análisis</p>
         <h1>Blog</h1>
         <p class="blog-lead">
-          Artículos sobre la realidad lingüística e institucional de Alemania. Sin motivación superficial. Sin promesas de fluidez. Solo reducción de vulnerabilidad.
+          Artículos sobre el alemán real que te espera en Alemania: la caja del supermercado, la ventanilla del trámite, el vecino que llama a la puerta. Sin motivación superficial. Sin promesas de fluidez.
         </p>
       </header>
 
@@ -94,7 +94,7 @@ const categoryText: Record<string, string> = {
               <p class="card-desc">{post.data.description}</p>
               <footer class="card-footer">
                 <time datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  {post.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
                 </time>
                 <div class="card-tags">
                   {post.data.tags.map(tag => (
