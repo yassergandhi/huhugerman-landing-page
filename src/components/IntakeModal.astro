@@ -1,0 +1,295 @@
+---
+---
+<div id="huhu-overlay" class="huhu-overlay" role="dialog" aria-modal="true" aria-label="Formulario de intake" hidden>
+  <div class="huhu-modal" id="huhu-modal">
+
+    <button class="huhu-x" id="huhu-x" type="button" aria-label="Cerrar">✕</button>
+
+    <!-- PORTADA -->
+    <div class="huhu-screen" id="screen-cover">
+      <p class="huhu-eyebrow">huhuGERMAN · Intake</p>
+      <h2 class="huhu-title">Cuéntame tu caso</h2>
+      <p class="huhu-body">Tres preguntas para entender tu situación antes de llegar a Alemania. No es un formulario genérico.</p>
+      <div class="huhu-actions">
+        <button type="button" class="huhu-primary" id="cover-next">Continuar</button>
+        <button type="button" class="huhu-ghost" id="cover-close">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 1 -->
+    <div class="huhu-screen" id="screen-q1" hidden>
+      <p class="huhu-step">1 de 3</p>
+      <label class="huhu-label" for="f-situacion">
+        ¿Qué situación concreta en Alemania requiere que el idioma funcione bien desde el inicio?
+      </label>
+      <textarea id="f-situacion" class="huhu-textarea" rows="5" maxlength="1000"
+        placeholder="Describe la situación específica…"></textarea>
+      <div class="huhu-meta"><span id="cnt-situacion">0</span> / 1000 caracteres</div>
+      <p class="huhu-err" id="err-situacion" hidden>Mínimo 20 caracteres.</p>
+      <div class="huhu-actions">
+        <button type="button" class="huhu-primary" id="q1-next">Continuar</button>
+        <button type="button" class="huhu-ghost" id="q1-close">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 2 -->
+    <div class="huhu-screen" id="screen-q2" hidden>
+      <p class="huhu-step">2 de 3</p>
+      <label class="huhu-label" for="f-riesgo">
+        ¿Qué consecuencia real tendría para ti no entender bien una situación administrativa, laboral o cotidiana allá?
+      </label>
+      <textarea id="f-riesgo" class="huhu-textarea" rows="5" maxlength="1000"
+        placeholder="Describe la consecuencia concreta…"></textarea>
+      <div class="huhu-meta"><span id="cnt-riesgo">0</span> / 1000 caracteres</div>
+      <p class="huhu-err" id="err-riesgo" hidden>Mínimo 20 caracteres.</p>
+      <div class="huhu-actions">
+        <button type="button" class="huhu-primary" id="q2-next">Continuar</button>
+        <button type="button" class="huhu-ghost" id="q2-close">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 3 -->
+    <div class="huhu-screen" id="screen-q3" hidden>
+      <p class="huhu-step">3 de 3</p>
+      <label class="huhu-label" for="f-realidad">
+        ¿Qué parte del alemán real o del entorno alemán sientes que hoy todavía no podrías manejar?
+      </label>
+      <textarea id="f-realidad" class="huhu-textarea" rows="5" maxlength="1000"
+        placeholder="Describe la brecha que sientes…"></textarea>
+      <div class="huhu-meta"><span id="cnt-realidad">0</span> / 1000 caracteres</div>
+      <p class="huhu-err" id="err-realidad" hidden>Mínimo 20 caracteres.</p>
+      <input type="text" id="f-website" tabindex="-1" autocomplete="off"
+        style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <div class="huhu-actions">
+        <button type="button" class="huhu-primary" id="q3-submit">Enviar caso</button>
+        <button type="button" class="huhu-ghost" id="q3-close">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- CONFIRMACIÓN -->
+    <div class="huhu-screen" id="screen-done" hidden>
+      <p class="huhu-eyebrow">Recibido</p>
+      <h2 class="huhu-title">Tu caso llegó bien.</h2>
+      <p class="huhu-body">Voy a revisar lo que escribiste y me pongo en contacto para hablar sobre tu situación antes del vuelo.</p>
+      <div class="huhu-actions">
+        <button type="button" class="huhu-primary" id="done-close">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .huhu-overlay {
+    position: fixed; inset: 0; z-index: 9000;
+    background: rgba(4,6,8,.86);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(5px);
+  }
+  .huhu-overlay[hidden] { display: none; }
+
+  .huhu-modal {
+    position: relative;
+    width: 100%; max-width: 680px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    max-height: 90dvh;
+    overflow-y: auto;
+    box-shadow: 0 24px 80px rgba(0,0,0,.55);
+  }
+
+  .huhu-x {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; cursor: pointer;
+    color: var(--text-soft); font-size: 1rem;
+    padding: .4rem .6rem; border-radius: 8px;
+    transition: color .15s, background .15s;
+    line-height: 1;
+  }
+  .huhu-x:hover { color: var(--text); background: rgba(255,255,255,.06); }
+
+  .huhu-eyebrow {
+    font-family: var(--font-mono); font-size: .72rem;
+    text-transform: uppercase; letter-spacing: .14em;
+    color: var(--acid); margin-bottom: .65rem;
+  }
+  .huhu-title {
+    font-family: var(--font-display); font-size: clamp(1.9rem, 5vw, 2.8rem);
+    text-transform: uppercase; letter-spacing: .04em;
+    color: var(--text); line-height: 1; margin-bottom: .85rem;
+  }
+  .huhu-body {
+    color: var(--text-soft); font-size: 1rem; line-height: 1.65;
+    max-width: 52ch; margin-bottom: 1.5rem;
+  }
+  .huhu-step {
+    font-family: var(--font-mono); font-size: .72rem;
+    text-transform: uppercase; letter-spacing: .1em;
+    color: var(--text-soft); margin-bottom: .9rem;
+  }
+  .huhu-label {
+    display: block; color: var(--text);
+    font-size: 1.05rem; line-height: 1.55;
+    margin-bottom: .75rem;
+  }
+  .huhu-textarea {
+    width: 100%; resize: vertical;
+    background: #090d12; border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    color: var(--text); font-family: var(--font-body);
+    font-size: .95rem; line-height: 1.65;
+    padding: .85rem 1rem; outline: none;
+    transition: border-color .15s;
+  }
+  .huhu-textarea:focus { border-color: rgba(212,232,71,.4); }
+  .huhu-textarea.err   { border-color: var(--danger); }
+
+  .huhu-meta {
+    font-family: var(--font-mono); font-size: .68rem;
+    color: var(--text-soft); text-align: right;
+    margin-top: .35rem; margin-bottom: .4rem;
+  }
+  .huhu-err {
+    font-family: var(--font-mono); font-size: .74rem;
+    color: var(--danger); margin-bottom: .6rem;
+  }
+  .huhu-err[hidden] { display: none; }
+
+  .huhu-actions {
+    display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.25rem;
+    align-items: center;
+  }
+  .huhu-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: .85rem 2rem;
+    background: var(--acid); color: #040608;
+    border: none; border-radius: var(--radius-sm);
+    font-family: var(--font-display); font-size: 1.1rem;
+    letter-spacing: .06em; cursor: pointer;
+    transition: background .15s, opacity .15s;
+  }
+  .huhu-primary:hover   { background: #eeff72; }
+  .huhu-primary:disabled { opacity: .5; cursor: wait; }
+
+  .huhu-ghost {
+    display: inline-flex; align-items: center;
+    padding: .75rem 1.25rem;
+    background: none; color: var(--text-soft);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono); font-size: .76rem;
+    text-transform: uppercase; letter-spacing: .08em;
+    cursor: pointer; transition: color .15s, border-color .15s;
+  }
+  .huhu-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.22); }
+</style>
+
+<script>
+(function () {
+  var overlay = document.getElementById('huhu-overlay');
+
+  function show(id) {
+    ['cover','q1','q2','q3','done'].forEach(function (s) {
+      var el = document.getElementById('screen-' + s);
+      if (el) el.hidden = (s !== id);
+    });
+  }
+
+  function open() {
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    show('cover');
+  }
+
+  function close() {
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  window.openHuhuIntake = open;
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !overlay.hidden) close();
+  });
+
+  ['huhu-x','cover-close','q1-close','q2-close','q3-close','done-close'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('click', close);
+  });
+
+  document.getElementById('cover-next').addEventListener('click', function () { show('q1'); });
+
+  function validate(fieldId, errId) {
+    var ta  = document.getElementById(fieldId);
+    var err = document.getElementById(errId);
+    var ok  = ta.value.trim().length >= 20;
+    err.hidden = ok;
+    ta.classList.toggle('err', !ok);
+    return ok;
+  }
+
+  ['situacion','riesgo','realidad'].forEach(function (f) {
+    var ta  = document.getElementById('f-' + f);
+    var cnt = document.getElementById('cnt-' + f);
+    ta.addEventListener('input', function () { cnt.textContent = ta.value.length; });
+  });
+
+  document.getElementById('q1-next').addEventListener('click', function () {
+    if (validate('f-situacion','err-situacion')) show('q2');
+  });
+
+  document.getElementById('q2-next').addEventListener('click', function () {
+    if (validate('f-riesgo','err-riesgo')) show('q3');
+  });
+
+  document.getElementById('q3-submit').addEventListener('click', function () {
+    if (!validate('f-realidad','err-realidad')) return;
+
+    var btn = document.getElementById('q3-submit');
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+
+    fetch('/api/intake', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        situacion: document.getElementById('f-situacion').value.trim(),
+        riesgo:    document.getElementById('f-riesgo').value.trim(),
+        realidad:  document.getElementById('f-realidad').value.trim(),
+        website:   document.getElementById('f-website').value,
+      }),
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.ok) {
+          show('done');
+        } else {
+          btn.disabled    = false;
+          btn.textContent = 'Enviar caso';
+          if (data.errors) {
+            ['situacion','riesgo','realidad'].forEach(function (f) {
+              if (data.errors[f]) {
+                document.getElementById('err-' + f).hidden = false;
+                document.getElementById('f-' + f).classList.add('err');
+              }
+            });
+          }
+        }
+      })
+      .catch(function () {
+        btn.disabled    = false;
+        btn.textContent = 'Enviar caso';
+        var err = document.getElementById('err-realidad');
+        err.textContent = 'Error de red. Intenta de nuevo.';
+        err.hidden = false;
+      });
+  });
+})();
+</script>

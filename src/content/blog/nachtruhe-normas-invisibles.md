@@ -88,7 +88,7 @@ Si el problema escala, el contrato y la Hausordnung son los documentos que impor
 Conocer estas palabras no es alarmista. Es lo mismo que leer las letras pequeñas antes de firmar cualquier contrato en cualquier país.
 
 <div style="margin: 2.5rem 0; text-align: center;">
-  <a href="mailto:yassergandhi.dev@gmail.com?subject=Consulta huhuGERMAN — Convivencia y vivienda" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
+  <button type="button" onclick="window.openHuhuIntake()" class="cta-modal-trigger">
     Hablemos de tu preparación
-  </a>
+  </button>
 </div>

@@ -75,7 +75,7 @@ Si necesitas que pongan algo por escrito:
 Esta última frase también aparece en el post sobre la Ausländerbehörde. No es casualidad: es una de las más útiles en cualquier contexto burocrático alemán.
 
 <div style="margin: 2.5rem 0; text-align: center;">
-  <a href="mailto:yassergandhi.dev@gmail.com?subject=Consulta huhuGERMAN — Situaciones de llegada" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
+  <button type="button" onclick="window.openHuhuIntake()" class="cta-modal-trigger">
     Hablemos de tu preparación
-  </a>
+  </button>
 </div>

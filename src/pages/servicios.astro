@@ -99,8 +99,8 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="cta-title">El primer paso es una conversación</h2>
         <p class="cta-body">20 minutos para hablar de tu caso. Si el proceso tiene sentido para lo que necesitas, se diseña desde ahí. Si no tiene sentido, se dice directamente.</p>
         <div class="cta-group">
-          <a href="mailto:yassergandhi.dev@gmail.com?subject=Consulta%20huhuGERMAN" class="btn-primary">Hablemos de tu caso</a>
-          <a href="mailto:yassergandhi.dev@gmail.com?subject=Preguntas%20huhuGERMAN" class="btn-secondary">Escribir con preguntas</a>
+          <button type="button" onclick="window.openHuhuIntake()" class="btn-primary cta-modal-trigger">Hablemos de tu caso</button>
+          <button type="button" onclick="window.openHuhuIntake()" class="btn-secondary cta-modal-trigger" style="background:transparent;color:var(--acid);border:1px solid rgba(212,232,71,.3);">Escribir con preguntas</button>
         </div>
         <p class="cta-alt">También por <a href="https://yassergandhi.dev/" target="_blank" rel="noopener noreferrer">yassergandhi.dev</a></p>
       </section>

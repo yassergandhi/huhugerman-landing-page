@@ -1,4 +1,6 @@
 ---
+import IntakeModal from '../components/IntakeModal.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -114,6 +116,21 @@ const { title, description, canonical, ogTitle, noindex, extraSchema } = Astro.p
     .container { width: min(var(--container), calc(100% - 2rem)); margin: 0 auto; }
 
     h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.05; }
+
+    .cta-modal-trigger {
+      display: inline-block;
+      padding: .9rem 2rem;
+      background: var(--acid);
+      color: #040608;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      letter-spacing: .06em;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background .15s;
+    }
+    .cta-modal-trigger:hover { background: #eeff72; }
 
     /* ── site header (páginas internas) ── */
     .site-header {
@@ -252,6 +269,7 @@ const { title, description, canonical, ogTitle, noindex, extraSchema } = Astro.p
   </header>
 
   <slot />
+  <IntakeModal />
 
   <script>
     (function () {
