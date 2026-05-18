@@ -1,6 +1,6 @@
 ---
 title: "Por qué el certificado B1 no es suficiente para el primer trámite real"
-description: "La diferencia entre el alemán de academia y el alemán de la ventanilla. Frases reales para situaciones burocráticas y qué hacer cuando el funcionario no facilita las cosas."
+description: "El B1 no prepara para la ventanilla. Frases reales para la Ausländerbehörde y qué hacer cuando el funcionario no facilita las cosas."
 pubDate: 2026-05-20
 category: "Antes del vuelo"
 tags: ["Hochdeutsch", "burocracia", "Ausländerbehörde", "preparación"]

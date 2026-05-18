@@ -1,6 +1,6 @@
 ---
 title: "Nachtruhe a las 22:00: cómo funciona y qué decir si hay un conflicto"
-description: "El descanso nocturno obligatorio en Alemania no es una recomendación informal. Qué hacer si surge un conflicto con el vecino o la administración del edificio."
+description: "El descanso nocturno en Alemania no es una recomendación informal. Qué hacer si hay conflicto con el vecino o la Hausverwaltung."
 pubDate: 2026-05-21
 category: "Vivir ahí"
 tags: ["Nachtruhe", "convivencia", "Umgangssprache", "contrato"]
