@@ -27,7 +27,7 @@ const { Content } = await render(entry);
         <p class="post-description">{entry.data.description}</p>
         <div class="post-meta">
           <time datetime={entry.data.pubDate.toISOString()}>
-            {entry.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {entry.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
           </time>
           <div class="post-tags">
             {entry.data.tags.map(tag => <span class="tag">{tag}</span>)}
