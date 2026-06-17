@@ -10,7 +10,7 @@ const homeSchema = JSON.stringify({
       "url": "https://huhugerman.com/",
       "name": "huhuGERMAN",
       "inLanguage": "es",
-      "description": "Preparación 1:1 para hispanohablantes que van a Alemania y necesitan sostener escenas reales antes del viaje.",
+      "description": "Preparación 1:1 para hispanohablantes que van a Alemania y necesitan prepararse para situaciones reales antes del viaje.",
       "author": {"@id": "https://orcid.org/0000-0002-8736-184X"},
       "publisher": {"@id": "https://orcid.org/0000-0002-8736-184X"}
     },
@@ -36,7 +36,7 @@ const homeSchema = JSON.stringify({
         {"@type": "CollegeOrUniversity", "name": "Universidad de Guadalajara"}
       ],
       "email": "yassergandhi.dev@gmail.com",
-      "knowsAbout": ["alemán como lengua extranjera","comprensión auditiva","metacognición","Umgangssprache","Hochdeutsch","Landeskunde","Bildung","preparación para Alemania","contexto institucional alemán"]
+      "knowsAbout": ["alemán como lengua extranjera","Umgangssprache","Hochdeutsch","Landeskunde","Bildung","preparación para Alemania","contexto institucional alemán"]
     },
     {
       "@type": "Service",
@@ -53,9 +53,9 @@ const homeSchema = JSON.stringify({
 
 <Layout
   title="Preparación real para vivir en Alemania | huhuGERMAN"
-  description="Preparación personalizada 1:1 para hispanohablantes que van a Alemania. Situaciones reales antes del vuelo: trámites, vivienda, trabajo, convivencia. No es un curso de idioma."
+  description="Preparación personalizada 1:1 para estudiantes latinoamericanos que estudiaron alemán y están por enfrentar Alemania en la vida real: trámites, renta, correos, llamadas y primeras semanas."
   canonical="https://huhugerman.com/"
-  ogTitle="huhuGERMAN | El alemán que te espera antes del trámite, la renta y el vuelo"
+  ogTitle="huhuGERMAN | Prepararte para Alemania antes del trámite, la renta y el vuelo"
   extraSchema={homeSchema}
 >
   <style>
@@ -258,6 +258,43 @@ const homeSchema = JSON.stringify({
       max-width: 640px; color: var(--text-mid);
       font-size: 1.05rem; line-height: 1.75; margin-top: -.5rem;
     }
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .before-after-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.4rem 1.5rem;
+    }
+    .before-after-card h3 {
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .before-after-card ul {
+      list-style: none;
+      display: grid;
+      gap: .65rem;
+    }
+    .before-after-card li {
+      color: var(--text-mid);
+      font-size: .94rem;
+      line-height: 1.55;
+      padding-left: 1.05rem;
+      position: relative;
+    }
+    .before-after-card li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--acid);
+    }
 
     /* ── PARA QUIÉN ES ── */
     .filter-grid {
@@ -392,17 +429,14 @@ const homeSchema = JSON.stringify({
             <div class="eyebrow">Preparación personalizada 1:1 para Alemania</div>
             <h1 id="hero-h1">Estudiaste alemán. Lo que te espera es otra cosa.</h1>
             <p class="lead">
-              Puedes llegar con años de estudio y un examen aprobado y quedarte sin respuesta
-              en la primera situación que no sigue ningún guión.
-              <span class="hero-copy-strong">No porque no sepas gramática.</span>
-              Porque el alemán de la calle, del trámite, del casero y del cajero
-              no funciona como el alemán que estudiaste.
+              Puedes tener años de clase, examen aprobado y buen nivel. Pero Alemania no llega como ejercicio:
+              llega como trámite, correo, renta, llamada, acento, prisa y decisión.
             </p>
             <div class="cta-group">
-              <a class="btn btn-primary" href="#contacto">Hablemos de tu preparación</a>
-              <a class="btn btn-secondary" href="/investigacion">Ver la trayectoria</a>
+              <a class="btn btn-primary" href="#contacto">Quiero prepararme antes de llegar</a>
+              <a class="btn btn-secondary" href="#diferencia">Ver qué cambia</a>
             </div>
-            <p class="nav-note">No es un curso. No es gestoría. Es prepararte para el alemán real antes de llegar.</p>
+            <p class="nav-note">No es otro curso. No gestiona trámites. No es promesa de fluidez. Es preparación práctica antes de llegar a Alemania.</p>
           </div>
 
           <aside class="hero-aside" aria-label="Origen de huhuGERMAN — Berlín 2017">
@@ -418,7 +452,7 @@ const homeSchema = JSON.stringify({
               Denis, el recepcionista del Hotel Zoe en Hackescher Markt, nos orientó sin que se lo pidiéramos: la tienda de enfrente, <em>um die Ecke</em>, era <a href="https://www.rossmann.de/de/" target="_blank" rel="noopener noreferrer">Rossmann</a>. Nadie tenía por qué ayudarnos. Y ahí estaba el idioma, funcionando de verdad.
             </p>
             <blockquote class="aside-pull">
-              Comprendí que el problema no era saber alemán. Era sostenerlo cuando el momento importa: sin estructura, sin paciencia y sin forma de pedir pausa. Ahí nació
+              Comprendí que el problema no era saber alemán en abstracto. Era responder cuando el momento importa: sin estructura, sin paciencia y sin forma de pedir pausa.
             </blockquote>
             <ul class="aside-risk-list">
               <li>
@@ -431,7 +465,7 @@ const homeSchema = JSON.stringify({
               </li>
               <li>
                 <strong>La <em>English bubble</em> resuelve poco cuando importa</strong>
-                <span>Sirve para sobrevivir un rato. No siempre sirve para hacer trámites, negociar el alquiler ni construir relaciones que abran oportunidades.</span>
+                <span>Sirve para sobrevivir un rato. No siempre sirve para hacer trámites, negociar la renta ni construir relaciones que abran oportunidades.</span>
               </li>
             </ul>
           </aside>
@@ -469,7 +503,7 @@ const homeSchema = JSON.stringify({
           </article>
         </div>
         <div class="investment-frame">
-          <p>El proyecto Alemania —cuenta bloqueada, visa, seguro, vuelo, primera renta y depósito— representa con frecuencia €15.000 o más. La preparación especializada está por debajo del 1% de eso. No es un argumento de venta. Es un punto de referencia para entender qué tipo de decisión es.</p>
+          <p>El proyecto Alemania —cuenta bloqueada, visa, seguro, vuelo, primera renta y depósito— representa con frecuencia €15.000 o más. La preparación especializada está por debajo del 1% de eso. No compite contra cursos. Compite contra llegar sin preparación al momento equivocado.</p>
         </div>
       </div>
     </section>
@@ -477,10 +511,32 @@ const homeSchema = JSON.stringify({
     <!-- DIFERENCIA CENTRAL ──────────────────────────────────────── -->
     <section class="section alt" id="diferencia">
       <div class="container">
-        <div class="section-label">Por qué el alemán de academia no es suficiente</div>
-        <h2 class="section-title">La brecha entre lo que estudiaste y lo que te va a pasar</h2>
-        <p class="section-intro">El problema aparece antes de que lo esperes: en la caja del supermercado, en la ventanilla de la Ausländerbehörde, en el primer correo al casero.</p>
-        <p class="diferencia-body">No es falta de gramática. Es que el alemán real —el de la calle, el del trámite, el del vecino— funciona con registros y ritmos que ningún manual explica. Esa brecha puede trabajarse. Y hacerlo antes del vuelo hace una diferencia concreta.</p>
+        <div class="section-label">Antes / después</div>
+        <h2 class="section-title">Lo que cambia cuando dejas de buscar “otro nivel más”</h2>
+        <p class="section-intro">A veces el problema no es que te falte alemán. Es que nadie te preparó para usarlo cuando la situación ya importa.</p>
+        <div class="before-after-grid" aria-label="Comparación entre seguir igual y prepararse con huhuGERMAN">
+          <div class="before-after-card">
+            <h3>Si sigues igual</h3>
+            <ul>
+              <li>Sigues pensando que necesitas otro curso antes de moverte.</li>
+              <li>Llegas con teoría, pero sin saber qué hacer cuando algo se sale del guion.</li>
+              <li>Cambias al inglés por reflejo aunque no siempre te convenga.</li>
+              <li>Te enfrentas solo a correos, llamadas, renta, citas y respuestas que nadie practicó contigo.</li>
+              <li>Descubres demasiado tarde qué parte del problema era idioma, contexto o decisión.</li>
+            </ul>
+          </div>
+          <div class="before-after-card">
+            <h3>Si te preparas con huhuGERMAN</h3>
+            <ul>
+              <li>Llegas con una idea más clara de lo que puede pasar.</li>
+              <li>Practicas situaciones parecidas a las que vas a enfrentar.</li>
+              <li>Sabes qué preguntar, qué confirmar y cuándo no avanzar.</li>
+              <li>Reduces dependencia del inglés en momentos donde puede salir caro.</li>
+              <li>Tomas decisiones con más criterio antes de que el costo sea real.</li>
+            </ul>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="#contacto">Prepararme antes de llegar</a>
       </div>
     </section>
 
@@ -492,7 +548,7 @@ const homeSchema = JSON.stringify({
           El alemán fuera<br>
           <span class="danger">del libro.</span>
         </h2>
-        <p class="section-intro">Situaciones del entorno alemán construidas desde la observación docente. No son transcripciones. Son las escenas que te esperan.</p>
+        <p class="section-intro">Ejemplos de momentos que suelen tomar por sorpresa a estudiantes latinoamericanos: aeropuerto, renta, trámites, supermercado, vecinos, correos y primeras semanas.</p>
 
         <div class="scene-teaser">
           <div class="scene-teaser-card">
@@ -512,7 +568,7 @@ const homeSchema = JSON.stringify({
           </div>
         </div>
 
-        <a href="/escenas" class="scenes-cta">Ver todas las escenas →</a>
+        <a href="/escenas" class="scenes-cta">Ver situaciones reales →</a>
       </div>
     </section>
 
@@ -521,8 +577,8 @@ const homeSchema = JSON.stringify({
       <div class="container">
         <div class="section-label">Evidencia de aula</div>
         <h2 class="section-title">Lo que pasa cuando el alemán llega sin aviso</h2>
-        <p class="section-intro">En marzo de 2026, un hablante nativo de alemán entró al espacio de preparación de un grupo en CELEX-UAM Azcapotzalco. El intercambio fue breve. La mayoría no respondió de inmediato. No por falta de vocabulario: por la distancia entre reconocer el idioma y saber qué decir cuando ya no hay estructura que lo ordene.</p>
-        <a href="/escenas" class="scenes-cta" style="margin-top:1rem;display:inline-block;">Ver escenas y evidencia de aula →</a>
+        <p class="section-intro">En marzo de 2026, un hablante nativo de alemán entró al espacio de preparación de un grupo en CELEX-UAM Azcapotzalco. El intercambio fue breve. La mayoría no respondió de inmediato. No por falta de vocabulario: por la distancia entre reconocer el idioma y saber qué decir cuando el momento ya no viene ordenado como ejercicio.</p>
+        <a href="/escenas" class="scenes-cta" style="margin-top:1rem;display:inline-block;">Ver situaciones y evidencia de aula →</a>
       </div>
     </section>
 
@@ -534,9 +590,9 @@ const homeSchema = JSON.stringify({
 
         <div class="exit-grid">
           <div class="exit-card">
-            <span class="exit-card-label">Método</span>
+            <span class="exit-card-label">Preparación</span>
             <h3>Preparación</h3>
-            <p>Cómo funciona la preparación y qué trabaja: situaciones reales, no ejercicios de examen.</p>
+            <p>Qué se trabaja antes de llegar: trámites, renta, llamadas, correos y conversaciones donde no conviene improvisar.</p>
             <div class="exit-card-links">
               <a href="/metodo">Ver cómo funciona →</a>
             </div>
@@ -552,7 +608,7 @@ const homeSchema = JSON.stringify({
           <div class="exit-card">
             <span class="exit-card-label">Preparación personalizada</span>
             <h3>Servicios</h3>
-            <p>Conversación inicial sin cargo. Proceso 1:1. Diseñado desde tu caso. Sin promesa de fluidez. Sin gestoría.</p>
+            <p>Conversación inicial sin cargo. Proceso 1:1. Diseñado desde tu caso. Sin promesa de fluidez. Sin tramitación migratoria.</p>
             <div class="exit-card-links">
               <a href="/servicios">Ver qué incluye →</a>
             </div>
@@ -589,11 +645,14 @@ const homeSchema = JSON.stringify({
     <!-- CONTACTO ──────────────────────────────────────────────── -->
     <section class="section contact-section" id="contacto">
       <div class="container">
-        <h2>La preparación empieza con una conversación.</h2>
+        <h2>La preparación empieza con tu situación, no con tu nivel.</h2>
         <p>
-          Hablamos sobre tu situación: cuándo es el viaje, qué tanto alemán manejas, qué situaciones te generan más incertidumbre.
-          Si el caso encaja, diseñamos desde ahí. Si no encaja, se dice directamente.
+          Envíame cuándo viajas o si ya estás en Alemania, qué nivel aproximado tienes, qué te preocupa enfrentar,
+          qué pasaría si eso sale mal y qué tipo de apoyo esperas.
+          Recibes una respuesta honesta sobre si huhuGERMAN encaja contigo, una primera lectura de qué necesitas preparar
+          y claridad sobre qué es idioma, qué es contexto y qué ya no corresponde a este servicio.
         </p>
+        <p>No envíes pasaporte, contratos, documentos oficiales, números privados ni datos sensibles en el primer mensaje. Describe la situación primero.</p>
         <div class="cta-group">
           <a class="btn btn-primary"
              href="mailto:yassergandhi.dev@gmail.com?subject=Preparación — huhuGERMAN">
