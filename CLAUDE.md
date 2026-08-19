@@ -52,22 +52,23 @@ grep -q "el-viaje-de-emilio" src/pages/investigacion.astro || echo "SIGUE HUÉRF
 | 19-ago-2026 | Commit `d279174`: Analytics instalado, 7 CTA migrados a Tally, enlace huérfano corregido, `CLAUDE.md` agregado al repo | Ejecutado por sesión de Claude Code en máquina de Yasser |
 | 19-ago-2026 | Tally confirmado como plan vigente; formulario nativo (Resend, 18-may) queda histórico | No revivir sin instrucción nueva |
 | 19-ago-2026 | Pendiente: párrafo de `index.astro` (~línea 650) asume flujo de correo, ahora apunta a Tally — desalineado | Señalado por la sesión anterior, corregido el 19-ago-2026 (ver fila siguiente) |
-| — | Contenido real de campos de Tally sigue sin confirmar por Yasser | Stop Condition activa |
+| — | Contenido real de campos de Tally sigue sin confirmar por Yasser | Stop Condition activa (resuelto — ver fila abajo) |
 | 19-ago-2026 | Párrafo de contacto de `index.astro` reescrito: "envíame"/"primer mensaje" (flujo de correo) → "cuéntame"/"formulario" (flujo Tally real) | Auditoría Antigravity, aprobado por Yasser con ajuste de fraseo |
 | 19-ago-2026 | `skills/` (no commiteada) auditada: 3 skills (`schema-markup`, `seo-audit`, `site-architecture`) migradas a `.claude/skills/` con referencias muertas limpiadas; 8 descartadas por razón específica (`marketing/landing` viola Regla dura #1; `copywriting` empuja a inventar prueba social, viola Regla dura #2; `marketing-context` duplica a `Contexto_Destilado...md`; `pricing-strategy`/`aeo`/`page-cro`/`copy-editing` no aplican al dominio o quedan superadas); carpeta `skills/` original borrada tras verificar la migración | Auditoría Antigravity, 19-ago-2026 |
-| — | `form-cro` no migrada — **diferida**, no descartada: depende de la Stop Condition de contenido real de Tally. Candidata legítima a revisarse cuando esa condición se resuelva | Para no perder el porqué si se re-propone más adelante |
+| — | `form-cro` no migrada — **diferida**, no descartada: depende de la Stop Condition de contenido real de Tally. Candidata legítima a revisarse cuando esa condición se resuelva | Bloqueo resuelto el 19-ago-2026 (ver fila abajo) — sigue diferida, no se ha re-evaluado |
 | 19-ago-2026 | `AGENTS.md` creado en raíz — referencia a `CLAUDE.md` y `Contexto_Destilado...md`, no duplica reglas; skill nueva `revisar-copy-neutro` creada en `.claude/skills/`, referencia el glosario/checklist de la sección 5 del destilado en vez de repetirlo | Auditoría Antigravity, 19-ago-2026 |
 | 19-ago-2026 | Diferencial de simulaciones con IA (sección 4 del destilado) integrado con una frase en `servicios.astro` (tarjeta "Alemán de uso real") y `metodo.astro` (tarjeta "Responder cuando algo no sale como esperabas") — sin nombrar el método interno, sin tocar UI | Candidato equivalente en `index.astro` diferido por baja prioridad — no implementado |
+| 19-ago-2026 | Contenido de Tally confirmado y ajustado (formato de fecha DD/MM/YYYY, intro corregida). Los 8 campos coinciden con la arquitectura original del Playbook | Cambio hecho en la plataforma de Tally, no en el repo — sin diff de código asociado |
+| 19-ago-2026 | Google Search Console confirmado activo desde antes del 23-jul-2026 — 5 páginas indexadas de forma estable; `servicios`, `riesgo`, `investigacion`, `el-viaje-de-emilio` probablemente sin indexar todavía | Acción: Yasser solicita indexación manual desde Search Console — no requiere cambio de código |
 
 ## Evidence Rules
 Nunca convertir hipótesis en hecho. Sin evidencia directa: `EVIDENCIA INSUFICIENTE`.
 
 ## Stop Conditions
-1. Contenido real de Tally sin confirmar.
-2. Cambio sin evidencia ni hipótesis explícita.
-3. Cambio que toca Protected Areas.
-4. `git status` con cambios sin commit al iniciar sesión.
-5. Cambio visual/de UI sin que la Regla dura #1 esté satisfecha por escrito.
+1. Cambio sin evidencia ni hipótesis explícita.
+2. Cambio que toca Protected Areas.
+3. `git status` con cambios sin commit al iniciar sesión.
+4. Cambio visual/de UI sin que la Regla dura #1 esté satisfecha por escrito.
 
 ---
 
