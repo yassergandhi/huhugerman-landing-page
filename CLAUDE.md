@@ -60,6 +60,7 @@ grep -q "el-viaje-de-emilio" src/pages/investigacion.astro || echo "SIGUE HUÉRF
 | 19-ago-2026 | Diferencial de simulaciones con IA (sección 4 del destilado) integrado con una frase en `servicios.astro` (tarjeta "Alemán de uso real") y `metodo.astro` (tarjeta "Responder cuando algo no sale como esperabas") — sin nombrar el método interno, sin tocar UI | Candidato equivalente en `index.astro` diferido por baja prioridad — no implementado |
 | 19-ago-2026 | Contenido de Tally confirmado y ajustado (formato de fecha DD/MM/YYYY, intro corregida). Los 8 campos coinciden con la arquitectura original del Playbook | Cambio hecho en la plataforma de Tally, no en el repo — sin diff de código asociado |
 | 19-ago-2026 | Google Search Console confirmado activo desde antes del 23-jul-2026 — 5 páginas indexadas de forma estable; `servicios`, `riesgo`, `investigacion`, `el-viaje-de-emilio` probablemente sin indexar todavía | Acción: Yasser solicita indexación manual desde Search Console — no requiere cambio de código |
+| 19-ago-2026 | `sitemap.xml` corregido — faltaban 6 URLs de blog (`/blog` + 5 posts individuales); `sitemap-index.xml` eliminado por redundante (no referenciado en `robots.txt`, apuntaba solo a `sitemap.xml`) | Acción: Yasser debe resubmitir el sitemap correcto en Google Search Console manualmente — no es un cambio de código |
 
 ## Evidence Rules
 Nunca convertir hipótesis en hecho. Sin evidencia directa: `EVIDENCIA INSUFICIENTE`.
