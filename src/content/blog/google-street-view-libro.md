@@ -106,7 +106,7 @@ Ejemplos reales de señalización y comercio:
 No te confundas cuando algo suene inglés: puede estar completamente integrado al alemán cotidiano con un uso distinto al del inglés original.
 
 <div style="margin: 2.5rem 0; text-align: center;">
-  <a href="mailto:yassergandhi.dev@gmail.com?subject=Consulta huhuGERMAN — Preparación antes del vuelo" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
+  <a href="https://tally.so/r/VLVV2N" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
     Hablemos de tu preparación
   </a>
 </div>

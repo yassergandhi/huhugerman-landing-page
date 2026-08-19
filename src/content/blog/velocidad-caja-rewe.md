@@ -97,7 +97,7 @@ Si no lo sabes y llegas con las botellas a la caja, el cajero te señalará la m
 No es falta de amabilidad. Es eficiencia. Saber esto antes de llegar evita el momento incómodo.
 
 <div style="margin: 2.5rem 0; text-align: center;">
-  <a href="mailto:yassergandhi.dev@gmail.com?subject=Consulta huhuGERMAN — Situaciones cotidianas" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
+  <a href="https://tally.so/r/VLVV2N" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
     Hablemos de tu preparación
   </a>
 </div>

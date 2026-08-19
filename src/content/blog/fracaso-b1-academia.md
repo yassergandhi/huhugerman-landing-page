@@ -94,7 +94,7 @@ Esta frase es más útil que el silencio o la cara de confusión. El funcionario
 El nivel B1 es un punto de partida, no un techo. La preparación para el entorno burocrático alemán es un trabajo distinto al de la academia: menos gramática general, más contexto específico; menos vocabulario amplio, más frases concretas para situaciones concretas.
 
 <div style="margin: 2.5rem 0; text-align: center;">
-  <a href="mailto:yassergandhi.dev@gmail.com?subject=Consulta huhuGERMAN — Preparación para trámites" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
+  <a href="https://tally.so/r/VLVV2N" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: .85rem 2.25rem; background: #d4e847; color: #080b0f; font-weight: bold; border-radius: 10px; text-decoration: none;">
     Hablemos de tu caso
   </a>
 </div>
