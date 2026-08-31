@@ -1,43 +1,29 @@
-# Astro Starter Kit: Minimal
+# huhugerman-landing-page
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Landing comercial del servicio 1:1 de huhuGERMAN: preparación personalizada para hispanohablantes que van a Alemania y necesitan resolver situaciones reales (trámites, vivienda, trabajo, convivencia) antes del viaje. No es un curso de idioma por niveles.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Páginas
 
-## 🚀 Project Structure
+- `index.astro` — landing principal.
+- `metodo.astro`, `servicios.astro` — método y estructura del servicio 1:1.
+- `escenas.astro`, `riesgo.astro` — contenido de apoyo a la propuesta.
+- `el-viaje-de-emilio.astro` — referencia a la publicación de investigación del fundador.
+- `blog/` — artículos.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Stack
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Astro · @vercel/analytics · @vercel/speed-insights
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Desplegado en Vercel (`vercel.json` define redirects de rutas antiguas del sitio).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Relación con el resto del ecosistema
 
-Any static assets, like images, can be placed in the `public/` directory.
+Este repo es la cara pública del servicio, no la plataforma. Es distinto de huhugerman-instrument, el sistema operativo real (pipeline de Google Apps Script que procesa entregas de estudiantes en producción), y de huhugerman-frontend, un experimento que no está mergeado a producción. Esta landing no procesa entregas ni datos de estudiantes.
 
-## 🧞 Commands
+## About
 
-All commands are run from the root of the project, from a terminal:
+**Yasser Gandhi Hernández Esquivel**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Profesor-investigador de alemán · Desarrollador web (Lic. UdeG) · Fundador de huhuGERMAN
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[yassergandhi.dev](https://yassergandhi.dev) · [LinkedIn](https://linkedin.com/in/yassergandhi)
