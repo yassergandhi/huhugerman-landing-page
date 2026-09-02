@@ -1,29 +1,63 @@
 # huhugerman-landing-page
 
-Landing comercial del servicio 1:1 de huhuGERMAN: preparación personalizada para hispanohablantes que van a Alemania y necesitan resolver situaciones reales (trámites, vivienda, trabajo, convivencia) antes del viaje. No es un curso de idioma por niveles.
+> **Estado: experimento comercial archivado**
+>
+> Este repositorio conserva la landing de 2026 para el servicio 1:1 de huhuGERMAN. La oferta ya no es una prioridad comercial activa. El código permanece público como registro del experimento de producto y de su implementación en Astro/Vercel.
+
+## Qué fue este producto
+
+La landing presentó un servicio de preparación personalizada para hispanohablantes que viajarían a Alemania y querían practicar situaciones concretas: trámites, vivienda, trabajo y convivencia.
+
+No era un curso general por niveles.
+
+El experimento permitió separar dos cosas que después se volvieron importantes para todo el ecosistema:
+
+- una necesidad o dolor puede existir;
+- eso no demuestra por sí solo disposición de pago ni adquisición repetible.
+
+Archivar la oferta no invalida el método, el código ni los aprendizajes del experimento.
 
 ## Páginas
 
-- `index.astro` — landing principal.
-- `metodo.astro`, `servicios.astro` — método y estructura del servicio 1:1.
-- `escenas.astro`, `riesgo.astro` — contenido de apoyo a la propuesta.
-- `el-viaje-de-emilio.astro` — referencia a la publicación de investigación del fundador.
+- `index.astro` — landing principal;
+- `metodo.astro`, `servicios.astro` — descripción del método y del servicio;
+- `escenas.astro`, `riesgo.astro` — contenido de apoyo;
+- `el-viaje-de-emilio.astro` — referencia a la publicación de 2017;
 - `blog/` — artículos.
 
 ## Stack
 
-Astro · @vercel/analytics · @vercel/speed-insights
+Astro · Vercel Analytics · Vercel Speed Insights
 
-Desplegado en Vercel (`vercel.json` define redirects de rutas antiguas del sitio).
+El proyecto fue desplegado en Vercel. `vercel.json` conserva redirects de rutas anteriores.
 
-## Relación con el resto del ecosistema
+## Qué no hace este repositorio
 
-Este repo es la cara pública del servicio, no la plataforma. Es distinto de huhugerman-instrument, el sistema operativo real (pipeline de Google Apps Script que procesa entregas de estudiantes en producción), y de huhugerman-frontend, un experimento que no está mergeado a producción. Esta landing no procesa entregas ni datos de estudiantes.
+Esta landing no es la plataforma de captura de datos ni procesa entregas de estudiantes.
+
+No debe confundirse con:
+
+- `huhugerman-instrument` — repositorio privado con el workflow productivo de Google Apps Script / Forms / Sheets;
+- `huhugerman-frontend` — portal experimental con integración de IA;
+- `huhugerman-backend` — prototipo separado de normalización de identidad.
+
+## Por qué se conserva
+
+El repositorio sigue siendo útil como:
+
+- evidencia de implementación Astro/Vercel;
+- registro de una hipótesis comercial ejecutada;
+- fuente histórica de copy, estructura y decisiones de producto;
+- ejemplo de que un producto puede archivarse sin borrar sus activos.
+
+No debe presentarse como servicio comercial activo salvo que exista nueva evidencia y una decisión explícita de reapertura.
 
 ## About
 
 **Yasser Gandhi Hernández Esquivel**
 
-Profesor-investigador de alemán · Desarrollador web (Lic. UdeG) · Fundador de huhuGERMAN
+Software Developer · Profesor e investigador de alemán
 
-[yassergandhi.dev](https://yassergandhi.dev) · [LinkedIn](https://linkedin.com/in/yassergandhi)
+Lic. Desarrollo de Sistemas Web (UdeG, 2025) · Maestría en Pedagogía (UNAM, 2020) · Letras Alemanas (UNAM, 2012)
+
+[LinkedIn](https://linkedin.com/in/yassergandhi)
